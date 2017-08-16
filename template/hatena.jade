@@ -1,0 +1,59 @@
+doctype html
+html(lang="ja")
+  head
+    meta(charset="utf-8")
+    block meta
+      meta(name="viewport", content="width=device-width")
+
+    link(rel="shortcut icon", href="https://cdn.image.st-hatena.com/image/favicon/7d002255cb0e4d23cfb606cb7389b8ae0a0b7b28/version=1/https%3A%2F%2Fcdn.mogile.archive.st-hatena.com%2Fv1%2Fimage%2Fshun-fix9%2F302460045853663223.jpg")
+    link(rel="icon", sizes="192x192", href="https://cdn.image.st-hatena.com/image/square/d9eb56e83fa4523b913ab7befea4071b11f6da72/backend=imagemagick;height=192;version=1;width=192/https%3A%2F%2Fcdn.mogile.archive.st-hatena.com%2Fv1%2Fimage%2Fshun-fix9%2F302460045853663223.jpg")
+
+    link(rel="stylesheet", type="text/css", href="https://cdn.blog.st-hatena.com/css/blog.css?version=f0b292df77a2318c6378b0b109796c5516eaa0af&amp;env=production")
+    link(rel="stylesheet", type="text/css", href="https://blog.hatena.ne.jp/-/blog_style/10328537792368208553/c23573905a14dfd09e2cf281442a1fc65f9ca1a5")
+
+  body(class="page-index header-image-enable enable-top-editarea globalheader-off")
+    div(id="container")
+      div(id="container-inner")
+        header(id="blog-title", data-brand="hatenablog")
+          div(id="blog-title-inner", style="background-image: url('https://cdn-ak.f.st-hatena.com/images/fotolife/s/shun-fix9/20170811/20170811115417.png'); background-position: center -343px;")
+            div(id="blog-title-content")
+              h1(id="title")
+                a(href="/")
+                  げっとシステムログ
+              h2(id="blog-description")
+                WEB開発関連メモ
+        div(id="content", class="hfeed")
+          div(id="content-inner")
+            div(id="wrapper")
+              div(id="main")
+                div(id="main-inner")
+                  article(class="entry hentry js-entry-article date-first autopagerize_page_element chars-2800 words-200 mode-markdown entry-odd", id="entry-10328749687185662488")
+                    div(class="entry-inner")
+                      header(class="entry-header")
+                        div(class="entry-date date first")
+                          a(href="#", rel="nofollow")
+                            time(pubdate)
+                              span(class="date-year")
+                                != year
+                              span(class="hyphen")
+                                != "-"
+                              span(class="date-month")
+                                != month
+                              span(class="hyphen")
+                                != "-"
+                              span(class="date-day")
+                                != day
+                        h1(class="entry-title")
+                          a(href="#", class="entry-title-link bookmark")
+                            != title
+                      div(class="entry-content")
+                        != contents
+            aside(id="box2")
+              div(id="box2-inner")
+                div(class="hatena-module hatena-module-search-box")
+                  div(class="hatena-module-title")
+                    検索
+                  div(class="hatena-module-body")
+                    form(class="search-form" action="#" method="get")
+                      input(type="text", class="search-module-input", placeholder="記事を検索")
+                      input(type="submit", value="検索", class="search-module-button")
