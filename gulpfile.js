@@ -3,8 +3,8 @@ var connect = require("gulp-connect");
 
 gulp.task("build", function(){
   return gulp.src("src/**/*.md")
-    .pipe( require("gulp-front-matter")({remove: true}) )
     .pipe( require("gulp-plumber")() )
+    .pipe( require("gulp-front-matter")({remove: true}) )
     .pipe( require("gulp-textlint")({formatterName: "pretty-error"}) )
     .pipe( require("gulp-markdown")() )
     .pipe( require("gulp-layout")(function(file){
