@@ -19,9 +19,9 @@ html(lang="ja")
             div(id="blog-title-content")
               h1(id="title")
                 a(href="/")
-                  げっとシステムログ
+                  != "げっとシステムログ"
               h2(id="blog-description")
-                WEB開発関連メモ
+                != "WEB開発関連メモ"
         div(id="content", class="hfeed")
           div(id="content-inner")
             div(id="wrapper")
@@ -52,7 +52,7 @@ html(lang="ja")
               div(id="box2-inner")
                 div(class="hatena-module hatena-module-search-box")
                   div(class="hatena-module-title")
-                    検索
+                    != "検索"
                   div(class="hatena-module-body")
                     form(class="search-form" action="#" method="get")
                       input(type="text", class="search-module-input", placeholder="記事を検索")
