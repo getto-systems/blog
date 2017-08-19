@@ -1,5 +1,4 @@
 var gulp = require("gulp");
-var connect = require("gulp-connect");
 
 var path = {
   root: "public/",
@@ -24,17 +23,12 @@ gulp.task("build", function(){
     .pipe( gulp.dest(path["root"]) );
 });
 
-gulp.task("html", function(){
-  gulp.src(path["html"])
-    .pipe( connect.reload() )
-});
-
 gulp.task("livereload", function(){
-  connect.server({
-    port: 8000,
-    root: path["root"],
-    livereload: true
-  });
+  gulp.src(path["root"])
+    .pipe( require("gulp-server-livereload")({
+      host: "0.0.0.0",
+      livereload: true,
+      open: true
+    }) );
   gulp.watch(path["md"],["build"]);
-  gulp.watch(path["html"],["html"]);
 });
