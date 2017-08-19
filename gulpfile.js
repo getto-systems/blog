@@ -25,7 +25,7 @@ gulp.task("build", function(){
 });
 
 gulp.task("html", function(){
-  gulp.src(path["html"])
+  return gulp.src(path["html"])
     .pipe( connect.reload() )
 });
 
