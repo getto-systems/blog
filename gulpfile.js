@@ -8,7 +8,7 @@ var path = {
 };
 
 gulp.task("build", function(){
-  return gulp.src(path["md"])
+  gulp.src(path["md"])
     .pipe( require("gulp-plumber")() )
     .pipe( require("gulp-front-matter")({remove: true}) )
     .pipe( require("gulp-textlint")({formatterName: "pretty-error"}) )
@@ -25,7 +25,7 @@ gulp.task("build", function(){
 });
 
 gulp.task("html", function(){
-  return gulp.src(path["html"])
+  gulp.src(path["html"])
     .pipe( connect.reload() )
 });
 
