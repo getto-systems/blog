@@ -10,9 +10,9 @@ title: Docker for Mac で開発環境を構築する - その２
 
 前回は docker コンテナの起動まで行なった。
 
-今回は各実行環境を docker run するコマンドをラップするスクリプトを作成して、コマンドがインストールされているかのように実行できるところまで。
+今回は各実行環境を docker run するラップスクリプトを作成して、コマンドがインストールされているかのように実行できるところまで。
 
-direnv や tmux を使用して環境変数の設定を行うことで、グループ化して作業できるようにするのは「その３」でやります。
+環境変数の設定を行うことで、プロジェクトごとにグループ化して作業できるようにするのは「その３」でやります。
 
 - [その１ - docker run でコマンドを起動する](/entry/2017/09/02/170406)
 - その２ - docker run をラップする
@@ -20,21 +20,11 @@ direnv や tmux を使用して環境変数の設定を行うことで、グル�
 
 ###### CONTENTS
 
-1. [ラッパースクリプトを作成する](#wrapper-script)
-1. [対話フラグ設定](#setup-tty)
-1. [VOLUME の設定](#setup-volumes)
-1. [環境変数の引き継ぎ](#setup-env-vars)
-1. [IMAGE の設定](#setup-image)
+1. [全体像](#strategy)
+1. [コマンドラインツール用スクリプト](#command-line-script)
 1. [サーバー用スクリプト](#setup-server)
-1. [コンテナ名とホストの設定](#server-name-and-host)
-1. [サーバー用オプションの設定](#server-opts)
-1. [サブコマンド受付](#server-command)
 1. [まとめ](#postscript)
 1. [参考資料](#reference)
-
-###### APPENDIX
-
-1. [docker-wrapper の設置](#install-docker-wrapper)
 
 ###### SOURCE
 
@@ -42,10 +32,37 @@ direnv や tmux を使用して環境変数の設定を行うことで、グル�
 - [getto-systems/docker-wrapper-commands : GitHub](https://github.com/getto-systems/docker-wrapper-commands)
 
 
-<a id="wrapper-script"></a>
-### ラッパースクリプトを作成する
+<a id="strategy"></a>
+### 全体像
 
-まずコマンドラインツール用のラッパーを作成する。
+[その１](/entry/2017/09/02/170406)では、実行環境を OS にインストールすることなく、docker run によってツールを使用できることを説明した。
+
+ただ、 docker run をその都度打ち込むのはもちろんやりたくないし、各プロジェクトで個別にスクリプトを用意するのも気が進まない。
+
+できればスクリプト集を作っておき、各プロジェクトごとに環境変数を変えて実行することでうまく起動できるようにしたい。
+
+今の所、以下の２種類を作成すれば作業に支障はない。
+
+- コマンドラインツール用スクリプト
+- サーバー用スクリプト
+
+
+[TOP](#top)
+<a id="command-line-script"></a>
+### コマンドラインツール用スクリプト
+
+まずコマンドラインツール用のラッパーを考えてみる。
+
+- 実行が終わったらコンテナを削除する
+- UID 1000、GID 1000 で起動する
+- 端末を結びつける
+- カレントディレクトリで実行したかのように振る舞うようにする
+- 現在の環境変数を引き継ぐ
+- イメージ名は環境変数で指定する
+
+コマンドラインツールとして必要なオプションはこんなところだ。
+
+実際のスクリプトは以下のもの。
 
 ```bash
 #!/bin/bash
@@ -62,93 +79,105 @@ docker run \
 ;
 ```
 
-- 実行が終わったら削除する
-- UID 1000 で起動する
-- 端末を持って起動した場合は -it と --detach-key を指定する
-- $DOCKER_WRAPPER_VOLUMES で指定された VOLUME をマウントする
-- working directory は $(pwd) を指定する
-- 現在の環境変数を引き継ぐ
-- ruby のイメージ名を環境変数から取り出す
 
-この例では docker 経由で ruby を起動できる。
+#### 実行が終わったらコンテナを削除する
 
-このようなスクリプトを必要なだけ作成することで、まるでそのコマンドがインストールされているかのように作業することができる。
+コマンドラインツールなので、実行終了後にコンテナが残っていて欲しいことはほぼない。
+
+容量を圧迫するし、残しておいてもいいことはないので、実行終了後に削除してしまう。
 
 
-[TOP](#top)
-<a id="setup-tty"></a>
-### 対話フラグの設定
+#### UID 1000、 GID 1000 で起動する
 
-`$(docker_wrapper_tty)` で `-it --detach-key ctrl-@,ctrl-@` が指定される。
+ほとんどのイメージでは、デフォルトで root で起動される。
+
+これはあまり良くないので、 UID と GID を指定して起動したい。
+
+[その１](/entry/2017/09/02/170406)で使用したイメージ（[getto/labo-slim](https://github.com/getto-systems/labo-slim)）では、作業ユーザーの UID, GID は 1000 なので、この ID で起動する。
+
+
+#### 端末を結びつける
+
+irb などの対話型ツールを使用する場合は `-it` オプションを指定する必要がある。
 
 ただし、 `-it` を常につけておくと、パイプで起動した時などにはエラーになってしまう。
 
-このため、端末を持っているかチェックする必要がある。
+このため、端末を持っている場合のみ、 `-it` を指定するようにする。
 
 ```bash
 if [ -t 1 ]; then
-  -it --detach-key ctrl-@,ctrl-@
+  -it --detach-key ctrl-[,ctrl-[
 fi
 ```
 
 `-t 1` で、標準出力がオープンされていて、端末を参照していることをチェックできる。
 
+`--detach-keys` は、 `ctrl-[` を２回打ち込むことにしておく。
 
-[TOP](#top)
-<a id="setup-volumes"></a>
-### VOLUME の設定
+- 自分の環境では Esc キーで `ctrl-[` が入力される
 
-コマンドの実行はカレントディレクトリで行いたい。
 
-このため、 volume を共有して起動する必要がある。
+#### カレントディレクトリで実行したかのように振る舞うようにする
 
-shell 用のコンテナを起動した時に、 volume を `$DOCKER_WRAPPER_VOLUMES` に記録しておく。
+コマンドラインツールなので、当然、カレントディレクトリで実行したい。
 
-```base
-docker run \
-  -v /path/to/apps:/apps \
-  -v /path/to/dotfiles:/home/labo \
-  -e DOCKER_WRAPPER_VOLUMES=/path/to/apps:/apps,/path/to/dotfiles:/home/labo \
-  ...
-```
+しかし、 docker run で起動するので、本質的に異なる環境で実行される。
 
-`$DOCKER_WRAPPER_VOLUMES` から volume の設定を行い、 `-w $(pwd)` で実行する。
-これで、まるでカレントディレクトリで実行したようにコマンドを実行することができる。
+volume を共有して起動することで、カレントディレクトリで実行したかのようにエミュレートする。
+
+作業ディレクトリを環境変数に記録しておき、同じ volume を同じパスにマウントすることでファイルを共有する。
 
 ```bash
+DOCKER_WRAPPER_VOLUMES=/path/to/apps:/apps,/path/to/dotfiles:/home/labo
+
 if [ -n "$DOCKER_WRAPPER_VOLUMES" ]; then
   -v ${DOCKER_WRAPPER_VOLUMES//,/ -v }
 fi
 ```
 
+さらに、 `-w $(pwd)` で、 working directory をカレントディレクトリにする。
 
-[TOP](#top)
-<a id="setup-env-vars"></a>
-### 環境変数の引き継ぎ
+こうすることで、カレントディレクトリで実行したかのように振る舞う。
 
-docker run でコンテナを起動してコマンドを実行するので、環境変数は -e オプションで受け渡さなければならない。
+
+#### 現在の環境変数を引き継ぎ
+
+環境変数も現在の値を引き継いで実行したい。
+
+しかし、 docker run で起動するので、本質的に異なる環境で実行される。
+
+現在の環境変数を全て `-e` で引き継ぐことで、同じ環境で実行したかのようにエミュレートする。
+
+ただし、PATH と LANG は上書きするとよくないので除外する。
+
+また、 ENV_FILES は --env-file に変換して渡す。
 
 ```bash
-$ ENV=VALUE docker run ... # こうではなく
-$ docker run -e ENV=VALUE  # こうしなければならない
+$ ENV_FILES=my.env,other.env MY_ENV=VALUE ruby
+# => docker run \
+  --env-file my.env \
+  --env-file other.env \
+  -e MY_ENV=VALUE \
+  (-e other current envs...) \
+  ...
 ```
 
-明示的に指定するのは面倒なので、現在の環境変数の値を読み込んでしまう。
 
-PATH と LANG は上書きするとよくないので除外し、 ENV_FILES は --env-file のリストとして扱う。
-
-こうすることで環境変数は透過的に渡される。
-
-
-[TOP](#top)
-<a id="setup-image"></a>
-### IMAGE の設定
+#### イメージ名は環境変数で指定する
 
 異なるプロジェクトで異なるイメージを使用したいことは当然考えられるので、イメージは環境変数から取得するようにする。
 
+ruby や elixir などはオフィシャルなものがあり、 `ruby:2.4.1` のような指定で pull できる。
+これを使用する場合は `2.4.1` のように、タグの指定のみを行いたい。
+
+他のイメージを使用したい場合も当然あるので、イメージの指定も行えるようにしたい。
+
 ```bash
 DOCKER_WRAPPER_IMAGE_ruby=2.4.1
-DOCKER_WRAPPER_IMAGE_ruby=my_ruby/image:2.4.1
+docker_wrapper_image ruby # => ruby:2.4.1
+
+DOCKER_WRAPPER_IMAGE_ruby=example/my_ruby:1.0.0
+docker_wrapper_image ruby # => example/my_ruby:1.0.0
 ```
 
 
@@ -156,7 +185,20 @@ DOCKER_WRAPPER_IMAGE_ruby=my_ruby/image:2.4.1
 <a id="setup-server"></a>
 ### サーバー用スクリプト
 
-サーバーの起動では、 start, stop などのサブコマンドを受け付けるようにしたい。
+次にサーバー用のラッパーを考える。
+
+- バックグラウンドで起動する
+- UID 1000、GID 1000 で起動する
+- コンテナ名を指定する
+- プロジェクトルートディレクトリで実行したかのように振る舞うようにする
+- サーバー用のオプションを指定する
+- 現在の環境変数を引き継ぐ
+- イメージ名は環境変数で指定する
+- start, stop, restart などのサブコマンドを受け付ける
+
+サーバー用のラッパーとして必要なオプションはこんなところだ。
+
+実際のスクリプトは以下のもの。
 
 ```bash
 #!/bin/bash
@@ -166,9 +208,9 @@ if [ "$docker_wrapper_server_cmd" == start ]; then
   docker run \
     -d \
     -u 1000:1000 \
-    -w $APP_ROOT \
     $(docker_wrapper_server_name) \
     $(docker_wrapper_volumes) \
+    -w $APP_ROOT \
     "${docker_wrapper_envs[@]}" \
     $(docker_wrapper_image elixir) \
     mix phoenix.server \
@@ -176,59 +218,87 @@ if [ "$docker_wrapper_server_cmd" == start ]; then
 fi
 ```
 
-- `docker_wrapper_server` で start 以外の共通の処理を行う
-- `-d` でバックグラウンド起動
-- UID 1000 で起動する
-- `$(docker_wrapper_server_name)` で --name と --host を指定
-- $DOCKER_WRAPPER_VOLUMES で指定された VOLUME をマウントする
-- working directory は `$APP_ROOT` を指定
-- 現在の環境変数を引き継ぐ
-- elixir のイメージ名を環境変数から取り出す
 
-この例では docker 経由で `mix phoenix.server` が実行される。
+#### バックグラウンドで起動する
 
-volume と環境変数はコマンドライン用のスクリプトと同様に設定する。
+サーバーなので、フォアグラウンドで起動したいことはない。
+
+このため、常に `-d` をつけて起動したい。
 
 
-[TOP](#top)
-<a id="server-name-and-host"></a>
-### コンテナ名とホストの設定
+#### コンテナ名を指定する
 
-$DOCKER_WRAPPER_SERVER_HOSTNAME から、コンテナ名とホストの設定を行う。
+サーバーなので、複数起動したいことはない。
+
+このため、コンテナ名を適切につけて、重複して起動することの無いようにする。
+
+環境変数にベースとなる名前を記録しておき、サーバーコマンドの名前に応じたコンテナ名をつける。
 
 ```bash
 DOCKER_WRAPPER_SERVER_HOSTNAME=my-project
+
+docker_wrapper_server phoenix "$@"
+
+docker_wrapper_server_name
 # => --name my-project-phoenix
      --host my-project-phoenix
 ```
 
-$DOCKER_WRAPPER_SERVER_HOSTNAME にはプロジェクト名を設定することで、プロジェクトごとにサーバーをグループ化して管理する。
+- ついでに host も名前と同じものにしておく
 
 
-[TOP](#top)
-<a id="server-opts"></a>
-### サーバー用オプションの設定
+#### サーバー用オプションを指定する
 
-$DOCKER_WRAPPER_SERVER_OPTS_phoenix に、追加のオプションを設定しておくことで、 `${docker_wrapper_envs[@]}` にオプションがマージされる。
+サーバーなので、ポートの publish など、追加のオプションを指定したい。
+
+環境変数に追加オプションを記述しておくことで、オプションをマージする。
 
 ```bash
 DOCKER_WRAPPER_SERVER_OPTS_phoenix=-p 4000:4000
-${docker_wrapper_envs[@]} # => -p 4000:4000
+
+docker_wrapper_server phoenix "$@"
+
+${docker_wrapper_envs[@]} # => -p 4000:4000 (other env vars...)
 ```
 
+この方法だと、スペースを含むオプションを指定することはできない。
 
-[TOP](#top)
-<a id="server-command"></a>
-### サブコマンド受付
+- 環境変数にスペースが含まれている場合は `--env-file` でなんとかなる
+- 他にスペースを含むオプションを指定したいことは今の所発生していない
 
-`docker_wrapper_server` で、サブコマンドの処理が行われる。
 
-コンテナ名がわかっているので、 stop, ps, logs などのコマンドは共通に処理することができる。
+#### start, stop, restart などのサブコマンドを受け付ける
+
+以下のサブコマンドを受け付けるようにしたい。
+
+- start : サーバーの起動
+- stop : サーバーの停止、コンテナの削除
+- restart : stop, start
+- logs : ログの表示
+- status : 状態の表示
+- ps : docker ps の表示
+
+これらのうち、 start 以外はコンテナ名があれば実行が可能だ。
+
+コンテナ名はすでにわかっているので、 start 以外のサブコマンドなら共通に処理することができる。
+
+```bash
+docker_wrapper_server phoenix "$@"
+if [ "$docker_wrapper_server_cmd" == start ]; then
+  docker run ...
+fi
+```
 
 
 [TOP](#top)
 <a id="postscript"></a>
 ### まとめ
+
+[getto-systems/docker-wrapper](https://github.com/getto-systems/docker-wrapper) を使用することで、各種ラッパースクリプトを量産することができる。
+
+このスクリプトは環境変数を使用して挙動の変更を行なっているので、プロジェクトごとに環境変数を切り替える必要がある。
+
+tmux や direnv を使用することで、プロジェクトごとに環境変数を切り替えて作業することができる。
 
 「その３」へ続く。
 
@@ -239,11 +309,6 @@ ${docker_wrapper_envs[@]} # => -p 4000:4000
 
 - [Man page of Bash](https://linuxjm.osdn.jp/html/GNU_bash/man1/bash.1.html)
 - [docker attach : Docker Docs](https://docs.docker.com/engine/reference/commandline/attach/)
-
-
-[TOP](#top)
-<a id="install-docker-wrapper"></a>
-#### docker-wrapper の設置
 
 
 [TOP](#top)
