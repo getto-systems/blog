@@ -13,6 +13,7 @@ title: 記事一覧
 <a id="drafts"></a>
 ### Drafts
 
+- [tmux and direnv](/draft/tmux-direnv.html)
 - comming soon...
 
 <a id="september-2017"></a>
