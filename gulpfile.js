@@ -14,10 +14,12 @@ gulp.task("build", function(){
     .pipe( require("gulp-markdown")() )
     .pipe( require("gulp-layout")(function(file){
       var params = file.frontMatter;
+      params.layout = "template/hatena.jade";
+
       var now = new Date;
-      params["year"] = now.getFullYear();
-      params["month"] = now.getMonth() + 1;
-      params["day"] = now.getDate();
+      params.year = now.getFullYear();
+      params.month = now.getMonth() + 1;
+      params.day = now.getDate();
       return params;
     }) )
     .pipe( gulp.dest(path["root"]) );

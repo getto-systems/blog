@@ -1,5 +1,4 @@
 ---
-layout: template/hatena.jade
 title: AWS Lambda でヘルスチェックする
 ---
 <a id="top"></a>
@@ -168,8 +167,7 @@ exports.handler = (event, context, callback) => {
 
 `url` と `body` はそれぞれ、監視対象の URL と、そのレスポンスにしておく。
 
-「アクション」から「テストイベントの設定」を選択すると、「テスト」ボタンで実行するときの `event` の内容を設定することができる。  
-（テストイベントは APPENDIX に掲載）
+「アクション」から「テストイベントの設定」を選択すると、「テスト」ボタンで実行するときの `event` の内容を設定することができる。（テストイベントは APPENDIX に掲載）
 
 このイベントの中の `s3.object.key` に、 `pulse/myhost.json` を指定しておくと、「テスト」を実行した時に `pulse/myhost.json` がアップロードされたかのように関数が実行される。
 
@@ -323,28 +321,28 @@ console.log(result);
 
 ```javascript
 if (errors.length > 0) {
-	const postData = querystring.stringify({
-		payload: JSON.stringify({
-			channel: slackOpts.channel,
-			username: slackOpts.user,
-			text: `${errors.join("\n")}`,
-			icon_emoji: ":exclamation:",
-		}),
-	});
-	const request = https.request({
-		host: slackOpts.url.host,
-		path: slackOpts.url.path,
-		method: "POST",
-		headers: {
-			"Content-Type": "application/x-www-form-urlencoded",
-			"Content-Length": Buffer.byteLength(postData),
-		},
-	});
-	request.write(postData);
-	request.end();
-	callback(null, "outdated exists");
+  const postData = querystring.stringify({
+    payload: JSON.stringify({
+      channel: slackOpts.channel,
+      username: slackOpts.user,
+      text: `${errors.join("\n")}`,
+      icon_emoji: ":exclamation:",
+    }),
+  });
+  const request = https.request({
+    host: slackOpts.url.host,
+    path: slackOpts.url.path,
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+      "Content-Length": Buffer.byteLength(postData),
+    },
+  });
+  request.write(postData);
+  request.end();
+  callback(null, "outdated exists");
 } else {
-	callback(null, "all checked");
+  callback(null, "all checked");
 }
 ```
 

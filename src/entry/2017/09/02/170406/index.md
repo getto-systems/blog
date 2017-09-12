@@ -1,5 +1,4 @@
 ---
-layout: template/hatena.jade
 title: Docker for Mac で開発環境を構築する - その１
 ---
 <a id="top"></a>

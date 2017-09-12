@@ -1,5 +1,4 @@
 ---
-layout: template/hatena.jade
 title: 記事一覧
 ---
 <a id="top"></a>

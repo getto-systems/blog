@@ -1,5 +1,4 @@
 ---
-layout: template/hatena.jade
 title: textlint するために markdown でブログを書いて livereload でプレビューする
 ---
 <a id="top"></a>
