@@ -20,8 +20,8 @@ title: Docker for Mac で開発環境を構築する - その３
 ###### CONTENTS
 
 1. [全体像](#strategy)
-1. [tmux によるグループ化](#setup-env-by-tmux)
-1. [direnv によるグループ化](#setup-env-by-direnv)
+1. [tmux でセッションごとに環境変数の設定](#setup-env-by-tmux)
+1. [direnv でディレクトリごとに環境変数の設定](#setup-env-by-direnv)
 1. [まとめ](#postscript)
 1. [参考資料](#reference)
 
@@ -54,7 +54,7 @@ APP_ROOT                           # サーバーのアプリケーションル�
 
 [TOP](#top)
 <a id="setup-env-by-tmux"></a>
-### tmux によるグループ化
+### tmux でセッションごとに環境変数の設定
 
 tmux の設定ファイルに以下の記述を行うと、環境変数を渡すことができる。
 
@@ -70,6 +70,9 @@ LABO_PORT_PREFIX               # サーバーが使用するポート
 ```
 
 [birdfirm](https://github.com/getto-systems/birdfirm) と [tmux-wrapper](https://github.com/getto-systems/tmux-wrapper) を使用してセットアップする。
+
+- birdfirm : 実行スクリプトの一覧から fzf で実行するものを選択して実行する
+- tmux-wrapper : tmux でセッションごとに設定ファイルを切り替える
 
 ```bash
 #!/bin/bash
@@ -116,9 +119,9 @@ tmux_wrapper_main
 
 [TOP](#top)
 <a id="setup-env-by-direnv"></a>
-### direnv によるグループ化
+### direnv でディレクトリごとに環境変数の設定
 
-[direnv](https://github.com/direnv/direnv) を使用すると、あるディレクトリ以下で環境変数を上書きして作業することができる。
+[direnv](https://github.com/direnv/direnv) を使用すると、設定したディレクトリ下で環境変数を上書きできる。
 
 これを利用して以下の環境変数を設定する。
 
