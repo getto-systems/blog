@@ -12,12 +12,12 @@ title: 記事一覧
 <a id="drafts"></a>
 ### Drafts
 
-- [tmux and direnv](/draft/tmux-direnv.html)
 - comming soon...
 
 <a id="september-2017"></a>
 ### September 2017
 
+- [9/16](/entry/2017/09/16/180320)
 - [9/9](/entry/2017/09/09/111638)
 - [9/2](/entry/2017/09/02/170406)
 
