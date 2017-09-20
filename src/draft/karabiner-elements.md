@@ -1,9 +1,9 @@
 ---
-title: Karabiner-Elements でかな配列をカスタマイズする
+title: Karabiner-Elements で「かな」配列をカスタマイズする
 ---
 <a id="top"></a>
 
-* [Karabiner](https://pqrs.org/osx/karabiner/index.html.ja) でかな配列を[月配列俺式](https://github.com/shun-fix9/keybord-layout-for-mac-with-keyremap)にしていた
+* [Karabiner](https://pqrs.org/osx/karabiner/index.html.ja) で「かな」配列を[月配列俺式](https://github.com/shun-fix9/keybord-layout-for-mac-with-keyremap)にしていた
 * Sierra にアップデートしたら Karabiner が使用できなくなって悲しい
 * [Karabiner-Elements](https://github.com/tekezo/Karabiner-Elements) が 2017/07 のアップデートで変数が使えるようになった
 
@@ -71,7 +71,7 @@ title: Karabiner-Elements でかな配列をカスタマイズする
 <a id="set-ime-mode"></a>
 ### IME の状態の保存
 
-かな配列のカスタマイズなので、日本語 IME が有効になっている場合のみ、キーの置き換えをしたい。
+「かな」配列のカスタマイズなので、日本語 IME が有効になっている場合のみ、キーの置き換えをしたい。
 
 「かな」を押した時にフラグを立てて、「英数」を押した時にフラグを下げることにする。
 
@@ -166,12 +166,12 @@ title: Karabiner-Elements でかな配列をカスタマイズする
 <a id="postscript"></a>
 ### まとめ
 
-Karabiner-Elements を使用して、 Mac でかな配列をカスタマイズして[月配列俺式改二](https://github.com/shun-fix9/karabiner-elements-complex_modifications)でタイプできるようになった。
+Karabiner-Elements を使用して、 Mac で「かな」配列をカスタマイズして[月配列俺式改二](https://github.com/shun-fix9/karabiner-elements-complex_modifications)でタイプできるようになった。
 
 
 #### Karabiner-Elements を使用する理由
 
-かな配列をカスタマイズする方法として、以下のものが考えられる。
+「かな」配列をカスタマイズする方法として、以下のものが考えられる。
 
 - 入力ソースの設定で独自の入力配列を定義する
 - Google IME でローマ字変換表をカスタマイズする
