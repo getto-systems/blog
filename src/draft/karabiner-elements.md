@@ -34,7 +34,7 @@ title: Karabiner-Elements でかな配列をカスタマイズする
 
 以下のような設定ファイルを作成すると、 Karabiner-Elements の設定画面の「Complex Manipulators」タブで「Add rule」できるようになる。
 
-- 設置するパスは `~.config/karabiner/assets/complex_modifications/`
+- 設置するパスは `~/.config/karabiner/assets/complex_modifications/`
 
 ```json
 {
@@ -63,6 +63,7 @@ title: Karabiner-Elements でかな配列をカスタマイズする
 `rules` には「Add rule」でまとめて有効/無効を切り替えたい粒度でルールを記述していく。
 
 `manipulators` でキーを押した時の挙動を記述する。
+この後、 `manipulators` の内容を例示していく。
 
 
 
@@ -72,7 +73,7 @@ title: Karabiner-Elements でかな配列をカスタマイズする
 
 かな配列のカスタマイズなので、日本語 IME が有効になっている場合のみ、キーの置き換えをしたい。
 
-「かな」を押した時にフラグを立てて、「英数」か押した時にフラグを下げることにする。
+「かな」を押した時にフラグを立てて、「英数」を押した時にフラグを下げることにする。
 
 ```json
 {
@@ -107,11 +108,82 @@ title: Karabiner-Elements でかな配列をカスタマイズする
 そこで、コントロールキーで `is_passthrough` フラグを立てて、キーの置き換えを無効にできるようにしておく。
 
 
+[TOP](#top)
+<a id="set-shift-mode"></a>
+### 各シフト状態の保存
+
+[月配列俺式改二](https://github.com/shun-fix9/karabiner-elements-complex_modifications)では、 `t` `d` `k` `l` `/` をシフトキーとして使用する。
+
+それぞれ、押している間、 `is_japanese_<key>` フラグを設定するようにする。
+
+```json
+{
+  "type": "basic",
+  "conditions": [
+    {"type": "variable_if", "name": "is_passthrough", "value": 0},
+    {"type": "variable_if", "name": "is_japanese_kana", "value": 1},
+    {"type": "variable_if", "name": "is_japanese_kana_d", "value": 0},
+    {"type": "variable_if", "name": "is_japanese_kana_k", "value": 0},
+    {"type": "variable_if", "name": "is_japanese_kana_l", "value": 0},
+    {"type": "variable_if", "name": "is_japanese_kana_slash", "value": 0}
+  ],
+  "from": {"key_code": "t"},
+  "to": [{"set_variable": {"name": "is_japanese_kana_t", "value": 1}}],
+  "to_after_key_up": [{"set_variable": {"name": "is_japanese_kana_t", "value": 0}}]
+},
+```
+
+他のシフトキーが有効でない場合に、各シフトキーによるシフトフラグを有効にする。
+
+
+[TOP](#top)
+<a id="replace-keys"></a>
+### キーの置き換え
+
+通常キーの置き換えは、各シフト状態によって設定を行う。
+
+```json
+{
+  "type": "basic",
+  "conditions": [
+    {"type": "variable_if", "name": "is_passthrough", "value": 0},
+    {"type": "variable_if", "name": "is_japanese_kana", "value": 1},
+    {"type": "variable_if", "name": "is_japanese_kana_t", "value": 0},
+    {"type": "variable_if", "name": "is_japanese_kana_d", "value": 0},
+    {"type": "variable_if", "name": "is_japanese_kana_k", "value": 0},
+    {"type": "variable_if", "name": "is_japanese_kana_l", "value": 0},
+    {"type": "variable_if", "name": "is_japanese_kana_slash", "value": 0}
+  ],
+  "from": {"key_code": "q"},
+  "to": [{"key_code": "s"},{"key_code": "o"}]
+},
+```
+
+このような設定を、シフトなし、 `t` `d` `k` `l` `/` の６面分行う。
+
 
 [TOP](#top)
 <a id="postscript"></a>
 ### まとめ
 
+Karabiner-Elements を使用して、 Mac でかな配列をカスタマイズして[月配列俺式改二](https://github.com/shun-fix9/karabiner-elements-complex_modifications)でタイプできるようになった。
+
+
+#### Karabiner-Elements を使用する理由
+
+かな配列をカスタマイズする方法として、以下のものが考えられる。
+
+- 入力ソースの設定で独自の入力配列を定義する
+- Google IME でローマ字変換表をカスタマイズする
+
+しかし、これらの方法では入力ソースの変更が必要になる。
+
+Mac の日本語変換をちょっと気に入っているので、入力ソースの変更をしないで済む方法が欲しかった。
+
+Karabiner が使用できなくなった時、「かな」配列のカスタマイズか、ローマ字変換かという選択をしなければならなかった。
+この時はローマ字変換を選んだわけだ。
+
+だから、「かな」配列のカスタマイズの優先順位はそれほどの高くはないが、今はカスタマイズされた「かな」配列で快適にタイピングしている。
 
 
 [TOP](#top)
