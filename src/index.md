@@ -12,7 +12,8 @@ title: 記事一覧
 <a id="drafts"></a>
 ### Drafts
 
-- [Karabiner-Elements](/draft/karabiner-elements.html)
+- [Karabiner-Elements で「かな」配列をカスタマイズする](/draft/karabiner-elements.html)
+- [ポモドーロテクニックについて](/draft/pomodoro-technique.html)
 - comming soon...
 
 <a id="september-2017"></a>
