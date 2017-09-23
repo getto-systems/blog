@@ -63,7 +63,7 @@ title: Karabiner-Elements で「かな」配列をカスタマイズする
 `rules` には「Add rule」でまとめて有効/無効を切り替えたい粒度でルールを記述していく。
 
 `manipulators` でキーを押した時の挙動を記述する。
-この後、 `manipulators` の内容を例示していく。
+この後、 `manipulators` の内容を例示する。
 
 
 
