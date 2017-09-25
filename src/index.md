@@ -12,6 +12,7 @@ title: 記事一覧
 <a id="drafts"></a>
 ### Drafts
 
+- [Elm 言語](/draft/elm-lang.html)
 - [ポモドーロテクニックについて](/draft/pomodoro-technique.html)
 - comming soon...
 
