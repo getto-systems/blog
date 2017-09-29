@@ -11,16 +11,12 @@ title: Elm 言語の開発方針まとめ
 1. [全体像](#overall)
 1. [静的な WEB コンテンツとバックエンドサーバー](#static-web)
 1. [完全 SPA ではなくアプリケーションの機能ごとにページを作成](#one-work-per-page)
-1. [テンプレートで html を生成](#generate-html-by-template)
-1. [その他の色々](#misc)
- - localStorage にページのデータを保存
- - 関数呼び出しはパイプで
 1. [まとめ](#postscript)
 1. [参考資料](#reference)
 
 ###### APPENDIX
 
-1. [Elm 言語を選択した理由](#why-elm)
+1. [index.html](#index)
 
 <a id="overall"></a>
 ### 全体像
@@ -60,28 +56,59 @@ API サーバーは Google の GCE を使用する。
 <a id="one-work-per-page"></a>
 ### 完全 SPA ではなくアプリケーションの機能ごとにページを作成
 
-Elm を使用して、 index.html だけで全てを完結させる、ということもできないことはない。
-しかし、バージョン 0.18 時点でこれを行うのは難しかった。
-
-- 区別されるべき複数の機能が一つのアプリケーションにまとまっている
-- 機能ごとにモジュールを分けたいので、 `Html.map` や `Cmd.map` などでまとめることになる
-- メニューをクリックしたらページが変わる、といった基本となる部分が用意されていないので自作することになる
-
-一度作成してみたのだが、基礎の自作部分がかなり巨大になってしまった。
+Elm を使用して、 index.html だけで全てを完結させる、ということも可能だ。
+しかし、一度作成してみたのだが、基礎の自作部分がかなり巨大になってしまった。
 Elm の中だけをみた場合、機能ごとにバラバラにページを用意する方がスッキリ実装できる。
 
-- login/auth.html : 認証フォーム
-- login/forget.html : パスワード忘れ
-- etc...
+例えば index.html は以下のような形となる。
+（全体は APPENDIX に掲載）
 
-ただし、この方法では html が結構な数作成され、ほとんど同じ内容になる。
-そのため、これら html はテンプレートを元にして自動生成することにする。
+```html
+<div id="app"></div>
+
+<script>
+var app = Elm.Main.Index.embed(document.getElementById("app"), {
+  page: "Index"
+});
+</script>
+```
+
+ページのモジュールは以下のような形となる。
+
+
+```elm
+module Main.Index exposing (main)
+
+import Html exposing (Html)
+import GettoBlog.Page.Index.Base as Base
+import GettoBlog.Page.Index.View as View
+import GettoBlog.Page.Index.Update as Update
+import GettoBlog.Page.Index.Subscriptions as Subscriptions
+import GettoBlog.I18n as I18n
+
+opts =
+  { translate = I18n.translate
+  , authRequired = True
+  }
+main =
+  Html.programWithFlags
+    { init = Base.init opts
+    , view = View.view
+    , update = Update.update
+    , subscriptions = Subscriptions.subscriptions
+    }
+
+```
+
+このようなファイルが結構な数作成されることになる。
+ほとんど同じ内容なので、これらはテンプレートを元にして自動生成する。
 
 
 [TOP](#top)
 <a id="postscript"></a>
 ### まとめ
 
+- Elm を選択した理由
 
 
 [TOP](#top)
@@ -89,6 +116,146 @@ Elm の中だけをみた場合、機能ごとにバラバラにページを用�
 ### 参考資料
 
 - Soft Skills : John Z. Sonmez
+
+
+[TOP](#top)
+<a id="index"></a>
+#### index.html
+
+```html
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>ダッシュボード</title>
+    <script type="text/javascript" src="/dist/app.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://css.getto.systems/0.1.7/getto.css">
+  </head>
+  <body>
+
+    <div id="app"></div>
+    <div id="error" style="display:none">
+      <div class="LoginLayout">
+        <article>
+          <header>
+            <p>
+            <small id="company">GETTO</small>
+            <br>
+            <span id="title">Blog</span>
+            <br>
+            <small id="sub-title">げっとシステムログ</small>
+            </p>
+          </header>
+          <section>
+            <p>
+            <i class="fa fa-exclamation-triangle"></i>
+            システムエラーが発生しました
+            </p>
+            <form method="get" action="/">
+              <p>
+              <a href="?reset"><i class="fa fa-refresh"></i> リセット</a>
+              </p>
+            </form>
+          </section>
+        </article>
+        <footer>
+          <span id="project">getto/blog</span>
+          <span id="version">version : 0.0.1</span>
+        </footer>
+      </div>
+    </div>
+
+    <script>try {
+  var project = document.getElementById("project").innerHTML;
+
+  var host = location.port ?
+    location.hostname+":"+(parseInt(location.port)+1) :
+    "api.blog.getto.systems";
+
+  var page = "Index";
+  var modules = page.split(".");
+
+  var search = location.search.substring(1).split("&").reduce(function(acc,query) {
+    if(query.length > 0) {
+      var pair = query.split("=");
+      acc[pair[0]] = decodeURIComponent(pair[1]) || "";
+    }
+    return acc;
+  }, {});
+
+  var storageKey = "app";
+
+  if(location.search == "?reset") {
+    localStorage.setItem(storageKey, null);
+    history.pushState(null,null,"?");
+  }
+
+  var storage = JSON.parse(localStorage.getItem(storageKey));
+  var locale, credential, state;
+  if(storage) {
+    locale = storage.locale;
+    credential = storage.credential;
+    terminal = storage.terminal;
+    state = storage[page];
+  }
+
+  var toJSON = function(data) { return !!data ? JSON.stringify(data) : null };
+
+  var init = {
+    page: page,
+    query: location.pathname + location.search,
+    apiHost: "//"+host+"/"+project,
+    locale: locale || document.children[0].getAttribute("lang"),
+    project: project,
+    version: document.getElementById("version").innerHTML.split(":")[1],
+    company: document.getElementById("company").innerHTML,
+    title: document.getElementById("title").innerHTML,
+    subTitle: document.getElementById("sub-title").innerHTML,
+    credential: toJSON(credential),
+    terminal: toJSON(terminal),
+    state: toJSON(state),
+    search: toJSON(search),
+    loadAt: (new Date()).toISOString()
+  };
+
+  var module = modules.reduce(function(acc,m){return acc[m];},Elm.Main);
+  var app = module.embed(document.getElementById("app"), init);
+  (function(ports){
+    var saveStorage = function(key,data) {
+      var current = JSON.parse(localStorage.getItem(storageKey)) || {};
+      current[key] = data;
+      localStorage.setItem(storageKey, JSON.stringify(current));
+    };
+    ports.saveCredential.subscribe(function(state) {
+      saveStorage("credential", state);
+    });
+    ports.saveTerminal.subscribe(function(state) {
+      saveStorage("terminal", state);
+    });
+    ports.saveState.subscribe(function(state) {
+      saveStorage(page, state);
+    });
+    ports.redirectTo.subscribe(function(query) {
+      location.href = query;
+    });
+  })(app.ports);
+} catch(e) {
+  document.getElementById("app").style.display = "none";
+  document.getElementById("error").style.display = "block";
+
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "//"+host+"/api/error", true);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  xhr.send("project="+encodeURIComponent(project)+"&message="+encodeURIComponent(e.stack ? e.stack : e.name+": "+e.message));
+
+  throw e;
+}
+</script>
+  </body>
+</html>
+```
 
 
 [TOP](#top)
