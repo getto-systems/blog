@@ -13,12 +13,12 @@ title: 記事一覧
 ### Drafts
 
 - [Elm 言語](/draft/elm-lang.html)
-- [ポモドーロテクニックについて](/draft/pomodoro-technique.html)
 - comming soon...
 
 <a id="september-2017"></a>
 ### September 2017
 
+- [9/30 : ポモドーロテクニックについて](entry/2017/09/30/183412)
 - [9/23 : Karabiner-Elements で「かな」配列をカスタマイズする](/entry/2017/09/23/172055)
 - [9/16 : Docker for Mac で開発環境を構築する - その３](/entry/2017/09/16/180320)
 - [9/9 : Docker for Mac で開発環境を構築する - その２](/entry/2017/09/09/111638)
