@@ -13,6 +13,7 @@ title: 記事一覧
 ### Drafts
 
 - [Elm 言語](/draft/elm-lang.html)
+- [Authorization Bearer ヘッダを用いた認証 API の実装](/draft/bearer.html)
 - comming soon...
 
 <a id="september-2017"></a>
