@@ -5,7 +5,7 @@ title: Authorization Bearer ヘッダを用いた認証 API の実装
 
 - API サーバーを構築する際に、認証機構を実装する必要がある
 - 何かしらフレームワークを使用して済ませることも考えられるが、今回は自前で用意することにした
-- Authorization: Bearer ヘッダを用いて認証 API を実装する
+- Authorization: Bearer ヘッダを用いて認証 API を実装する際のヘッダの仕様を確認する
 
 ###### CONTENTS
 
@@ -55,14 +55,55 @@ title: Authorization Bearer ヘッダを用いた認証 API の実装
 
 正しいトークンが送信された場合は、通常のレスポンスを返せば良いので、ここでは認証エラーが起こった場合のレスポンスを挙げる。
 
+
 #### Authorization ヘッダなしでアクセスした場合
 
+```
+HTTP/1.1 401 Unauthorized
+WWW-Authenticate: Bearer realm="example"
+```
+
+認証が必要なリソースに、認証ヘッダなしでアクセスした場合は `WWW-Authenticate` ヘッダに `realm` パラメータをつけて返す。
+`realm` パラメータの値はリソースについての適切な説明を返す。
+当然のことだが、トークンの類推が容易になるような情報を返してはならない。
+
+認証ヘッダ自体がない場合には、下記に示す `error` パラメータはつけない。
+
+
 #### トークンが正しくない場合
+
+```
+HTTP/1.1 401 Unauthorized
+WWW-Authenticate: Bearer realm="example",
+  error="invalid_token",
+  error_description="The access token expired"
+```
+
+送信されたトークンが正しくなかった場合は `WWW-Authenticate` ヘッダに `error` パラメータをつけて返す。
+`error` パラメータの値は `invalid_token` を返す。
+
+オプションで、詳細な説明を `error_description` で返すことができる。
+当然のことだが、トークンの類推が容易になるような情報を返してはならない。
 
 
 [TOP](#top)
 <a id="security"></a>
 ### トークンのセキュリティについて
+
+RFC 6750 には以下のような推奨事項が書かれている。
+
+- クライアントはトークンをリークさせないように実装されなければならない
+- クライアントは TLS の証明書情報を検証しなければならない
+- クライアントは常に TLS を使用しなければならない
+- トークンをクッキーに保存してはならない
+- トークンの有効期限は 1時間かそれ以下にするべき
+- トークンはスコープを限って発行するべき
+- トークンは URL に含めるべきではない
+
+トークンは localStorage に保存して、対象の API サーバー以外にはトークンを送信しないようにする。
+特に、 XSS 脆弱性には気をつけて実装する必要がある。
+
+また、トークンを URL に含めて返さなければならない場面では、トークンの有効期限をできる限り短くしておく。
 
 
 [TOP](#top)
