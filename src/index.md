@@ -6,15 +6,20 @@ title: 記事一覧
 ###### CONTENTS
 
 - [Drafts](#drafts)
+- [October 2017](#october-2017)
 - [September 2017](#september-2017)
 - [August 2017](#august-2017)
 
 <a id="drafts"></a>
 ### Drafts
 
-- [Elm 言語](/draft/elm-lang.html)
 - [Authorization Bearer ヘッダを用いた認証 API の実装](/draft/bearer.html)
 - comming soon...
+
+<a id="october-2017"></a>
+### October 2017
+
+- [10/8 : Elm 言語](/entry/2017/10/08/041010)
 
 <a id="september-2017"></a>
 ### September 2017
