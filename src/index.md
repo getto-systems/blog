@@ -13,6 +13,7 @@ title: 記事一覧
 <a id="drafts"></a>
 ### Drafts
 
+- [Ruby でエクセルファイルを読み込む](/draft/ruby-excel.html)
 - comming soon...
 
 <a id="october-2017"></a>
