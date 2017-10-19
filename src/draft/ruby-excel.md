@@ -26,20 +26,115 @@ title: Ruby でエクセルファイルを読み込む
 
 - [roo-rb/roo : GitHub](https://github.com/roo-rb/roo)
 
+基本的には以下のようにすれば良い。
+
+```ruby
+require "roo"
+
+xlsx = Roo::Excelx.new("sheet.xlsx")
+xlsx.sheet("Sheet1").each do |row|
+  row[0] # => first cell
+end
+```
+
+each にオプションを渡すことで、特定の行をヘッダとして解釈して Hash として行を取り出すこともできる。
+
 
 [TOP](#top)
 <a id="detect-header-by-hash"></a>
 ### ハッシュでヘッダを指定
+
+ヘッダ行の値に重複がない場合は、 Hash でヘッダのキーを指定することができる。
+
+```ruby
+header = {
+  item_name: "商品名",
+  item_price: "価格",
+}
+
+sheet = xlsx.sheet("Sheet1")
+sheet.each(header) do |row|
+  if row != header
+    row[:item_name] # => 「商品名」のセル
+  end
+end
+```
+
+each の中にはヘッダ行も渡される。
 
 
 [TOP](#top)
 <a id="detect-header-by-array"></a>
 ### 配列でヘッダを指定
 
+ヘッダ行として使用する行の中に重複する値をもつセルがある場合、 Hash で指定する方法は使用できない。
+（最初に現れた方の値になる）
+
+配列で指定する方法は Roo では提供されていないので、自前で用意する。
+
+```ruby
+header = [
+  [:data1, "データ"],
+  [:data2, "データ"],
+  [:data3, "データ"],
+  [:data4, "データ"],
+]
+
+map = nil
+sheet.each do |row|
+  unless map
+    map = to_header_map(row)
+  else
+    data = map.map{|i,key| [key,row[i]]}.to_h
+    data[:data1] # => 最初の「データ」
+  end
+end
+unless map
+  raise Roo::HeaderRowNotFoundError
+end
+
+
+def to_header_map(row)
+  header_index = 0
+  map = nil
+  row.each_with_index do |value,i|
+    if header_match?(@header[header_index].last,value)
+      map ||= []
+      map << [i,@header[header_index].first]
+      header_index += 1
+    end
+  end
+  map
+end
+def header_match?(title,value)
+  if title.start_with?("~")
+    Regexp.new(title[1..-1]).match?(value)
+  else
+    title == value
+  end
+end
+```
+
+
 
 [TOP](#top)
 <a id="read-xls"></a>
-### xls 型式のファイルを読み込む
+### xls 形式のファイルを読み込む
+
+roo-xls を使用することで、同じ API で xls 形式のファイルを読み込むことができる。
+
+- [roo-rb/roo-xls : GitHub](https://github.com/roo-rb/roo-xls)
+
+```ruby
+require "roo"
+require "roo-xls"
+
+xls = Roo::Excel.new("sheet.xls")
+xls.sheet("Sheet1").each do |row|
+  row[0] # => first cell
+end
+```
+
 
 
 [TOP](#top)
@@ -51,7 +146,7 @@ title: Ruby でエクセルファイルを読み込む
 <a id="reference"></a>
 ### 参考資料
 
-* [roo-rb/roo](https://github.com/roo-rb/roo)
+* [roo-rb/roo : GitHub](https://github.com/roo-rb/roo)
 
 
 [TOP](#top)
