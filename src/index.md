@@ -13,6 +13,7 @@ title: 記事一覧
 <a id="drafts"></a>
 ### Drafts
 
+- [Ruby でバーコードを生成する](/draft/ruby-barby)
 - comming soon...
 
 <a id="october-2017"></a>
