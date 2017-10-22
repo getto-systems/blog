@@ -16,7 +16,7 @@ title: Ruby でエクセルファイルを読み込む
 
 ###### APPENDIX
 
-1. [ExcelParser](#parser)
+1. [ExcelParser](#excel-parser)
 
 
 <a id="read-by-roo"></a>
