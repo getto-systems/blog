@@ -141,6 +141,9 @@ end
 <a id="postscript"></a>
 ### まとめ
 
+roo を使用することで xlsx や xls ファイルを、同じ API で読むことができる。
+（この記事では紹介しなかったが、 Google Spreadsheet も読める模様）
+
 
 [TOP](#top)
 <a id="reference"></a>
