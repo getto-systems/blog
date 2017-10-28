@@ -13,12 +13,13 @@ title: 記事一覧
 <a id="drafts"></a>
 ### Drafts
 
-- [Ruby でバーコードを生成する](/draft/ruby-barby)
+- [Pull Request ベース開発のお供](/draft/git-post)
 - comming soon...
 
 <a id="october-2017"></a>
 ### October 2017
 
+- [10/28 : Ruby でバーコードを生成する](/entry/2017/10/28/124233)
 - [10/22 : Ruby でエクセルファイルを読み込む](/entry/2017/10/22/113921)
 - [10/19 : Authorization Bearer ヘッダを用いた認証 API の実装](/entry/2017/10/19/004734)
 - [10/8 : Elm 言語](/entry/2017/10/08/041010)
