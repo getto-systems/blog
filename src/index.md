@@ -13,6 +13,7 @@ title: 記事一覧
 <a id="drafts"></a>
 ### Drafts
 
+- [Mac で「かな」配列をカスタマイズする](/draft/karabiner-elements)
 - [Pull Request ベース開発のお供](/draft/git-post)
 - comming soon...
 
