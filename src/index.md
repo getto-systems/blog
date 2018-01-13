@@ -15,7 +15,7 @@ title: 記事一覧
 <a id="drafts"></a>
 ### Drafts
 
-- [Pull Request ベース開発のお供](/draft/git-post)
+- [github-flow 俺式 2018版](/draft/git-post)
 - comming soon...
 
 <a id="january-2018"></a>
