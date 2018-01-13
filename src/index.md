@@ -6,6 +6,8 @@ title: 記事一覧
 ###### CONTENTS
 
 - [Drafts](#drafts)
+- [January 2018](#january-2018)
+- [December 2017](#december-2017)
 - [October 2017](#october-2017)
 - [September 2017](#september-2017)
 - [August 2017](#august-2017)
@@ -13,9 +15,18 @@ title: 記事一覧
 <a id="drafts"></a>
 ### Drafts
 
-- [Mac で「かな」配列をカスタマイズする](/draft/karabiner-elements)
 - [Pull Request ベース開発のお供](/draft/git-post)
 - comming soon...
+
+<a id="january-2018"></a>
+### January 2018
+
+- comming soon...
+
+<a id="december-2017"></a>
+### December 2017
+
+- [Mac で「かな」配列をカスタマイズする - その後](/entry/2017/12/17/152415)
 
 <a id="october-2017"></a>
 ### October 2017
