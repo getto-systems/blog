@@ -15,18 +15,18 @@ title: 記事一覧
 <a id="drafts"></a>
 ### Drafts
 
-- [github-flow 俺式 2018版](/draft/git-post)
+- [Docker for Mac で開発環境を構築する - その後](/draft/docker-for-mac)
 - comming soon...
 
 <a id="january-2018"></a>
 ### January 2018
 
-- comming soon...
+- [1/13 : github-flow 俺式 2018版](/entry/2018/01/13/154730)
 
 <a id="december-2017"></a>
 ### December 2017
 
-- [Mac で「かな」配列をカスタマイズする - その後](/entry/2017/12/17/152415)
+- [12/17 : Mac で「かな」配列をカスタマイズする - その後](/entry/2017/12/17/152415)
 
 <a id="october-2017"></a>
 ### October 2017
