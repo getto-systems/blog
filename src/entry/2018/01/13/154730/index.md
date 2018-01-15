@@ -76,7 +76,8 @@ GitHub や BitBucket と連携して、 master に push されたら特定のス
 
 バージョンが上がっていたらデプロイを実行する。
 
-[git-release-request](https://github.com/getto-systems/git-release-request) で提供される `git release-request` コマンドで、各ファイルのバージョンをあげるコミットを作成し、プルリクエストが発行できる。
+`git release-request` コマンドで、各ファイルのバージョンをあげるコミットを作成し、プルリクエストが発行できる。
+（[git-release-request](https://github.com/getto-systems/git-release-request) で提供）
 
 #### なぜ常にデプロイしないのか
 
@@ -132,8 +133,9 @@ pub リポジトリは origin をフォークしたもので、 git remote コ�
 
 細かいコミットごとにプルリクエストを作成する、ということだ。
 
-[git-post](https://github.com/sanzen-sekai/git-post) で提供される `git create-work-branch` コマンドで、コミットメッセージと共に新しいブランチが作成され、プルリクエストまで発行してくれる。
+`git create-work-branch` コマンドで、コミットメッセージと共に新しいブランチが作成され、プルリクエストまで発行してくれる。
 あとはマージするだけだ。
+（[git-post](https://github.com/sanzen-sekai/git-post) で提供）
 
 このやり方だと、ある細かい１機能がマージされるまで、手元の開発を止めなければならなくなる。
 なぜなら、開発は master ブランチから派生させる必要があるからだ。
@@ -153,8 +155,8 @@ master に直接マージできないほど巨大な変更を行うことがあ�
 
 こういう場合は、 origin リポジトリに feature ブランチを作成する。
 
-[git-post](https://github.com/sanzen-sekai/git-post) で提供される `git create-feature-branch` コマンドで、 feature ブランチが作成される。
-（origin に書き込み権限が無ければ失敗する）
+`git create-feature-branch` コマンドで、 feature ブランチが作成される。
+（[git-post](https://github.com/sanzen-sekai/git-post) で提供、origin に書き込み権限が無ければ失敗する）
 
 feature ブランチは、 master ブランチと同じ扱いだ。
 ただし、 master ブランチに機能追加された場合は常に取り込んでおく必要がある。
