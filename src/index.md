@@ -15,13 +15,14 @@ title: 記事一覧
 <a id="drafts"></a>
 ### Drafts
 
-- [Docker for Mac で開発環境を構築する - その後](/draft/docker-for-mac)
+- [Mac に開発環境を構築する - 2018版](/draft/docker-for-mac-2018)
 - comming soon...
 
 <a id="january-2018"></a>
 ### January 2018
 
-- [1/13 : github-flow 俺式 2018版](/entry/2018/01/13/154730)
+- [1/22 : Docker for Mac で開発環境を構築する - その後](/entry/2018/01/22/185431)
+- [1/13 : github-flow 俺式 - 2018版](/entry/2018/01/13/154730)
 
 <a id="december-2017"></a>
 ### December 2017
