@@ -1,5 +1,5 @@
 ---
-title: github-flow 俺式 2018版
+title: github-flow 俺式 - 2018版
 ---
 <a id="top"></a>
 
