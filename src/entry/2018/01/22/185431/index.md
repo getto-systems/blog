@@ -137,6 +137,7 @@ Docker for Mac で開発環境を構築して、快適に開発することが�
 ### 参考資料
 
 - [docker-sync](http://docker-sync.io/)
+- [Docker for Mac - mkmf.rb can't find header files for ruby : stack overflow](https://stackoverflow.com/questions/46377667/docker-for-mac-mkmf-rb-cant-find-header-files-for-ruby)
 
 
 [TOP](#top)

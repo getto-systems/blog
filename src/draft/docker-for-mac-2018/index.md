@@ -3,75 +3,46 @@ title: Mac に開発環境を構築する - 2018版
 ---
 <a id="top"></a>
 
-- Docker for Mac インストール
-- docker-sync インストール
-- 接続スクリプト用意
-- docker-wrapper 設置
+- Docker for Mac をベースに開発環境を構築する
+- バージョン : 17.12.0-ce-mac49
 
 ###### CONTENTS
 
-1. [mount 遅い問題](#mount-host-volume)
-1. [開発に使用している volume をホストにバックアップ](#backup-volumes)
-1. [docker-sync 導入](#docker-sync)
+1. [Docker for Mac インストール](#docker-for-mac)
+1. [docker-sync インストール](#docker-sync)
+1. [home ディレクトリ設置](#home)
+1. [接続スクリプト用意](#connect)
 1. [まとめ](#postscript)
 1. [参考資料](#reference)
 
+###### SOURCE
 
-<a id="mount-host-volume"></a>
-### mount 遅い問題
-
-[Docker for Mac で開発環境を構築する](/entry/2017/09/02/170406) の形でしばらく運用していたのだが、ホストのディレクトリを直接 mount するのがとても遅いため、なんとかしたくなった。
-
-#### ホストのディレクトリを mount するのはなぜか
-
-Docker は結構不安定で、「リセット」で完全にデータを削除しないと立ち上がらなくなることがままある。
-
-Docker for Mac は volume の内容が Mac からアクセスできない。
-Docker が動いていれば方法はあるが、今必要なのは Docker が起動しなくなった時に volume を救出する方法だ。
-
-CoreOS で運用していた時は volume の内容が見えていたので、これをバックアップしておけば、データを削除しても volume の復旧が簡単だった。
-
-volume 上に開発中のコードや鍵などが保存されているため、これらが失われてしまうのは非常に面倒だ。
-
-そこで、ホストのディレクトリを直接 mount させることで解決しよう、と考えたわけだ。
-
-しかし、 Docker for Mac でホストのディレクトリをマウントするととても遅い。
-Mac のファイルシステムとの相性の問題らしいが、詳しいことは調べていない。
-最近のアップデートで、マウントするときのフラグを指定していくらか改善したが、満足できる速度にはならなかった。
+- [labo-connect](https://github.com/getto-systems/labo-connect)
+- [configfiles](https://github.com/shun-getto-systems/configfiles)
 
 
-[TOP](#top)
-<a id="backup-volumes"></a>
-### 開発に使用している volume をホストにバックアップ
+<a id="docker-for-mac"></a>
+### Docker for Mac インストール
 
-ホストのディレクトリをマウントすると遅いので、普通の volume を使用して開発することを考える。
-しかし、普通の volume を使用すると、 Docker が起動しなくなった時に volume の救出が難しい。
+[Docker For Mac | Docker](https://www.docker.com/docker-mac) からダウンロードしてインストールする。
 
-そこで、 volume の内容をホストにバックアップしておくことにする。
-コンテナで rsync 等を動かしてホストにバックアップすれば良いだろう。
-すでにツールがあるので、それを導入する。
+Docker はなかなかの不安定感があるので、 Stable を選択した方が安定して開発できる。
+もちろん、新しい機能が欲しい場合は Edge でも良い。
 
 
 [TOP](#top)
 <a id="docker-sync"></a>
-### docker-sync 導入
+### docker-sync インストール
 
-docker-sync は ruby で書かれていて gem になっている。
-今回は Mac にインストールされているシステムの ruby を使用することにした。
+システムに gem をインストールする。
 
 ```bash
 sudo gem install -n /usr/local/bin docker-sync
 ```
 
-インストールが以下のエラーで止まったので、調べてみると開発用のツールが足りないらしい。
+#### mkmf.rb can't find header files for ruby
 
-```
-mkmf.rb can't find header files for ruby
-```
-
-- [Docker for Mac - mkmf.rb can't find header files for ruby : stack overflow](https://stackoverflow.com/questions/46377667/docker-for-mac-mkmf-rb-cant-find-header-files-for-ruby)
-
-これによれば XCode のツールをインストールする必要がある。
+このエラーメッセージで止まる場合は XCode のツールをインストールする必要がある。
 
 ```bash
 sudo xcode-select --install
@@ -79,7 +50,7 @@ sudo xcode-select --install
 
 #### docker-sync.yml
 
-現在使用している docker-sync.yml は以下の内容だ。
+以下の内容で docker-sync.yml を作成する。
 
 ```yaml
 version: "2"
@@ -102,41 +73,85 @@ syncs:
 ```
 ./
 + docker-sync.yml
++ bin/
 + apps/
-+ home/
++ home/$USER/
 ```
 
-`docker-sync start` で、 apps と home という volume にそれぞれファイルがコピーされる。
+これをタイムマシンの対象ディレクトリの任意の位置に配置する。
+例えば `Works/works` など。
+`Documents` の下だと、クラウド同期の対象ディレクトリなので、別なパスを選択する。
 
-あとは、 apps と home をマウントして開発を開始すれば良い。
-volume に対して行なった変更も、ホストのディレクトリに対して行なった変更も、双方向で同期される。
+`docker-sync.yml` を作成したら、 `docker-sync` を起動する。
 
-ホストのディレクトリをタイムマシンの対象ディレクトリに置いておけば、バックアップもひとまず安心だ。
+```bash
+docker-sync start
+```
+
+最初は apps と home のコピーが行われ、そのあと同期処理が開始する。
+
+以下のコマンドで、 restart ポリシーを always に設定しておく。
+
+```bash
+docker container update --restart=always home
+docker container update --restart=always apps
+```
+
+これで、 Mac を再起動した時など、 Docker for Mac 起動時に docker-sync が起動する。
+ただ、プロセスが起動するのに時間がかかるので、それまでは同期は停止したままであることに注意が必要だ。
 
 
-#### システムの ruby を使用するのはなぜか
 
-rbenv などのツールを使用して、システムの gem を使用しないようにした方が良さそうに思える。
+[TOP](#top)
+<a id="home"></a>
+### home ディレクトリ設置
 
-しかし、 Docker で環境を構築する動機の１つに、開発機を素早く移行したいというものがあるのだ。
-Mac にインストールするものは最小限にしたい。
+home は `/home` にマウントされる。
+この直下にユーザー名でホームディレクトリを作成して、設定ファイルを設置する。
 
-Mac 上で直接 ruby の開発をするわけではなく、ツールを使用するだけだ。
-なので、システムの ruby を使用することにした。
+```bash
+git clone https://github.com/shun-getto-systems/configfiles.git home/$USER/.config
+```
+
+
+[TOP](#top)
+<a id="connect"></a>
+### 接続スクリプト用意
+
+`apps/` には、開発ようのアプリケーションコードを用意する。
+
+`apps/<クライアント>/<プロジェクト>/<リポジトリ>` というパスにしておく。
+
+接続スクリプトは `getto` の `labo` プロジェクトの `connect` なので、 `apps/getto/labo/connect` に設置する。
+`bin` ディレクトリに実行ファイルのシンボリックリンクを設置しておくことでアクセスを簡単にする。
+
+```bash
+git clone https://github.com/getto-systems/labo-connect.git apps/getto/labo/connect
+cd bin
+ln -s ../apps/getto/labo/connect/bin/connect
+```
+
+これで、以下のコマンドで `getto/labo-slim` イメージに接続できる。
+
+```bash
+./bin/connect $USER
+```
+
+ユーザー名はホームディレクトリの名前と一致させること。
 
 
 [TOP](#top)
 <a id="postscript"></a>
 ### まとめ
 
-Docker for Mac で開発環境を構築して、快適に開発することができるようになってきた。
-`docker-sync` を使用することになったが、この依存はしょうがないと割り切ることにした。
+2018年現在の開発環境の構築方法をまとめた。
 
 
 [TOP](#top)
 <a id="reference"></a>
 ### 参考資料
 
+- [Docker For Mac | Docker](https://www.docker.com/docker-mac)
 - [docker-sync](http://docker-sync.io/)
 
 
