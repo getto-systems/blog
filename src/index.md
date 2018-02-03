@@ -16,12 +16,13 @@ title: 記事一覧
 <a id="drafts"></a>
 ### Drafts
 
+- [Elm でファイルアップロード](/draft/elm-file-upload)
 - comming soon...
 
 <a id="february-2018"></a>
 ### February 2018
 
-- [Mac に開発環境を構築する - 2018版](/entry/2018/02/03/092853)
+- [2/3 : Mac に開発環境を構築する - 2018版](/entry/2018/02/03/092853)
 
 
 <a id="january-2018"></a>
