@@ -4,7 +4,6 @@ title: Mac に開発環境を構築する - 2018版
 <a id="top"></a>
 
 - Docker for Mac をベースに開発環境を構築する
-- バージョン : 17.12.0-ce-mac49
 
 ###### CONTENTS
 
@@ -20,11 +19,17 @@ title: Mac に開発環境を構築する - 2018版
 - [labo-connect](https://github.com/getto-systems/labo-connect)
 - [configfiles](https://github.com/shun-getto-systems/configfiles)
 
+###### ENVIRONMENTS
+
+- Mac : MacBook Pro (Retina, 13-inch, Mid 2014)
+- OS : macOS High Sierra 10.13.3
+- Docker : 17.12.0-ce-mac49
+
 
 <a id="docker-for-mac"></a>
 ### Docker for Mac インストール
 
-[Docker For Mac | Docker](https://www.docker.com/docker-mac) からダウンロードしてインストールする。
+[Docker For Mac ダウンロードページ](https://www.docker.com/docker-mac) からダウンロードしてインストールする。
 
 Docker はなかなかの不安定感があるので、 Stable を選択した方が安定して開発できる。
 もちろん、新しい機能が欲しい場合は Edge でも良い。
@@ -118,7 +123,7 @@ git clone https://github.com/shun-getto-systems/configfiles.git home/$USER/.conf
 <a id="connect"></a>
 ### 接続スクリプト用意
 
-`apps/` には、開発ようのアプリケーションコードを用意する。
+`apps/` には、開発用のアプリケーションコードを用意する。
 
 `apps/<クライアント>/<プロジェクト>/<リポジトリ>` というパスにしておく。
 
