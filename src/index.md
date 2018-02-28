@@ -6,6 +6,7 @@ title: 記事一覧
 ###### CONTENTS
 
 - [Drafts](#drafts)
+- [March 2018](#march-2018)
 - [February 2018](#february-2018)
 - [January 2018](#january-2018)
 - [December 2017](#december-2017)
@@ -17,8 +18,12 @@ title: 記事一覧
 ### Drafts
 
 - [Elm でファイルアップロード](/draft/elm-file-upload)
-- [Mac で「かな」配列をカスタマイズする - 2018版](/draft/keyboard-layout)
 - comming soon...
+<a id="march-2018"></a>
+### March 2018
+
+- [3/1 : Mac で「かな」配列をカスタマイズする - 2018版](/entry/2018/03/01/063706)
+
 
 <a id="february-2018"></a>
 ### February 2018
