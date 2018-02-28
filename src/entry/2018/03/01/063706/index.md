@@ -104,7 +104,7 @@ Karabiner-Elements の設定は、先に書いたものが優先的に評価さ�
 - インポート : [import](karabiner://karabiner/assets/complex_modifications/import?url=https%3A%2F%2Fraw.githubusercontent.com%2Fgetto-systems%2Fkarabiner-elements-jp-keyboard-layout%2Fmaster%2Fjp-keyboard-layout.json)
 - ソース : [getto-systems/karabiner-elements-jp-keyboard-layout : GitHub](https://github.com/getto-systems/karabiner-elements-jp-keyboard-layout)
 
-同時打鍵の設定で再構成したもの。
+同時打鍵の設定で再構成した。
 
 
 [TOP](#top)
