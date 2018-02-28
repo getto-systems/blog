@@ -17,6 +17,7 @@ title: 記事一覧
 ### Drafts
 
 - [Elm でファイルアップロード](/draft/elm-file-upload)
+- [Mac で「かな」配列をカスタマイズする - 2018版](/draft/keyboard-layout)
 - comming soon...
 
 <a id="february-2018"></a>
