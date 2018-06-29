@@ -16,9 +16,13 @@
 <a id="drafts"></a>
 ### Drafts
 
-- [Kubernetes で本番環境を構築する](/draft/kubernetes/index.html)
 - [Elm でファイルアップロード](/draft/elm-file-upload/index.html)
 - comming soon...
+
+<a id="june-2018"></a>
+### June 2018
+
+- [6/30 : GKE で本番環境の構成を考えた](/entry/2018/06/30/032823/index.html)
 
 <a id="march-2018"></a>
 ### March 2018
