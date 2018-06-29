@@ -16,7 +16,7 @@
 <a id="drafts"></a>
 ### Drafts
 
-- [kubernetes で本番環境](/draft/kubernetes)
+- [Kubernetes で本番環境を構築する](/draft/kubernetes)
 - [Elm でファイルアップロード](/draft/elm-file-upload)
 - comming soon...
 
