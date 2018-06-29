@@ -480,7 +480,7 @@ spec:
     http:
       paths:
       - backend:
-          serviceName: prograde-gift-confirmation-rails
+          serviceName: rails
           servicePort: 80
   tls:
   - secretName: ingress-tls
