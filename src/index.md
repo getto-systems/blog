@@ -17,12 +17,12 @@
 ### Drafts
 
 - [Elm でファイルアップロード](/draft/elm-file-upload/index.html)
-- [Google Container Builder で GKE へデプロイ](/draft/container-builder/index.html)
 - comming soon...
 
 <a id="june-2018"></a>
 ### June 2018
 
+- [6/30 : Google Container Builder で GKE へデプロイ](/entry/2018/06/30/161333)
 - [6/30 : GKE で本番環境の構成を考えた](/entry/2018/06/30/032823)
 
 <a id="march-2018"></a>

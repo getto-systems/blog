@@ -5,6 +5,8 @@
 - できたイメージを Container Registry に push
 - このイメージで GKE の deployment を更新
 
+「[GKE で本番環境の構成を考えた](/entry/2018/06/30/032823)」で構築したクラスタを前提にしている。
+
 ###### CONTENTS
 
 1. [サービスアカウントにロールを追加](#setup-service-account)
