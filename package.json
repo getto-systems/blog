@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "GETTO blog contents",
   "scripts": {
-    "livereload": "npm run reload & npm run watch",
+    "start": "npm run reload & npm run watch",
     "reload": "reload -d ./public -p 8000",
     "watch": "npm run watch:build",
     "watch:build": "node ./scripts/build.js"
@@ -22,7 +22,7 @@
     "cross-spawn": "^6.0.5",
     "ejs": "^2.6.1",
     "marked": "^0.4.0",
-    "reload": "^2.3.0",
+    "reload": "^2.3.1",
     "textlint": "^10.2.1",
     "textlint-rule-preset-ja-technical-writing": "^2.0.0",
     "watch": "^1.0.2"
