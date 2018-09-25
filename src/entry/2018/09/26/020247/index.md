@@ -87,7 +87,7 @@ max-age は 31536000（１年）にした。
 <a id="X-Content-Type-Options"></a>
 ### X-Content-Type-Options
 
-Content-Type を厳密に解釈するように指示するもの。
+Content-Type を厳密に解釈するよう指示するもの。
 
 ```
 X-Content-Type-Options: nosniff
@@ -238,7 +238,7 @@ Content-Security-Policy: default-src 'self'; object-src 'none'; connect-src 'sel
 
 CSP ヘッダの調整を行なってみた。
 
-スクリプトやスタイルが動かない部分がないか十分にテストしてから本番環境に適用してスコアを良くしていきたい。
+スクリプトやスタイルの動かない部分がないか十分テストしてから本番環境に適用してスコアを良くしていきたい。
 
 
 [TOP](#top)
