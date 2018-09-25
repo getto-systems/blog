@@ -4,6 +4,7 @@
 ###### CONTENTS
 
 - [Drafts](#drafts)
+- [September 2018](#september-2018)
 - [June 2018](#june-2018)
 - [March 2018](#march-2018)
 - [February 2018](#february-2018)
@@ -16,9 +17,13 @@
 <a id="drafts"></a>
 ### Drafts
 
-- [npm reload で live reload しつつ CSP 対応する](/draft/reload-wrapper/index.html)
 - [Elm でファイルアップロード](/draft/elm-file-upload/index.html)
 - comming soon...
+
+<a id="september-2018"></a>
+### September 2018
+
+- [9/26 : npm reload で live reload しつつ CSP 対応する](/entry/2018/09/26/020247)
 
 <a id="june-2018"></a>
 ### June 2018
