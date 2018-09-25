@@ -104,7 +104,7 @@ exports.handler = async (event) => {
 ```
 
 全てのコンテンツに同じヘッダを追加してしまう。
-~~面倒くさいし~~
+~面倒くさいし~~
 
 何か問題があれば適宜調整する。
 
@@ -124,10 +124,10 @@ CloudFlont の behaviors タブから編集画面を開く。
 
 下の方に Lambda Function Associations という項目があるので、ここに設定を追加する。
 
-CloudFlont Event は View Response を選択し、先にコピーしておいた ARN を設定する。
+CloudFlont Event は Origin Response を選択し、先にコピーしておいた ARN を設定する。
 
 設定を保存すると Distribution の Status が In Progress になるのでしばらく待つ。
-終わったらブラウザでアクセスしてみて、ヘッダを確認しよう。
+終わったら Invalidation した後、ブラウザでアクセスしてみて、ヘッダを確認しよう。
 
 問題なければ設定は完了。
 
