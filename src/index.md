@@ -16,6 +16,7 @@
 <a id="drafts"></a>
 ### Drafts
 
+- [npm reload で live reload しつつ CSP 対応する](/draft/reload-wrapper/index.html)
 - [Elm でファイルアップロード](/draft/elm-file-upload/index.html)
 - comming soon...
 
