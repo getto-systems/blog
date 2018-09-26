@@ -1,10 +1,10 @@
-# AWS S3 + CloudFlont で CSP 対応する
+# AWS S3 + CloudFront で CSP 対応する
 <a id="top"></a>
 
 ###### CONTENTS
 
-1. [CloudFlont でヘッダを指定するために Lambda 関数を定義](#create-lambda)
-1. [CloudFlont の Behavior で Lambda を指定](#setup- behavior)
+1. [CloudFront でヘッダを指定するために Lambda 関数を定義](#create-lambda)
+1. [CloudFront の Behavior で Lambda を指定](#setup- behavior)
 1. [Mozilla の Obsertatory を使用して結果を確認する](#Mozilla-Obsertatory)
 1. [まとめ](#postscript)
 1. [参考資料](#reference)
@@ -12,10 +12,10 @@
 
 [TOP](#top)
 <a id="create-lambda"></a>
-### CloudFlont でヘッダを指定するために Lambda 関数を定義
+### CloudFront でヘッダを指定するために Lambda 関数を定義
 
-CloudFlont でヘッダを指定するためには Lambda@Edge を作成する必要がある。
-CloudFlont だけでやる方法は見つからなかった。
+CloudFront でヘッダを指定するためには Lambda@Edge を作成する必要がある。
+CloudFront だけでやる方法は見つからなかった。
 
 当然課金されるので、コストを監視しておこう。
 
@@ -118,13 +118,13 @@ exports.handler = async (event) => {
 
 [TOP](#top)
 <a id="setup- behavior"></a>
-### CloudFlont の Behavior で Lambda を指定
+### CloudFront の Behavior で Lambda を指定
 
-CloudFlont の behaviors タブから編集画面を開く。
+CloudFront の behaviors タブから編集画面を開く。
 
 下の方に Lambda Function Associations という項目があるので、ここに設定を追加する。
 
-CloudFlont Event は Origin Response を選択し、先にコピーしておいた ARN を設定する。
+CloudFront Event は Origin Response を選択し、先にコピーしておいた ARN を設定する。
 
 設定を保存すると Distribution の Status が In Progress になるのでしばらく待つ。
 終わったら Invalidation した後、ブラウザでアクセスしてみて、ヘッダを確認しよう。
@@ -144,7 +144,7 @@ CloudFlont Event は Origin Response を選択し、先にコピーしておい�
 <a id="postscript"></a>
 ### まとめ
 
-S3 + CloudFlont の環境で CSP ヘッダの調整を行なってみた。
+S3 + CloudFront の環境で CSP ヘッダの調整を行なってみた。
 
 ちょっと面倒くさすぎるので他の方法も調べたい。
 
