@@ -3,9 +3,11 @@
 
 「体系的に学ぶ 安全な Web アプリケーションの作り方」を読んで CSP ヘッダをちゃんと設定してみようという試み。
 
+S3 + CloudFront でやってみたという話は[次の記事](/entry/2018/09/26/084813)で。
+
 - npm パッケージの reload を使用して live reload する
 - 必要な CSP ヘッダを整える
-- Mozilla の obsertatory を使用して結果を確認する
+- Mozilla Obsertatory で結果を確認する
 
 ###### CONTENTS
 
@@ -136,7 +138,7 @@ Referrer-Policy: same-origin
 
 #### default-src
 
-デフォルトではサイト内のコンテンツは許可する。
+デフォルトではサイト内のコンテンツのみ許可する。
 
 ```
 default-src 'self'
@@ -147,7 +149,7 @@ default-src 'self'
 
 #### object-src
 
-object タグなどを使用していないので許可しない。
+object タグなどは使用していないので許可しない。
 
 ```
 object-src 'none'
