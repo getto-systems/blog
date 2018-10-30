@@ -52,6 +52,8 @@ headers.json にヘッダを指定する。
   ["Content-Security-Policy", [
     "default-src 'self'",
     "object-src 'none'",
+    "base-uri 'none'",
+    "form-action 'self'",
     "connect-src 'self' https://api.example.com",
     "img-src 'self' https://www.google-analytics.com/",
     "font-src 'self' https://fonts.gstatic.com/ https://use.fontawesome.com/",
@@ -153,6 +155,22 @@ object タグなどは使用していないので許可しない。
 
 ```
 object-src 'none'
+```
+
+#### base-uri
+
+base タグは使用していないので許可しない。
+
+```
+base-uri 'none'
+```
+
+#### form-action
+
+form の action は self のみ許可する。
+
+```
+form-action 'self'
 ```
 
 #### connect-src
