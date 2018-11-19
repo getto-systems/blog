@@ -1,3 +1,7 @@
+# Version : 0.3.0
+
+publish: VSCode
+
 # Version : 0.2.0
 
 update: package
