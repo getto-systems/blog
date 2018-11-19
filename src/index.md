@@ -20,13 +20,12 @@
 ### Drafts
 
 - [Elm でファイルアップロード](/draft/elm-file-upload/index.html)
-- [VSCode でリモートサーバーのソースを編集する](/draft/vscode.html)
 - comming soon...
 
 <a id="november-2018"></a>
 ### November 2018
 
-- 11/19 : VSCode でリモートサーバーのソースを編集する
+- [11/19 : VSCode でリモートサーバーのソースを編集する](entry/2018/11/19/201359)
 
 <a id="october-2018"></a>
 ### October 2018
