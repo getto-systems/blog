@@ -4,6 +4,8 @@
 ###### CONTENTS
 
 - [Drafts](#drafts)
+- [November 2018](#november-2018)
+- [October 2018](#october-2018)
 - [September 2018](#september-2018)
 - [June 2018](#june-2018)
 - [March 2018](#march-2018)
@@ -19,6 +21,17 @@
 
 - [Elm でファイルアップロード](/draft/elm-file-upload/index.html)
 - comming soon...
+
+<a id="november-2018"></a>
+### November 2018
+
+- [11/19 : VSCode でリモートサーバーのソースを編集する](entry/2018/11/19/201359)
+
+<a id="october-2018"></a>
+### October 2018
+
+- [10/08 : S3 + CloudFront でフロントエンドを配信する](/entry/2018/10/08/193909)
+- [10/10 : BitBuckbt の Pipeline で S3 にアップロードする](/entry/2018/10/10/151121)
 
 <a id="september-2018"></a>
 ### September 2018
