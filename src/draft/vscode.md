@@ -158,7 +158,7 @@ settings.json を載せておく。
 
 vim の設定でマクロ的なことができるので、これで色々やってみよう。
 
-あと、 Vim の Undo がすごく Undo するので、この設定で `Cmd + Z` にしてある。
+あと、 Vim の undo がすごく undo するので、この設定で `Cmd + Z` にしてある。
 こうすると `Ctrl + R` で元に戻らなくなるので、ショートカットの設定も追加してある。
 
 
@@ -166,7 +166,7 @@ vim の設定でマクロ的なことができるので、これで色々やっ�
 <a id="github-flow"></a>
 ### GitHub flow の運用
 
-VSCode から `git commit`, `git.push` などを行う。
+VSCode から `git.commit`, `git.push` などを行う。
 
 しかし、ローカルで変更したファイルをリモートにコピーするので、リモートの git は当然 modified な状態になる。
 このため、 git を同期する方法を用意しておく。
