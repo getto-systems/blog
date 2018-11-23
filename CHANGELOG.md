@@ -1,3 +1,7 @@
+# Version : 0.3.1
+
+fix: variables
+
 # Version : 0.3.0
 
 publish: VSCode
