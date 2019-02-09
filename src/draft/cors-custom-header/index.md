@@ -8,7 +8,7 @@ Cross Origin でカスタムヘッダを送信する方法をまとめる。
 
 1. [sinatra でのサンプル](#sample-on-sinatra)
 1. [preflight レスポンスヘッダ](#headers-for-options)
-1. [コンテンツレスポンスヘッダ](#headers-for-contents)
+1. [レスポンスヘッダ](#headers-for-contents)
 1. [まとめ](#postscript)
 1. [参考資料](#reference)
 
@@ -64,24 +64,6 @@ end
 これは「シンプルなリクエスト」ではないので、ブラウザは preflight リクエストを行う。
 
 
-[TOP](#top)
-<a id="headers-for-options"></a>
-### preflight レスポンスヘッダ
-
-「シンプルなリクエスト」以外のリクエストをする場合、ブラウザは preflight リクエストを行う。
-preflight リクエストは対象のリソースに対して `OPTIONS` メソッドでリクエストの可否を問い合わせる。
-
-この時、サーバーは以下のヘッダを含めて応答する。
-
-- Access-Control-Allow-Origin : アクセスを許可する Origin
-- Access-Control-Allow-Methods : アクセスを許可する Method
-- Access-Control-Allow-Headers : 含めて良い Header
-
-`Access-Control-Allow-Headers` に関してはを「シンプルなリクエストヘッダ」は常に許可されるので列挙する必要はない。
-
-ブラウザは、このレスポンスヘッダで許可されたリクエストのみサーバーに発行する。
-
-
 #### シンプルなリクエスト
 
 「シンプルなリクエスト」は以下を満たす。
@@ -102,6 +84,24 @@ preflight リクエストは対象のリソースに対して `OPTIONS` メソ�
   - text/plain
 
 
+[TOP](#top)
+<a id="headers-for-options"></a>
+### preflight レスポンスヘッダ
+
+「シンプルなリクエスト」以外のリクエストをする場合、ブラウザは preflight リクエストを行う。
+preflight リクエストは対象のリソースに対して `OPTIONS` メソッドでリクエストの可否を問い合わせる。
+
+この時、サーバーは以下のヘッダを含めて応答する。
+
+- Access-Control-Allow-Origin : アクセスを許可する Origin
+- Access-Control-Allow-Methods : アクセスを許可する Method
+- Access-Control-Allow-Headers : 含めて良い Header
+
+`Access-Control-Allow-Headers` に関してはを「シンプルなリクエストヘッダ」は常に許可されるので列挙する必要はない。
+
+ブラウザは、このレスポンスヘッダで許可されたリクエストのみサーバーに発行する。
+
+
 #### シンプルなリクエストヘッダ
 
 - Accept
@@ -115,9 +115,9 @@ preflight リクエストは対象のリソースに対して `OPTIONS` メソ�
 
 [TOP](#top)
 <a id="headers-for-contents"></a>
-### コンテンツレスポンスヘッダ
+### レスポンスヘッダ
 
-コンテンツとして「シンプルなレスポンスヘッダ」以外を返したい場合、 `Access-Control-Expose-Headers` を含める必要がある。
+「シンプルなレスポンスヘッダ」以外を返したい場合、 `Access-Control-Expose-Headers` を含める必要がある。
 これを含めないと、 `xhr.getResponseHeader` や `xhr.getAllResponseHeaders` でレスポンスヘッダを受け取ることができない。
 
 ちなみにヘッダは case-insensitive なので、この例では `xhr.getResponseHeader("x-upload-id")` で取得できる。
