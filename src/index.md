@@ -4,6 +4,7 @@
 ###### CONTENTS
 
 - [Drafts](#drafts)
+- [February 2019](#february-2019)
 - [November 2018](#november-2018)
 - [October 2018](#october-2018)
 - [September 2018](#september-2018)
@@ -20,8 +21,12 @@
 ### Drafts
 
 - [Elm でファイルアップロード](/draft/elm-file-upload/index.html)
-- [Cross Domain でカスタムヘッダを送信する](/draft/cors-custom-header/index.html)
 - comming soon...
+
+<a id="february-2019"></a>
+### February 2019
+
+- [2/10 : Cross Origin でカスタムヘッダを送受信する](entry/2019/02/10/080226)
 
 <a id="november-2018"></a>
 ### November 2018
