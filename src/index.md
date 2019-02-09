@@ -20,6 +20,7 @@
 ### Drafts
 
 - [Elm でファイルアップロード](/draft/elm-file-upload/index.html)
+- [Cross Domain でカスタムヘッダを送信する](/draft/cors-custom-header/index.html)
 - comming soon...
 
 <a id="november-2018"></a>
