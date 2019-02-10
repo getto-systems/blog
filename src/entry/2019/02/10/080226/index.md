@@ -1,7 +1,7 @@
-# Cross Origin でカスタムヘッダを送受信する
+# CORS でカスタムヘッダを送受信する
 <a id="top"></a>
 
-Cross Origin でカスタムヘッダを送信する方法をまとめる。
+CORS でカスタムヘッダを送信する方法をまとめる。
 
 
 ###### CONTENTS
