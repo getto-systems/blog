@@ -1,3 +1,7 @@
+# Version : 0.4.1
+
+fix: content
+
 # Version : 0.4.0
 
 publish: cors-custom-header

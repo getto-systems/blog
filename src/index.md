@@ -26,7 +26,7 @@
 <a id="february-2019"></a>
 ### February 2019
 
-- [2/10 : Cross Origin でカスタムヘッダを送受信する](entry/2019/02/10/080226)
+- [2/10 : CORS でカスタムヘッダを送受信する](entry/2019/02/10/080226)
 
 <a id="november-2018"></a>
 ### November 2018
