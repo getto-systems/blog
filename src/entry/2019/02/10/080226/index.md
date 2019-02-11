@@ -37,17 +37,18 @@ options "*" do
 end
 
 post "/upload" do
+  headers(
+    "Access-Control-Allow-Origin" => "https://example.com",
+    "Access-Control-Expose-Headers" => "X-Upload-ID",
+  )
+
   halt 401 unless authorize(env["HTTP_AUTHORIZATION"]) # authorize by token
 
   halt 400 unless file = (params[:file] && params[:file][:tempfile])
 
   upload_id = upload file # process uploaded file...
 
-  headers(
-    "Access-Control-Allow-Origin" => "https://example.com",
-    "Access-Control-Expose-Headers" => "X-Upload-ID",
-    "X-Upload-ID" => upload_id.to_s,
-  )
+  headers["X-Upload-ID"] = upload_id.to_s
 
   content_type "application/json"
   { message: :ok }.to_json
