@@ -21,6 +21,7 @@
 ### Drafts
 
 - [Elm でファイルアップロード](/draft/elm-file-upload/index.html)
+- [Elm パッケージを publish する](/draft/elm-publish/index.html)
 - comming soon...
 
 <a id="february-2019"></a>
