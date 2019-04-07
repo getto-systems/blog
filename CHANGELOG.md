@@ -1,3 +1,7 @@
+# Version : 0.5.0
+
+publish: ruby-filewatcher
+
 # Version : 0.4.2
 
 fix: content
