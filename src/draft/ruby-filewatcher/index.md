@@ -1,8 +1,6 @@
 # Ruby で自動テスト
 <a id="top"></a>
 
-クラスやテストを変更した時に自動でテストが走るようにする。
-
 ###### CONTENTS
 
 1. [filewatcher のインストール](#install-filewatcher)
@@ -23,10 +21,10 @@
 <a id="install-filewatcher"></a>
 ### filewatcher のインストール
 
-ファイルの変更によってコマンドを実行したい。
+ファイルの変更によってテストを実行したい。
 以前は `guard` を使用していたが、 `guard-minitest` がメンテナンスされていないので代わりのものを探した。
 
-検索したら [filewatcher](https://github.com/filewatcher/filewatcher) がすぐ出てきて操作も簡単なので、他は見ていないがこれを選択した。
+検索したら [filewatcher](https://github.com/filewatcher/filewatcher) がすぐ出てきて操作も簡単なので、他は見ていないがこれを選択することにした。
 
 ```ruby
 # Gemfile
@@ -80,7 +78,7 @@ Ruby で自動テストを行う方法をまとめた。
 
 実際に使用している Rakefile を載せておく。
 
-test だけではなく lib も監視して、対応するテストが書いてあれば実行する構成。
+test だけではなく lib も監視して、対応するテストが書いてあれば実行するという構成にしてある。
 
 ```ruby
 require "rake/testtask"
