@@ -1,2 +1,2 @@
-DOCKER_WRAPPER_IMAGE_node() { echo "11.11.0-stretch"; }
+DOCKER_WRAPPER_IMAGE_node() { echo "11.13.0-stretch"; }
 DOCKER_WRAPPER_SERVER_OPTS_npm() { echo "-p ${LABO_PORT_PREFIX}80:8080"; }

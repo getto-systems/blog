@@ -24,8 +24,8 @@
     "marked": "^0.4.0",
     "merge": ">=1.2.1",
     "reload-wrapper": "^0.1.1",
-    "textlint": "^10.2.1",
-    "textlint-rule-preset-ja-technical-writing": "^2.0.0",
+    "textlint": "^11.2.3",
+    "textlint-rule-preset-ja-technical-writing": "^3.1.2",
     "watch": "^1.0.2"
   }
 }
