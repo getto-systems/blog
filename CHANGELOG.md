@@ -1,3 +1,7 @@
+# Version : 0.5.1
+
+fix: ruby-watch
+
 # Version : 0.5.0
 
 publish: ruby-filewatcher
