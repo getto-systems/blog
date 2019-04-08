@@ -97,7 +97,10 @@ task :watch do
     end
 
     if File.exist?(filename)
-      ruby "-Ilib:test #{filename}"
+      begin
+        ruby "-Ilib:test #{filename}"
+      rescue
+      end
     end
   end
 end
