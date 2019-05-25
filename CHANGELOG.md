@@ -1,3 +1,7 @@
+# Version : 0.6.0
+
+publish: k8s cert-manager
+
 # Version : 0.5.1
 
 fix: ruby-watch
