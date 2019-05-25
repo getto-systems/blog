@@ -142,8 +142,7 @@ ClusterIssuer は Issuer とほぼ同じだが、名前空間をまたいで参�
 
 cert-manager は `cert-manager` 名前空間にデプロイするが、Certificate リソースは Ingress リソースと同じ名前空間に置きたい。（この記事では `default`）
 
-Certificate リソースは tls secret を自分と同じ名前空間に配置するが、この secret は Ingress リソースから参照したい。
-Ingress リソースは `default` にあるので、Certificate リソースは `default` に置きたい。
+これは、Certificate リソースが作成する tls secret を Ingress リソースから参照したいため。
 
 Issuer は `cert-manager` に定義するので、`default` からは参照できないが、ClusterIssuer にすることで名前空間をまたいで参照可能にしている。
 
