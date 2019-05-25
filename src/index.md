@@ -23,6 +23,7 @@
 ### Drafts
 
 - [Elm でファイルアップロード](/draft/elm-file-upload/index.html)
+- [Kubernetes で cert-manager する話](/draft/k8s-cert-manager.html)
 - comming soon...
 
 <a id="april-2019"></a>
