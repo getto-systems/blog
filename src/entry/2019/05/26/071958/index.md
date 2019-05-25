@@ -98,8 +98,6 @@ $ kubectl create secret generic \
 名前空間は `cert-manager` にする。
 access key id と secret access key は history に残らないように工夫したい。
 
-secret の名前は適宜わかりやすいようにつければ良い。
-
 
 [TOP](#top)
 <a id="dns-validation"></a>
