@@ -46,7 +46,7 @@ $ kubectl label namespace cert-manager certmanager.k8s.io/disable-validation=tru
 $ kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v0.8.0/cert-manager.yaml
 ```
 
-それぞれ何をしているかはの詳細はドキュメントを参照。
+それぞれ何をしているかの詳細はドキュメントを参照。
 
 これで `cert-manager` という名前空間に cert-manager がデプロイされる。
 
