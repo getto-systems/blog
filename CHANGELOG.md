@@ -1,3 +1,7 @@
+# Version : 0.7.0
+
+publish docker-run-pipe
+
 # Version : 0.6.1
 
 fix: k8s cert-manager
