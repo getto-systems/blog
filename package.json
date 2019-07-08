@@ -20,11 +20,11 @@
   "homepage": "https://github.com/getto-systems/blog#readme",
   "devDependencies": {
     "cross-spawn": "^6.0.5",
-    "ejs": "^2.6.1",
-    "marked": "^0.4.0",
+    "ejs": "^2.6.2",
+    "marked": "^0.7.0",
     "merge": ">=1.2.1",
     "reload-wrapper": "^0.1.1",
-    "textlint": "^11.2.3",
+    "textlint": "^11.2.6",
     "textlint-rule-preset-ja-technical-writing": "^3.1.2",
     "watch": "^1.0.2"
   }
