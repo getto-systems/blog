@@ -23,13 +23,12 @@
 ### Drafts
 
 - [Elm でファイルアップロード](/draft/elm-file-upload/index.html)
-- [docker run をパイプラインで起動する](draft/docker-run-pipe)
 - comming soon...
 
 
 ### Jury 2019
 
-- [7/8 : docker run をパイプラインで起動する](entry/2019/07/08/071958)
+- [7/8 : 普通のコマンドみたいに docker run を起動する](entry/2019/07/08/221934)
 
 
 ### May 2019
