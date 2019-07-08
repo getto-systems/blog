@@ -1,0 +1,5 @@
+heading-increment: false
+blanks-around-headings: false
+no-inline-html: false
+no-multiple-blanks:
+  maximum: 2
