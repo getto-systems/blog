@@ -23,6 +23,7 @@
 ### Drafts
 
 - [Elm でファイルアップロード](/draft/elm-file-upload/index.html)
+- [vim で Elm language server をセットアップする](/draft/elm-coc/index.html)
 - comming soon...
 
 
