@@ -1,6 +1,6 @@
 {
   "name": "getto-blog",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "description": "GETTO blog contents",
   "scripts": {
     "start": "npm run reload & npm run watch",

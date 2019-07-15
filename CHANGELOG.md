@@ -1,3 +1,7 @@
+# Version : 0.9.0
+
+publish: vim-markdownlint
+
 # Version : 0.8.0
 
 publish: elm-language-server
