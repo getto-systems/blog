@@ -23,12 +23,12 @@
 ### Drafts
 
 - [Elm でファイルアップロード](/draft/elm-file-upload/index.html)
-- [vim で Elm language server をセットアップする](/draft/elm-coc/index.html)
 - comming soon...
 
 
 ### Jury 2019
 
+- [7/15 : vim で Elm language server をセットアップする](entry/2019/07/15/215114)
 - [7/8 : 普通のコマンドみたいに docker run を起動する](entry/2019/07/08/221934)
 
 
