@@ -47,7 +47,7 @@ fi
 
 単にコマンドを発行してみる。
 
-```
+```bash
 $ ./docker-bash.sh -c 'echo "hello, world!"'
 hello, world!
 ```
@@ -59,7 +59,7 @@ hello, world!
 <a id="pipe-stdin"></a>
 ### 標準入力をパイプラインにする
 
-```
+```bash
 $ cat hello.sh
 echo "hello, world!"
 
@@ -74,7 +74,7 @@ hello, world!
 <a id="redirect-stdout"></a>
 ### 標準出力をリダイレクト
 
-```
+```bash
 $ ./docker-bash.sh -c 'echo "hello, world!"' > hello.txt
 $ cat hello.txt
 hello, world!
@@ -87,7 +87,7 @@ hello, world!
 <a id="redirect-stderr"></a>
 ### 標準エラーをリダイレクト
 
-```
+```bash
 $ ./docker-bash.sh -c '>&2 echo "hello, error!"; echo "hello, world!"' 2> error.txt
 hello, world!
 
@@ -102,7 +102,7 @@ hello, error!
 <a id="allocate-tty"></a>
 ### 端末を割り出てる
 
-```
+```bash
 $ ./docker-bash.sh
 root@bd2f729fddc5:/#
 

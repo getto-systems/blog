@@ -1,3 +1,7 @@
+# Version : 0.8.0
+
+publish: elm-language-server
+
 # Version : 0.7.0
 
 publish docker-run-pipe
