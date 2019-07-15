@@ -28,6 +28,7 @@
 
 ### Jury 2019
 
+- [vim で markdownlint する](draft/vim-markdownlint)
 - [7/15 : vim で Elm language server をセットアップする](entry/2019/07/15/215114)
 - [7/8 : 普通のコマンドみたいに docker run を起動する](entry/2019/07/08/221934)
 
