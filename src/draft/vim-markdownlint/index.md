@@ -6,7 +6,7 @@ coc に efm-langserver 追加して、markdownlint が効くようにする。
 ###### CONTENTS
 
 1. [出来上がったもの](#outcome)
-1. [efm-langserver をインストールする](#install-elm-langserver)
+1. [efm-langserver をインストールする](#install-efm-langserver)
 1. [markdownlint-cli をインストールする](#install-markdownlint-cli)
 1. [まとめ](#postscript)
 1. [参考資料](#reference)
