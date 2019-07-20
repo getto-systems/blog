@@ -1,3 +1,7 @@
+# Version : 0.10.0
+
+publish: run-dockle
+
 # Version : 0.9.0
 
 publish: vim-markdownlint
