@@ -22,6 +22,7 @@
 
 ### Drafts
 
+- [dockle で docker build のベストプラクティスをチェックしてみる](/draft/run-dockle/index.html)
 - [Elm でファイルアップロード](/draft/elm-file-upload/index.html)
 - comming soon...
 
