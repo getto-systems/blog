@@ -22,13 +22,13 @@
 
 ### Drafts
 
-- [dockle で docker build のベストプラクティスをチェックしてみる](/draft/run-dockle/index.html)
 - [Elm でファイルアップロード](/draft/elm-file-upload/index.html)
 - comming soon...
 
 
 ### Jury 2019
 
+- [7/20 : dockle で docker build のベストプラクティスをチェックしてみる](entry/2019/07/20/203112)
 - [7/16 : vim で markdownlint する](entry/2019/07/16/003029)
 - [7/15 : vim で Elm language server をセットアップする](entry/2019/07/15/215114)
 - [7/8 : 普通のコマンドみたいに docker run を起動する](entry/2019/07/08/221934)
