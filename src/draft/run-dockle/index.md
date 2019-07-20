@@ -83,7 +83,7 @@ exec setpriv --reuid $LABO_USER --regid $LABO_USER --init-groups "$@"
 ```
 
 `setpriv` は環境変数を初期化しないので、`HOME` を設定しないと `HOME=/root` のままになってしまう。
-`--reset-env` というオプションが man に乗っていたのだが、そんなオプションはないと言われてしまった。
+`--reset-env` というオプションが [man](https://manpages.debian.org/buster/util-linux/setpriv.1.en.html) に乗っていたのだが、そんなオプションはないと言われてしまった。
 
 これで `sudo` を使用するのとだいたい同じ挙動になった。
 
