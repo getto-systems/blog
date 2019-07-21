@@ -23,6 +23,7 @@
 ### Drafts
 
 - [Elm でファイルアップロード](/draft/elm-file-upload/index.html)
+- [dockle と trivy で CI してみる](/draft/ci-dockle-trivy/index.html)
 - comming soon...
 
 
