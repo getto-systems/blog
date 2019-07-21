@@ -64,7 +64,7 @@ sudo gem install -n /usr/local/bin docker-sync
 
 インストールが以下のエラーで止まったので、調べてみると開発用のツールが足りないらしい。
 
-```
+```text
 mkmf.rb can't find header files for ruby
 ```
 
@@ -98,7 +98,7 @@ syncs:
 
 ディレクトリ構成は以下の通り。
 
-```
+```text
 ./
 + docker-sync.yml
 + apps/
@@ -128,7 +128,7 @@ Mac 上で直接 ruby の開発をするわけではなく、ツールを使用�
 <a id="postscript"></a>
 ### まとめ
 
-Docker for Mac で開発環境を構築して、快適に開発することができるようになってきた。
+Docker for Mac で開発環境を構築して、快適に開発できるようになってきた。
 `docker-sync` を使用することになったが、この依存はしょうがないと割り切ることにした。
 
 

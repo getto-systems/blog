@@ -57,7 +57,7 @@ ubuntu をベースに、 docker に加えて zsh と neovim が開発用とし�
 
 dotfiles ディレクトリには自分の dotfiles を展開しておく。
 
-```
+```text
 /WORK_ROOT
   |
   +- apps
@@ -108,7 +108,7 @@ CONTAINER ID ... （実際の出力）
 もし `permission denied` で実行できない場合は以下のコマンドを実行しておく。
 
 ```bash
-$ sudo chown $LABO_USER:$LABO_USER /var/run/docker.sock
+sudo chown $LABO_USER:$LABO_USER /var/run/docker.sock
 ```
 
 - 実験はしていないが、このコマンドを実行すると、どのユーザーでも docker コマンドが実行できるようになってしまうように感じる。 mac を共有して使用している場合はその辺り検証する必要がある
@@ -136,7 +136,7 @@ docker run \
 
 - /apps と $HOME を共有して起動する、ということになる
 
-さらに、 $(pwd) を working directory に指定することで、まるで ruby をインストールしてあるかのようにコマンドを実行することができる。
+さらに、 $(pwd) を working directory に指定することで、まるで ruby をインストールしてあるかのようにコマンドを実行できる。
 
 -it オプションにより、 irb 等の対話的コマンドも問題なく実行することが可能。
 
@@ -173,14 +173,14 @@ docker コマンドが実行できれば、 ruby や node などの実行環境�
 
 しかし、そのためには長い docker run コマンドを打ち込む必要がある。
 
-docker run をラップしたスクリプトを用意しておけば、それらの実行環境がインストールされているかのように開発することができる。
+docker run をラップしたスクリプトを用意しておけば、それらの実行環境がインストールされているかのように開発できる。
 
 「その２」へ続く。
 
 
 #### docker 入りのコンテナを動かす理由は何か
 
-単に docker run すれば mac に ruby や node などの実行環境がインストールされているかのように作業することができる。
+単に docker run すれば mac に ruby や node などの実行環境がインストールされているかのように作業できる。
 
 しかし、 zsh や neovim といった開発用の shell 環境で作業したいため、 docker 入りのコンテナを docker for mac 上にもう１つ動かしている。
 

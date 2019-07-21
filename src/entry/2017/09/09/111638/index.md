@@ -279,7 +279,7 @@ ${docker_wrapper_envs[@]} # => -p 4000:4000 (other env vars...)
 
 これらのうち、 start 以外はコンテナ名があれば実行が可能だ。
 
-コンテナ名はすでにわかっているので、 start 以外のサブコマンドなら共通に処理することができる。
+コンテナ名はすでにわかっているので、 start 以外のサブコマンドなら共通に処理できる。
 
 ```bash
 docker_wrapper_server phoenix "$@"
@@ -293,11 +293,11 @@ fi
 <a id="postscript"></a>
 ### まとめ
 
-[getto-systems/docker-wrapper](https://github.com/getto-systems/docker-wrapper) を使用することで、各種ラッパースクリプトを量産することができる。
+[getto-systems/docker-wrapper](https://github.com/getto-systems/docker-wrapper) を使用することで、各種ラッパースクリプトを量産できる。
 
 このスクリプトは環境変数を使用して挙動の変更を行なっているので、プロジェクトごとに環境変数を切り替える必要がある。
 
-tmux や direnv を使用することで、プロジェクトごとに環境変数を切り替えて作業することができる。
+tmux や direnv を使用することで、プロジェクトごとに環境変数を切り替えて作業できる。
 
 [「その３」](/entry/2017/09/16/180320)へ続く。
 
