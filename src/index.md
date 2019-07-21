@@ -28,6 +28,7 @@
 
 ### Jury 2019
 
+- [7/22 : dockle と trivy で CI してみる](entry/2019/07/22/004819)
 - [7/20 : dockle で docker build のベストプラクティスをチェックしてみる](entry/2019/07/20/203112)
 - [7/16 : vim で markdownlint する](entry/2019/07/16/003029)
 - [7/15 : vim で Elm language server をセットアップする](entry/2019/07/15/215114)

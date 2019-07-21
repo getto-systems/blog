@@ -24,7 +24,7 @@ title: Ruby でエクセルファイルを読み込む
 
 エクセルを読む gem は色々とあるが、今回は Roo を使用することにした。
 
-- [roo-rb/roo : GitHub](https://github.com/roo-rb/roo)
+* [roo-rb/roo : GitHub](https://github.com/roo-rb/roo)
 
 基本的には以下のようにすれば良い。
 
@@ -44,7 +44,7 @@ each にオプションを渡すことで、特定の行をヘッダとして解
 <a id="detect-header-by-hash"></a>
 ### ハッシュでヘッダを指定
 
-ヘッダ行の値に重複がない場合は、 Hash でヘッダのキーを指定することができる。
+ヘッダ行の値に重複がない場合は、 Hash でヘッダのキーを指定できる。
 
 ```ruby
 header = {
@@ -116,14 +116,13 @@ end
 ```
 
 
-
 [TOP](#top)
 <a id="read-xls"></a>
 ### xls 形式のファイルを読み込む
 
 roo-xls を使用することで、同じ API で xls 形式のファイルを読み込むことができる。
 
-- [roo-rb/roo-xls : GitHub](https://github.com/roo-rb/roo-xls)
+* [roo-rb/roo-xls : GitHub](https://github.com/roo-rb/roo-xls)
 
 ```ruby
 require "roo"
@@ -134,7 +133,6 @@ xls.sheet("Sheet1").each do |row|
   row[0] # => first cell
 end
 ```
-
 
 
 [TOP](#top)

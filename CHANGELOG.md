@@ -1,3 +1,7 @@
+# Version : 0.11.0
+
+publish: ci-dockle-trivy
+
 # Version : 0.10.0
 
 publish: run-dockle

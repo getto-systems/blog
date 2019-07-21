@@ -27,7 +27,7 @@ title: Mac で「かな」配列をカスタマイズする - その後
 
 - [Karabiner-Elementsで日本語入力状態を把握してキー設定出来る様になった](https://rcmdnk.com/blog/2017/10/30/computer-mac-karabiner/)
 
-この記事にある通り、 `input_source_if` で IME の状態を条件の中で使用することができるようになった。
+この記事にある通り、 `input_source_if` で IME の状態を条件の中で使用できるようになった。
 
 サンプルとしてEscキーに対するマッピングの例。
 

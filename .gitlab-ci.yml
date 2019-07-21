@@ -1,6 +1,15 @@
-image: buildpack-deps:stretch
+image: node:12.6.0-stretch
+
+test:
+  only:
+    - merge_requests
+  before_script:
+    - npm install
+  script:
+    - npm test
 
 release:
+  image: buildpack-deps:stretch
   only:
     - release@getto-systems-labo/blog
   script:

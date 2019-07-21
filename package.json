@@ -1,12 +1,13 @@
 {
   "name": "getto-blog",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "description": "GETTO blog contents",
   "scripts": {
     "start": "npm run reload & npm run watch",
     "reload": "reload-wrapper -d ./public",
     "watch": "npm run watch:build",
-    "watch:build": "node ./scripts/build.js"
+    "watch:build": "node ./scripts/build.js",
+    "test": "textlint $(find src -name '*.md')"
   },
   "repository": {
     "type": "git",
