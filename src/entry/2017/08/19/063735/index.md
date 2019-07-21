@@ -72,10 +72,10 @@ livereload 用のスクリプトは html か body タグを目印にして埋め
 web サーバーを立ち上げてコンテンツを確認する。
 
 ```bash
-$ gulp livereload
+gulp livereload
 ```
 
-http://localhost:8000 にアクセスして、 public/index.html を編集した時にリロードされれば OK。
+`http://localhost:8000` にアクセスして、 public/index.html を編集した時にリロードされれば OK。
 
 [TOP](#top)
 <a id="convert-to-html"></a>
@@ -124,10 +124,10 @@ src/index.md に適当なファイルを作成する。
 world!!
 ```
 
-サーバーを再起動して http://localhost:8000 にアクセスして確認する。
+サーバーを再起動して `http://localhost:8000` にアクセスして確認する。
 
 ```bash
-$ gulp livereload
+gulp livereload
 ```
 
 src/index.md を編集してみて、 html ができていれば OK。
@@ -194,10 +194,10 @@ html(lang="ja")
     != contents
 ```
 
-http://localhost:8000 にアクセスして確認する。
+`http://localhost:8000` にアクセスして確認する。
 
 ```bash
-$ gulp livereload
+gulp livereload
 ```
 
 
@@ -244,17 +244,17 @@ textlint は .textlintrc から設定を読み込むようになっているの�
 ルールやフィルタなど、色々あるようなのでその辺りは後日調整していくことにする。
 
 ```bash
-$ gulp livereload
+gulp livereload
 ```
 
-http://localhost:8000 にアクセスして src/index.md を編集した時に textlint のログが出れば OK。
+`http://localhost:8000` にアクセスして src/index.md を編集した時に textlint のログが出れば OK。
 
 
 [TOP](#top)
 <a id="postscript"></a>
 ### まとめ
 
-これでとりあえず livereload でプレビューしながら markdown で記事を書いて textlint することができるようになった。
+これでとりあえず livereload でプレビューしながら markdown で記事を書いて textlint できるようになった。
 
 あとはブログを書きながら textlint の設定周りを見直して行こう。
 

@@ -54,7 +54,7 @@ title: AWS Lambda でヘルスチェックする
 
 まず、 S3 にファイルをアップロードしたらそのファイルの情報をログに出力する関数を作成する。
 
-「関数の作成」ボタンを押すと、4ステップのウィザードで Lambda 関数を作成することができる。
+「関数の作成」ボタンを押すと、4ステップのウィザードで Lambda 関数を作成できる。
 
 1. 設計図の選択
 1. トリガーの設定
@@ -167,9 +167,9 @@ exports.handler = (event, context, callback) => {
 
 `url` と `body` はそれぞれ、監視対象の URL と、そのレスポンスにしておく。
 
-「アクション」から「テストイベントの設定」を選択すると、「テスト」ボタンで実行するときの `event` の内容を設定することができる。（テストイベントは APPENDIX に掲載）
+「アクション」から「テストイベントの設定」を選択すると、「テスト」ボタンで実行するときの `event` の内容を設定できる。（テストイベントは APPENDIX に掲載）
 
-このイベントの中の `s3.object.key` に、 `pulse/myhost.json` を指定しておくと、「テスト」を実行した時に `pulse/myhost.json` がアップロードされたかのように関数が実行される。
+たとえば `s3.object.key` に `pulse/myhost.json` を指定すると、「テスト」ボタンで `pulse/myhost.json` がアップロードされたかのように関数が実行される。
 
 #### 実装
 
@@ -252,7 +252,7 @@ Default output format [None]:
 アプリケーションが使用しているスケジューラーで、 10分ごとに、作成したバケットに pulse データをアップロードする。
 
 ```bash
-$ aws s3 cp myhost.json s3://作成したバケット/pulse/myhost.json --acl private
+aws s3 cp myhost.json s3://作成したバケット/pulse/myhost.json --acl private
 ```
 
 アップロードしたら、 `checkEcho` が起動されることを確認する。
