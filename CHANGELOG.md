@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## Version : 0.11.2
+
+add: notify.sh See merge request getto-systems-labo/blog!58
+
+
 ## Version : 0.11.1
 
 fix: gitlab-ci See merge request getto-systems-labo/blog!57
