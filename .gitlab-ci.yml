@@ -1,16 +1,64 @@
 image: node:12.6.0-stretch
 
+stages:
+  - test
+  - release
+  - notify
+
 test:
+  stage: test
   only:
-    - merge_requests
+    refs:
+      - merge_requests
+    changes:
+      - src/**/*.md
   before_script:
     - npm install
   script:
     - npm test
 
 release:
-  image: buildpack-deps:stretch
+  stage: release
   only:
-    - release@getto-systems-labo/blog
+    refs:
+      - triggers
+    variables:
+      - $RELEASE
+
+  image: buildpack-deps:disco-scm
+
+  variables:
+    GIT_USER_NAME: getto
+    GIT_USER_EMAIL: admin@getto.systems
+
   script:
+    - curl https://raw.githubusercontent.com/getto-systems/version-dump/master/bin/version_dump.sh | bash
     - ./bin/push_tags.sh
+
+release_success:
+  stage: notify
+  only:
+    refs:
+      - triggers
+    variables:
+      - $RELEASE
+  when: on_success
+
+  image: buildpack-deps:disco-curl
+
+  script:
+    - ./bin/notify.sh success
+
+release_failure:
+  stage: notify
+  only:
+    refs:
+      - triggers
+    variables:
+      - $RELEASE
+  when: on_failure
+
+  image: buildpack-deps:disco-curl
+
+  script:
+    - ./bin/notify.sh failure
