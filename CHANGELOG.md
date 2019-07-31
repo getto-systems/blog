@@ -1,3 +1,9 @@
+# CHANGELOG
+
+## Version : 0.11.1
+
+fix: gitlab-ci See merge request getto-systems-labo/blog!57
+
 # Version : 0.11.0
 
 publish: ci-dockle-trivy
