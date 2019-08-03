@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## Version : 0.12.0
+
+publish: js-async-await See merge request getto-systems-labo/blog!61
+add: js-async-await See merge request getto-systems-labo/blog!60
+fix: CHANGELOG See merge request getto-systems-labo/blog!59
+
+
 ## Version : 0.11.2
 
 add: notify.sh See merge request getto-systems-labo/blog!58
