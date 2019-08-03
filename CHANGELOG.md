@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## Version : 0.13.0
+
+publish: manage secrets See merge request getto-systems-labo/blog!64
+fix: content See merge request getto-systems-labo/blog!63
+add: manage-secrets See merge request getto-systems-labo/blog!62
+
+
 ## Version : 0.12.0
 
 publish: js-async-await See merge request getto-systems-labo/blog!61
