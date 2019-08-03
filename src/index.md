@@ -24,6 +24,10 @@
 ### Drafts
 
 - [Elm でファイルアップロード](/draft/elm-file-upload/index.html)
+- [Slack Bot でデプロイする](/draft/deploy-by-slack-bot/index.html)
+- [AWS Secrets Manager で機密情報を保存する](/draft/manage-secrets/index.html)
+- [AWS Lambda で Slack Bot イベントハンドラを作る](/draft/handle-slack-event-by-lambda/index.html)
+- [AWS CloudFormation で Lambda をデプロイする](/draft/deploy-lambda-by-cloudformation/index.html)
 - comming soon...
 
 ### August 2019
