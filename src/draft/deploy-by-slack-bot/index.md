@@ -1,20 +1,15 @@
 # Slack Bot でデプロイする
 <a id="top"></a>
 
-Slack Bot にチャットでデプロイを頼めるようにしたい。
+Slack Bot にデプロイを頼めるようにしたい。
 
 ###### CONTENTS
 
 1. [できあがったもの](#outcome)
-1. [デプロイ](#details)
+1. [デプロイ](#deploy)
 1. [実装詳細](#details)
 1. [まとめ](#postscript)
 1. [参考資料](#reference)
-
-
-###### ENVIRONMENTS
-
-- Node.js 10.16.0
 
 
 <a id="outcome"></a>
@@ -49,7 +44,7 @@ Slack イベントを受け取ってイベントに応じたアクションを�
 - シークレットの `gitlab-trigger-tokens` に GitLab のトリガートークンを保存
 - .gitlab-ci のワークフローに `deploy` と `notify` を追加
 
-GitLab のトリガートークンは以下の形式で保存する。
+GitLab のトリガートークンは以下のような json で保存する。
 
 ```json
 {
@@ -163,7 +158,7 @@ curl "$NOTIFY_URL?$NOTIFY_TOKEN=true&source=gitlab&result=$result&channel=$chann
 
 #### psycher_secret
 
-AWS Secrets Manager からシークレットを取得してトークンのやり取りを行う。
+AWS Secrets Manager からシークレットを取得してトークンを取り出す。
 
 
 [TOP](#top)
