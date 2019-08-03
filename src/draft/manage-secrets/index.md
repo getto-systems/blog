@@ -48,14 +48,14 @@ AWS のコンソールから Secrets Manager を開いて、「シークレッ�
 
 これでシークレットの保存が完了する。
 
-今回保存する Slack Bot のトークンは、定期的な変更はする予定がないため、自動ローテーションは無効にした。
+今回保存する Slack Bot トークンは定期的に変更する予定がないため、自動ローテーションは無効にした。
 
 
 [TOP](#top)
 <a id="get-secret"></a>
 ### javascript からシークレットを取得する
 
-Secrets Manager の画面のサンプルコードを参考にしてシークレットを取得するコードを試してみる。
+Secrets Manager のサンプルコードを参考にして、シークレットを取得するコードを試してみる。
 
 ```javascript
 const AWS = require("aws-sdk");
