@@ -144,7 +144,7 @@ curl "$NOTIFY_URL?$NOTIFY_TOKEN=true&source=gitlab&result=$result&channel=$chann
 #### bot_event
 
 - slack_bot_event : Slack イベント : 特定の mention であることを確認する
-- getto_bot_event : 独自イベント : GitLab の通知が success か failure かを確認する
+- getto_bot_event : 独自イベント : GitLab の pipeline が success か failure かを確認する
 
 
 #### outgoing_messenger
