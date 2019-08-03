@@ -71,69 +71,6 @@ Resources:
             Ref: SecretId
 ```
 
-`deploy` する際に必要なポリシーは以下の通り。
-
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "cloudformation",
-      "Effect": "Allow",
-      "Action": [
-        "cloudformation:GetTemplateSummary",
-        "cloudformation:DescribeStacks",
-        "cloudformation:DescribeChangeSet",
-        "cloudformation:CreateChangeSet",
-        "cloudformation:ExecuteChangeSet"
-      ],
-      "Resource": [
-        "arn:aws:cloudformation:REGION:ACCOUNT:stack/STACK_NAME/*"
-      ]
-    },
-    {
-      "Sid": "transform",
-      "Effect": "Allow",
-      "Action": "cloudformation:CreateChangeSet",
-      "Resource": "arn:aws:cloudformation:REGION:aws:transform/*"
-    },
-    {
-      "Sid": "lambda",
-      "Effect": "Allow",
-      "Action": [
-        "lambda:ListVersionsByFunction",
-        "lambda:TagResource",
-        "lambda:UntagResource",
-        "lambda:ListTags",
-        "lambda:GetFunction",
-        "lambda:CreateFunction",
-        "lambda:DeleteFunction",
-        "lambda:UpdateFunctionConfiguration",
-        "lambda:UpdateFunctionCode",
-        "lambda:PublishVersion",
-        "lambda:CreateAlias",
-        "lambda:UpdateAlias"
-      ],
-      "Resource": [
-        "arn:aws:lambda:REGION:ACCOUNT:function:FUNCTION_NAME"
-      ]
-    },
-    {
-      "Sid": "iam",
-      "Effect": "Allow",
-      "Action": [
-        "iam:PassRole"
-      ],
-      "Resource": [
-        "arn:aws:iam::ACCOUNT:role/ROLE_NAME"
-      ]
-    }
-  ]
-}
-```
-
-`REGION`、`ACCOUNT`、`STACK_NAME`、`FUNCTION_NAME`、`ROLE_NAME` は適宜指定する。
-
 
 [TOP](#top)
 <a id="package"></a>
