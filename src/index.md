@@ -3,6 +3,7 @@
 ###### CONTENTS
 
 - [Drafts](#drafts)
+- [August 2019](#august-2019)
 - [Jury 2019](#jury-2019)
 - [May 2019](#may-2019)
 - [April 2019](#april-2019)
@@ -23,8 +24,11 @@
 ### Drafts
 
 - [Elm でファイルアップロード](/draft/elm-file-upload/index.html)
-- [JavaScript の async/await について](/draft/js-async-await/index.html)
 - comming soon...
+
+### August 2019
+
+- [08/03 : JavaScript の async/await について](/entry/2019/08/03/164422)
 
 
 ### Jury 2019
