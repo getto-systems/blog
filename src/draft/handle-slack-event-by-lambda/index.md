@@ -257,7 +257,7 @@ const handle_event = (bot_event) => {
 }
 ```
 
-これで「よろ」を含む Bot への mention で「ここで /api/chat.postMessage を叩く」ログが出れば OK。
+これで「よろ」を含む Bot への mention で「ここで /api/chat.postMessage を叩く」ログが出るはず。
 
 
 #### 実際に API を叩くには
@@ -274,6 +274,8 @@ Authorization: Bearer BOTS_TOKEN
     "channel": "CHANNEL"
 }
 ```
+
+BOTS_TOKEN には先に Secrets Manager へ保存したトークンを指定する。
 
 channel には slack で割り振られている ID を指定する。
 channel の表示名で行けるかどうかは試していないし、表示名で叩くべきではない。
@@ -301,6 +303,8 @@ exports.handler = async (aws_lambda_event) => {
   console.log(q);
 };
 ```
+
+- [How to pass a querystring or route parameter to AWS Lambda from Amazon API Gateway : StackOverflow](https://stackoverflow.com/questions/31329958/how-to-pass-a-querystring-or-route-parameter-to-aws-lambda-from-amazon-api-gatew)
 
 
 [TOP](#top)
