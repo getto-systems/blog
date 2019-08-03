@@ -21,7 +21,7 @@ Slack Bot にデプロイを頼めるようにしたい。
 
 Slack イベントを受け取ってイベントに応じたアクションをする。
 
-- 「リリース」、「release」を含む mention を受け取った場合、対応する gitlab trigger を POST
+- 「リリース」、「release」を含む mention を受け取った場合、対応する GitLab trigger を POST
 - 「よろ」を含む mention を受け取った場合、Slack に返信
 - その他の mention を受け取った場合、Slack に返信
 
@@ -144,7 +144,7 @@ curl "$NOTIFY_URL?$NOTIFY_TOKEN=true&source=gitlab&result=$result&channel=$chann
 #### bot_event
 
 - slack_bot_event : Slack イベント : 特定の mention であることを確認する
-- getto_bot_event : 独自イベント : gitlab の通知が success か failure かを確認する
+- getto_bot_event : 独自イベント : GitLab の通知が success か failure かを確認する
 
 
 #### outgoing_messenger
