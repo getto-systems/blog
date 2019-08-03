@@ -319,6 +319,7 @@ Slack Bot のイベントハンドラを AWS Lambda で作成してみた。
 
 ローカルでテストしつつ、CloudFormation でデプロイを自動化したい。
 その記事はまた別にまとめる。
+（[AWS CloudFormation で Lambda をデプロイする](/entry/2019/08/04/025509) にまとめた）
 
 
 [TOP](#top)
