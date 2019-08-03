@@ -23,6 +23,7 @@
 ### Drafts
 
 - [Elm でファイルアップロード](/draft/elm-file-upload/index.html)
+- [JavaScript の async/await について](/draft/js-async-await/index.html)
 - comming soon...
 
 
