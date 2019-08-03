@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## Version : 0.14.0
+
+publish: handle slack event by lambda See merge request getto-systems-labo/blog!67
+fix: content See merge request getto-systems-labo/blog!66
+add: handle slack event by lambda See merge request getto-systems-labo/blog!65
+
+
 ## Version : 0.13.0
 
 publish: manage secrets See merge request getto-systems-labo/blog!64
