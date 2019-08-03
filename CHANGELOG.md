@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## Version : 0.15.0
+
+publish: deploy lambda by cloudformation See merge request getto-systems-labo/blog!70
+fix: content See merge request getto-systems-labo/blog!69
+add: deploy lambda by cloudformation See merge request getto-systems-labo/blog!68
+
+
 ## Version : 0.14.0
 
 publish: handle slack event by lambda See merge request getto-systems-labo/blog!67
