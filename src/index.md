@@ -25,12 +25,12 @@
 
 - [Elm でファイルアップロード](/draft/elm-file-upload/index.html)
 - [Slack Bot でデプロイする](/draft/deploy-by-slack-bot/index.html)
-- [AWS Lambda で Slack Bot イベントハンドラを作る](/draft/handle-slack-event-by-lambda/index.html)
 - [AWS CloudFormation で Lambda をデプロイする](/draft/deploy-lambda-by-cloudformation/index.html)
 - comming soon...
 
 ### August 2019
 
+- [08/03 : AWS Lambda で Slack Bot イベントハンドラを作る](/entry/2019/08/03/214352)
 - [08/03 : AWS Secrets Manager で機密情報を保存する](/entry/2019/08/03/192052)
 - [08/03 : JavaScript の async/await について](/entry/2019/08/03/164422)
 
