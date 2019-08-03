@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## Version : 0.16.0
+
+fix: content See merge request getto-systems-labo/blog!74
+publish: deploy by slack bot See merge request getto-systems-labo/blog!73
+fix: content See merge request getto-systems-labo/blog!72
+add: deploy by slack bot See merge request getto-systems-labo/blog!71
+
+
 ## Version : 0.15.0
 
 publish: deploy lambda by cloudformation See merge request getto-systems-labo/blog!70
