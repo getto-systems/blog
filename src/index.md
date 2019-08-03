@@ -24,11 +24,11 @@
 ### Drafts
 
 - [Elm でファイルアップロード](/draft/elm-file-upload/index.html)
-- [Slack Bot でデプロイする](/draft/deploy-by-slack-bot/index.html)
 - comming soon...
 
 ### August 2019
 
+- [08/04 : Slack Bot でデプロイする](/entry/2019/08/04/045006)
 - [08/04 : AWS CloudFormation で Lambda をデプロイする](/entry/2019/08/04/025509)
 - [08/03 : AWS Lambda で Slack Bot イベントハンドラを作る](/entry/2019/08/03/214352)
 - [08/03 : AWS Secrets Manager で機密情報を保存する](/entry/2019/08/03/192052)
