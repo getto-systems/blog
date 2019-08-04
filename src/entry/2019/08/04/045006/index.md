@@ -131,10 +131,9 @@ curl "$NOTIFY_URL?$NOTIFY_TOKEN=true&source=gitlab&result=$result&channel=$chann
 #### handler
 
 `bot_event` に応じたアクションを返す。
-各 `handler` は、アクションを実行する場合は `Promise` を返し、何もしない場合は null を返す。
-アクションの実行は `outgoing_messenger` を使用して外部と通信する。
+`bot_event` から取り出した条件に応じて `action` を呼び出す。
 
-アクションの追加は `handler.js` にハンドラを追加することで行う。
+各 `action` は `outgoing_messenger` を使用して外部と通信する。
 
 会話を行うことは考えていない。
 なんらかの状態を保存してリクエストを直列化する必要があるはず。
@@ -150,15 +149,21 @@ curl "$NOTIFY_URL?$NOTIFY_TOKEN=true&source=gitlab&result=$result&channel=$chann
 #### outgoing_messenger
 
 外部との通信を行う。
-必要なトークンは `psycher_secret` から取得する。
+必要なトークンは `secret` から取得する。
 
 - slack : `channel`、`timestamp` を使用して Slack へ投稿を行う
 - gitlab : `team`、`channel` からトークンを割り出して GitLab のトリガーを POST する
 
 
-#### psycher_secret
+#### secret
 
-AWS Secrets Manager からシークレットを取得してトークンを取り出す。
+- slack : Bot トークンなど、Slack の投稿に必要な項目を返す
+- gitlab : channel に応じた trigger トークンなど、GitLab のトリガーに必要な項目を返す
+
+
+##### provider
+
+- aws_secret : AWS Secrets Manager からシークレットを取得する
 
 
 [TOP](#top)
