@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## Version : 0.17.0
+
+fix: content See merge request getto-systems-labo/blog!75
+
+
 ## Version : 0.16.0
 
 fix: content See merge request getto-systems-labo/blog!74
