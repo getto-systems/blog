@@ -130,40 +130,79 @@ curl "$NOTIFY_URL?$NOTIFY_TOKEN=true&source=gitlab&result=$result&channel=$chann
 
 #### handler
 
-`bot_event` に応じたアクションを返す。
-`bot_event` から取り出した条件に応じて `action` を呼び出す。
+`slack_bot_event` に応じて `conversation` を行う。
+`type` が `mention` の場合は `handlers/mention.js` がハンドリングする。
 
-各 `action` は `outgoing_messenger` を使用して外部と通信する。
-
-会話を行うことは考えていない。
-なんらかの状態を保存してリクエストを直列化する必要があるはず。
+会話を行うには `message.channels` 用のハンドラを用意する必要がある。
+このハンドラでは、なんらかの状態を保存してリクエストを直列化する必要があるはず。
 スレッドを使用することでそれほど複雑にしないで実装できる可能性はある。
 
 
-#### bot_event
+#### slack_bot_event
 
-- slack_bot_event : Slack イベント : 特定の mention であることを確認する
-- getto_bot_event : 独自イベント : GitLab の pipeline が success か failure かを確認する
-
-
-#### outgoing_messenger
-
-外部との通信を行う。
-必要なトークンは `secret` から取得する。
-
-- slack : `channel`、`timestamp` を使用して Slack へ投稿を行う
-- gitlab : `team`、`channel` からトークンを割り出して GitLab のトリガーを POST する
+aws lambda から渡された生の json をハンドリングしやすいように加工したイベントオブジェクト。
 
 
-#### secret
+#### conversation
 
-- slack : Bot トークンなど、Slack の投稿に必要な項目を返す
-- gitlab : channel に応じた trigger トークンなど、GitLab のトリガーに必要な項目を返す
+イベントオブジェクトから情報を取り出して会話を行う。
+
+実際の処理は `progress`、`job`、`replyer` に委譲する。
 
 
-##### provider
+##### progress
 
-- aws_secret : AWS Secrets Manager からシークレットを取得する
+会話の処理がすでに開始されているかどうかを `session` に問い合わせることで判定する。
+mention は１回でも、Slack からの通知が複数回飛んでくることがあるため、すでに開始した処理については無視する。
+
+おそらく、レスポンスステータスが 200 でなかった場合に Slack が同じ内容でエンドポイントを叩くのだと考えている。
+もう少し丁寧なエラー処理が必要なのだろう。
+
+
+##### job
+
+`deployment` からデプロイする対象を取得できた場合、`pipeline` にデプロイの実行を依頼する。
+
+
+##### replyer
+
+メッセージや絵文字のリアクションを `stream` に返信する。
+
+
+#### repository
+
+##### session
+
+`uuid_store` から uuid を取得し、`document_store` に会話を登録する。
+この時、会話の ID (team, channel, timestamp) がすでに登録されていた場合は uuid の登録は行わない。
+
+`document_store` から `uuid` を再取得することで、すでに処理が開始されていないことを確認する。
+
+
+##### deployment
+
+`secret_store` に登録されている token から、デプロイ可能な対象を取得する。
+
+
+##### pipeline
+
+指定された対象のデプロイを `job_store` に依頼する。
+デプロイ用のトークンは `secret_store` から取得する。
+
+
+##### stream
+
+指定されたメッセージを `message_store` に流す。
+投稿用のトークンは `secret_store` から取得する。
+
+
+#### infra
+
+- uuid_store : uuid を生成
+- document_store : AWS DynamoDB から会話データを取得
+- secret_store : AWS Secrets からトークンを取得
+- job_store : GitLab API を通じてデプロイ job を開始
+- message_store : Slack API を通じてメッセージを投稿
 
 
 [TOP](#top)
