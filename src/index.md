@@ -23,12 +23,12 @@
 
 ### Drafts
 
-- [AWS Lambda から DynamoDB にアクセスする](/draft/aws-lambda-dynamodb/index.html)
 - [Elm でファイルアップロード](/draft/elm-file-upload/index.html)
 - comming soon...
 
 ### August 2019
 
+- [08/22 : AWS Lambda から DynamoDB にアクセスする](/entry/2019/08/22/021817)
 - [08/04 : Slack Bot でデプロイする](/entry/2019/08/04/045006)
 - [08/04 : AWS CloudFormation で Lambda をデプロイする](/entry/2019/08/04/025509)
 - [08/03 : AWS Lambda で Slack Bot イベントハンドラを作る](/entry/2019/08/03/214352)
