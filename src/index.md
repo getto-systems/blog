@@ -23,6 +23,7 @@
 
 ### Drafts
 
+- [AWS Lambda から DynamoDB にアクセスする](/draft/aws-lambda-dynamodb/index.html)
 - [Elm でファイルアップロード](/draft/elm-file-upload/index.html)
 - comming soon...
 
