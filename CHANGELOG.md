@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## Version : 0.18.1
+
+- fix: notify : See merge request getto-systems-labo/blog!79
+
+
 ## Version : 0.18.0
 
 - publish: aws-lambda-dynamodb : See merge request getto-systems-labo/blog!78
