@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## Version : 0.19.0
+
+- publish: push-latest-on-webhook : See merge request getto-systems-labo/blog!81
+- add: push-latest-on-webhook : See merge request getto-systems-labo/blog!80
+
+
 ## Version : 0.18.1
 
 - fix: notify : See merge request getto-systems-labo/blog!79
