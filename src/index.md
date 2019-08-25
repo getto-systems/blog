@@ -24,11 +24,11 @@
 ### Drafts
 
 - [Elm でファイルアップロード](/draft/elm-file-upload/index.html)
-- [Docker Hub からの webhook で GitLab から latest タグをつける](/draft/push-latest-on-webhook/index.html)
 - comming soon...
 
 ### August 2019
 
+- [08/25 : Docker Hub からの webhook で GitLab から latest タグをつける](/entry/2019/08/25/115736)
 - [08/22 : AWS Lambda から DynamoDB にアクセスする](/entry/2019/08/22/021817)
 - [08/04 : Slack Bot でデプロイする](/entry/2019/08/04/045006)
 - [08/04 : AWS CloudFormation で Lambda をデプロイする](/entry/2019/08/04/025509)
