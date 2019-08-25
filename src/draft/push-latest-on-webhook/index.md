@@ -1,370 +1,130 @@
 # Docker Hub からの webhook で GitLab から latest タグをつける
 <a id="top"></a>
 
-前回の「[dockle で docker build のベストプラクティスをチェックしてみる](/entry/2019/07/20/203112)」で、 [dockle](https://github.com/goodwithtech/dockle) 試してみるところまでやってみた。
+Docker Hub の Auto Build でイメージをビルドしたい。
+ただし、latest タグは別ビルドにしたくない。
 
-今回は CI で定期的にチェックするようにする。
-また、[trivy](https://github.com/knqyf263/trivy) で脆弱性のテストができるので、これも組み込んでみる。
+そこで、webhook で build 完了を検知して GitLab の pipeline から latest タグを push する。
 
 ###### CONTENTS
 
 1. [できあがったもの](#outcome)
-1. [dockle でテストする](#test-by-dockle)
-1. [trivy でテストする](#test-by-trivy)
-1. [merge-request でテストする](#test-on-merge-request)
-1. [定期的にテストする](#test-every-period)
+1. [DockerHub で webhook を設定する](#setup-webhook)
+1. [webhook で GitLab の pipeline をトリガーする](#trigger-pipeline)
+1. [ビルド完了で Slack に通知する](#notify-slack)
 1. [まとめ](#postscript)
 1. [参考資料](#reference)
 
 
 ###### ENVIRONMENTS
 
-- GitLab
-- dockle : v0.1.14
-- trivy : 0.1.4
+- DockerHub webhook
+- Node.js : 10.16.0
+- GitLab trigger
+- Slack
 
 
 <a id="outcome"></a>
 ### できあがったもの
 
-.gitlab-ci.yml
-
-```yaml
-test:
-  only:
-    - merge_requests
-
-  image: docker:stable
-
-  variables:
-    DOCKER_HOST: tcp://docker:2375/
-    DOCKER_DRIVER: overlay2
-    DOCKER_CONTENT_TRUST: 1
-  services:
-    - docker:dind
-
-  cache:
-    paths:
-      - .cache
-
-  before_script:
-    - ./bin/install_ci_tools.sh
-  script:
-    - ./bin/test.sh
-```
-
-bin/install_ci_tools.sh
-
-```bash
-#!/bin/sh
-
-apk -Uuv add bash git curl tar sed grep && \
-./bin/install_dockle.sh && \
-./bin/install_trivy.sh && \
-:
-```
-
-bin/install_dockle.sh
-
-```bash
-#!/bin/bash
-
-VERSION=$(
-  curl --silent "https://api.github.com/repos/goodwithtech/dockle/releases/latest" | \
-  grep '"tag_name":' | \
-  sed -E 's/.*"v([^"]+)".*/\1/' \
-) && \
-curl -L -o dockle.tar.gz https://github.com/goodwithtech/dockle/releases/download/v${VERSION}/dockle_${VERSION}_Linux-64bit.tar.gz && \
-tar zxvf dockle.tar.gz && \
-mv dockle /usr/bin && \
-:
-```
-
-bin/install_trivy.sh
-
-```bash
-#!/bin/bash
-
-VERSION=$(
-  curl --silent "https://api.github.com/repos/knqyf263/trivy/releases/latest" | \
-  grep '"tag_name":' | \
-  sed -E 's/.*"v([^"]+)".*/\1/' \
-) && \
-curl -L -o trivy.tar.gz https://github.com/knqyf263/trivy/releases/download/v${VERSION}/trivy_${VERSION}_Linux-64bit.tar.gz && \
-tar zxvf trivy.tar.gz && \
-mv trivy /usr/bin && \
-:
-```
-
-bin/test.sh
-
-```bash
-#!/bin/bash
-
-set -x
-
-export HOME=$(pwd)
-
-image=ci/build
-
-docker build -t $image:${CI_COMMIT_SHORT_SHA} . && \
-dockle --exit-code 1 $image:${CI_COMMIT_SHORT_SHA} && \
-trivy --exit-code 1 --quiet --auto-refresh $image:${CI_COMMIT_SHORT_SHA} && \
-:
-```
+- [getto-systems/psycher-dockerhub : GitHub](https://github.com/getto-systems/psycher-dockerhub)
+- [getto-systems/psycher-getto : GitHub](https://github.com/getto-systems/psycher-getto)
 
 
 [TOP](#top)
-<a id="test-by-dockle"></a>
-### dockle でテストする
+<a id="setup-webhook"></a>
+### DockerHub で webhook を設定する
 
-dockle は docker サービスを必要とするので、そのための設定を .gitlab-ci.yml に追加する。
+前提として、対象のリポジトリに対して Auto Build の設定は完了済みである。
 
-```yaml
-test:
-  only:
-    - merge_requests
+[Docker Hub Webhooks : Docker Docs](https://docs.docker.com/docker-hub/webhooks/) を参考にして webhook を設定する。
+特に何か設定が必要な項目はなく、build 完了時に叩かれる URL を指定するだけ。
 
-  image: docker:stable
+リクエストは以下のような json で post される。
+（上記ドキュメントから転載）
 
-  variables:
-    DOCKER_HOST: tcp://docker:2375/
-    DOCKER_DRIVER: overlay2
-    DOCKER_CONTENT_TRUST: 1
-  services:
-    - docker:dind
-
-  before_script:
-    - ./bin/install_ci_tools.sh
-  script:
-    - ./bin/test.sh
+```json
+{
+  "callback_url": "https://registry.hub.docker.com/u/svendowideit/testhook/hook/.../",
+  "push_data": {
+    "images": [
+        "..."
+    ],
+    "pushed_at": 1.417566161e+09,
+    "pusher": "trustedbuilder",
+    "tag": "latest"
+  },
+  "repository": {
+    "comment_count": 0,
+    "date_created": 1.417494799e+09,
+    "description": "",
+    "dockerfile": "...",
+    "full_description": "Docker Hub based automated build from a GitHub repo",
+    "is_official": false,
+    "is_private": true,
+    "is_trusted": true,
+    "name": "testhook",
+    "namespace": "svendowideit",
+    "owner": "svendowideit",
+    "repo_name": "svendowideit/testhook",
+    "repo_url": "https://registry.hub.docker.com/u/svendowideit/testhook/",
+    "star_count": 0,
+    "status": "Active"
+  }
+}
 ```
 
-`before_script` で必要なツールをインストールする。
-ここでは dockle に必要なパッケージの追加と dockle のダウンロードを行う。
-
-bin/install_ci_tools.sh
-
-```bash
-#!/bin/sh
-
-apk -Uuv add bash git curl tar sed grep && \
-./bin/install_dockle.sh && \
-:
-```
-
-`bin/install_ci_tools.sh` の起動時には `bash` が存在しない。
-このため、`#!/bin/bash` と書くと「`bin/install_ci_tools.sh` が見つからない」というエラーが出るので注意。
-
-bin/install_dockle.sh
-
-```bash
-#!/bin/bash
-
-VERSION=$(
-  curl --silent "https://api.github.com/repos/goodwithtech/dockle/releases/latest" | \
-  grep '"tag_name":' | \
-  sed -E 's/.*"v([^"]+)".*/\1/' \
-) && \
-curl -L -o dockle.tar.gz https://github.com/goodwithtech/dockle/releases/download/v${VERSION}/dockle_${VERSION}_Linux-64bit.tar.gz && \
-tar zxvf dockle.tar.gz && \
-mv dockle /usr/bin && \
-:
-```
-
-`script` で docker イメージのビルドと dockle でのチェックを行う。
-
-bin/test.sh
-
-```bash
-#!/bin/bash
-
-set -x
-
-image=ci/build
-
-docker build -t $image:${CI_COMMIT_SHORT_SHA} . && \
-dockle --exit-code 1 $image:${CI_COMMIT_SHORT_SHA} && \
-:
-```
-
-ここで指定する `$image` は単に dockle でビルドしたイメージを参照するためのものなので、どんな名前でも良い。
+これに応じて GitLab のトリガーを起動するようにする。
 
 
 [TOP](#top)
-<a id="test-by-trivy"></a>
-### trivy でテストする
+<a id="trigger-pipeline"></a>
+### webhook で GitLab の pipeline をトリガーする
 
-trivy の設定は dockle のものとほとんど同じ。
-trivy は `$HOME/.cache` にキャッシュを作成するので、そのための `cache` 設定を追加する。
+AWS Lambda に [getto-systems/psycher-dockerhub](https://github.com/getto-systems/psycher-dockerhub) をデプロイした。
 
-```yaml
-test:
-  only:
-    - merge_requests
+GitLab の pipeline は、サイン済みイメージを push することが目的だ。
+以下の手順で作業する。
 
-  image: docker:stable
+1. build されたイメージを pull
+1. Docker Content Trust-ed なイメージであれば push 済みなので何もしない
+1. build されたタグを Docker Hub にサイン済みで再 push
+1. 同じイメージを latest タグで push
 
-  variables:
-    DOCKER_HOST: tcp://docker:2375/
-    DOCKER_DRIVER: overlay2
-    DOCKER_CONTENT_TRUST: 1
-  services:
-    - docker:dind
+こうすると、webhook からの post は以下のタイミングで行われる。
 
-  cache:
-    paths:
-      - .cache
+- 最初の build 完了
+- サイン済みの push が行われた
+- latest の push が行われた
 
-  before_script:
-    - ./bin/install_ci_tools.sh
-  script:
-    - ./bin/test.sh
-```
+このフローでは、最初の build 完了と、サイン済み push で pipeline をトリガーする。
+latest の push では pipeline はトリガーしなくて良い。
 
-`before_script` で必要なツールをインストールする。
-
-bin/install_ci_tools.sh
-
-```bash
-#!/bin/sh
-
-apk -Uuv add bash git curl tar sed grep && \
-./bin/install_trivy.sh && \
-:
-```
-
-bin/install_trivy.sh
-
-```bash
-#!/bin/bash
-
-VERSION=$(
-  curl --silent "https://api.github.com/repos/knqyf263/trivy/releases/latest" | \
-  grep '"tag_name":' | \
-  sed -E 's/.*"v([^"]+)".*/\1/' \
-) && \
-curl -L -o trivy.tar.gz https://github.com/knqyf263/trivy/releases/download/v${VERSION}/trivy_${VERSION}_Linux-64bit.tar.gz && \
-tar zxvf trivy.tar.gz && \
-mv trivy /usr/bin && \
-:
-```
-
-`script` で docker イメージのビルドと trivy でのチェックを行う。
-
-bin/test.sh
-
-```bash
-#!/bin/bash
-
-set -x
-
-export HOME=$(pwd)
-
-image=ci/build
-
-docker build -t $image:${CI_COMMIT_SHORT_SHA} . && \
-trivy --exit-code 1 --quiet --auto-refresh $image:${CI_COMMIT_SHORT_SHA} && \
-:
-```
-
-trivy の `--quiet` はインジケータの表示を抑制するもので、`--auto-refresh` は脆弱性データベースの更新を行うもの。
-
-trivy は `$HOME/.cache` にキャッシュを作成する。
-GitLab は `cache` を設定することで指定したパスに生成されたものを job をまたいで再利用できる。
-しかし、これはプロジェクトの中のディレクトリのみが対象となっている。
-具体的にはビルド開始時のディレクトリ以下のファイルだ。
-
-- [gitlab ci cache no matching files : stackoverflow](https://stackoverflow.com/questions/53953122/gitlab-ci-cache-no-matching-files)
-
-たとえば、`cache:paths` に `/root/.cache` を設定しても GitLab は保存してくれない。
-そこで、HOME を再設定することで `./.cache` がキャッシュとして使用されるようにしている。
+サイン済みの push で pipeline をトリガーするのは、webhook の post body からは、サイン済みで push されたものかどうかの判断ができないため。
 
 
 [TOP](#top)
-<a id="test-on-merge-request"></a>
-### merge-request でテストする
+<a id="notify-slack"></a>
+### ビルド完了で Slack に通知する
 
-以下の例のように設定することで merge-request でテストが走るようになる。
+ビルドが完了したことを Slack に通知したい。
+GitLab の pipeline の目的はサイン済みイメージの push だが、webhook のデータからはこの完了が判断できない。
 
-.gitlab-ci.yml
-
-```yaml
-test:
-  only:
-    - merge_requests
-
-  image: docker:stable
-
-  variables:
-    DOCKER_HOST: tcp://docker:2375/
-    DOCKER_DRIVER: overlay2
-    DOCKER_CONTENT_TRUST: 1
-  services:
-    - docker:dind
-
-  cache:
-    paths:
-      - .cache
-
-  before_script:
-    - ./bin/install_ci_tools.sh
-  script:
-    - ./bin/test.sh
-```
-
-
-[TOP](#top)
-<a id="test-every-period"></a>
-### 定期的にテストする
-
-dockle にベストプラクティスのチェックが追加されたり、新たな脆弱性が trivy で検出されるようになったりするはず。
-なので、定期的にこのテストを行いたい。
-
-```yaml
-schedule_test:
-  only:
-    - schedules
-
-  image: docker:stable
-
-  variables:
-    DOCKER_HOST: tcp://docker:2375/
-    DOCKER_DRIVER: overlay2
-    DOCKER_CONTENT_TRUST: 1
-  services:
-    - docker:dind
-
-  cache:
-    paths:
-      - .cache
-
-  before_script:
-    - ./bin/install_ci_tools.sh
-  script:
-    - ./bin/test.sh
-```
-
-`only` に `schedules` を指定して、スケジュールからの起動でのみ pipeline が走るようにする。
-先の `test` の例と異なるのは `only: - schedules` の部分のみだ。
-あとは、GitLab の設定画面からスケジュールを追加すれば OK。
+そこで、GitLab の pipeline で、Docker Hub に push したあと、[getto-systems/psycher-getto](https://github.com/getto-systems/psycher-getto) を使用して Slack へ通知するようにした。
 
 
 [TOP](#top)
 <a id="postscript"></a>
 ### まとめ
 
-dockle と trivy を CI に組み込んでみた。
-これで定期的に dockle と trivy によるチェックができるようになった。
+Docker Hub の Auto Build から latest タグの push と、Slack への通知までのフローを組んでみた。
 
 
 [TOP](#top)
 <a id="reference"></a>
 ### 参考資料
 
-- [goodwithtech/dockle : GitHub](https://github.com/goodwithtech/dockle)
-- [knqyf263/trivy : GitHub](https://github.com/knqyf263/trivy)
-- [gitlab ci cache no matching files : stackoverflow](https://stackoverflow.com/questions/53953122/gitlab-ci-cache-no-matching-files)
+- [Docker Hub Webhooks : Docker Docs](https://docs.docker.com/docker-hub/webhooks/)
 
 
 [TOP](#top)

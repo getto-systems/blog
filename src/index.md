@@ -24,6 +24,7 @@
 ### Drafts
 
 - [Elm でファイルアップロード](/draft/elm-file-upload/index.html)
+- [Docker Hub からの webhook で GitLab から latest タグをつける](/draft/push-latest-on-webhook/index.html)
 - comming soon...
 
 ### August 2019
