@@ -42,7 +42,7 @@ on_ft = ['rust']
 rustup component add rls rust-analysis rust-src
 ```
 
-CocConfig の rust 用設定。
+CocConfig の設定。
 
 ```json
 {
@@ -60,7 +60,7 @@ ALE による、保存後の整形の設定。
 
 ```toml
 [[plugins]]
-repo = 'w0rp/ale'
+repo = 'dense-analysis/ale'
 hook_add = '''
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {
@@ -75,8 +75,8 @@ let g:ale_rustfmt_executable = 'rustfmt'
 <a id="install-rust-vim"></a>
 ### rust.vim のインストール
 
-基本的なプラグインとして rust.vim をインストールしておく。
-以下は dein の設定内容。
+基本的なプラグインとして [rust.vim](https://github.com/rust-lang/rust.vim) をインストールしておく。
+以下は [dein](https://github.com/Shougo/dein.vim) の設定内容。
 
 ```toml
 [[plugins]]
@@ -99,7 +99,7 @@ rust.vim から rustfmt できるなら、ALE の設定は必要ない。
 <a id="install-rust-components"></a>
 ### 必要なコンポーネントのインストール
 
-Language Server として、[rust-lang/rls : GitHub](https://github.com/rust-lang/rls) を使用する。
+Language Server として、[rust-lang/rls](https://github.com/rust-lang/rls) を使用する。
 README によれば、`rls`、`rust-analysis`、`rust-src` が必要。
 
 ```bash
@@ -137,7 +137,7 @@ Language Server の起動には coc.nvim を使用している。
 
 ```toml
 [[plugins]]
-repo = 'w0rp/ale'
+repo = 'dense-analysis/ale'
 hook_add = '''
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {
