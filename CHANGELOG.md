@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## Version : 0.20.1
+
+- fix: vulnerabilities : See merge request getto-systems-base/projects/blog!86
+
+
 ## Version : 0.20.0
 
 - publish: k8s-cert_manager : See merge request getto-systems-base/projects/blog!85
