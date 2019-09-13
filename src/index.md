@@ -23,8 +23,7 @@
 
 ### Drafts
 
-- [Elm でファイルアップロード](/draft/elm-file-upload/index.html)
-- comming soon...
+- [comming soon...](/draft/article/index.html)
 
 ### August 2019
 
