@@ -23,6 +23,7 @@
 
 ### Drafts
 
+- [coc.nvim で Rust Language Server する](/draft/coc-rust/index.html)
 - [comming soon...](/draft/article/index.html)
 
 

@@ -8,7 +8,6 @@ const marked = require("marked");
 
 
 const config = {
-  textlint: "./node_modules/.bin/textlint",
   root: "./src",
   options: {
     interval: 0.3
@@ -27,7 +26,6 @@ const template = function(path){
 
   if(stat.isFile()) {
     console.log(path);
-    textlint(path);
 
     fs.readFile(path, function(err,full){
       if(err) {
@@ -52,26 +50,6 @@ const template = function(path){
       }
     });
   }
-}
-
-const textlint = function(file){
-  const proc = spawn(config.textlint, [file]);
-  var error = new Buffer.alloc(0);
-
-  proc.stderr.on("data", function(stderr){
-    error = Buffer.concat([error, new Buffer.from(stderr)]);
-  });
-  proc.stdout.on("data", function(stdout){
-    process.stdout.write(stdout.toString());
-  });
-
-  proc.on("close", function(code){
-    if(!!code) {
-      console.log(error.toString());
-    } else {
-      console.log("textlint finished","\n");
-    }
-  });
 }
 
 const write = function(template,path,data){
