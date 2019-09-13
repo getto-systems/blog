@@ -33,7 +33,7 @@ release:
 
   script:
     - curl https://raw.githubusercontent.com/getto-systems/version-dump/master/bin/version_dump.sh | bash
-    - ./bin/push_tags.sh
+    - curl https://raw.githubusercontent.com/getto-systems/version-dump/master/bin/push_tags.sh | bash
 
 release_success:
   stage: notify
