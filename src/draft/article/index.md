@@ -1,6 +1,4 @@
----
-title: Elm でファイルアップロード
----
+# Elm でファイルアップロード
 <a id="top"></a>
 
 - Elm でファイルをアップロードする
@@ -68,7 +66,7 @@ syncs:
 
 ディレクトリ構成は以下の通り。
 
-```
+```text
 ./
 + docker-sync.yml
 + bin/
@@ -97,7 +95,6 @@ docker container update --restart=always apps
 
 これで、 Mac を再起動した時など、 Docker for Mac 起動時に docker-sync が起動する。
 ただ、プロセスが起動するのに時間がかかるので、それまでは同期は停止したままであることに注意が必要だ。
-
 
 
 [TOP](#top)
