@@ -1,6 +1,8 @@
 # Kubernetes で cert-manager する話
 <a id="top"></a>
 
+- 2019-09-14 追記 : cert-manager version 0.10.0 の書き方をまとめた
+
 Kubernetes クラスタにデプロイした api サーバーと https で通信したい。
 
 このための証明書を、[cert-manager](https://github.com/jetstack/cert-manager) を使用して取得する。
@@ -40,10 +42,10 @@ Kubernetes クラスタにデプロイした api サーバーと https で通信
 
 [ドキュメント](https://docs.cert-manager.io/en/latest/getting-started/install/kubernetes.html)にしたがって、cert-manager をインストールする。
 
-```
-$ kubectl create namespace cert-manager
-$ kubectl label namespace cert-manager certmanager.k8s.io/disable-validation=true
-$ kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v0.8.0/cert-manager.yaml
+```bash
+kubectl create namespace cert-manager
+kubectl label namespace cert-manager certmanager.k8s.io/disable-validation=true
+kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v0.8.0/cert-manager.yaml
 ```
 
 それぞれ何をしているかの詳細はドキュメントを参照。
@@ -85,10 +87,10 @@ hosted zone id の設定を細かくやれば、もっと制限したポリシ�
 
 access key id と secret access key は secret に詰め込んでおく。
 
-```
-$ echo -n $ACCESS_KEY_ID > access-key-id
-$ echo -n $SECRET_ACCESS_KEY > secret-access-key
-$ kubectl create secret generic \
+```bash
+echo -n $ACCESS_KEY_ID > access-key-id
+echo -n $SECRET_ACCESS_KEY > secret-access-key
+kubectl create secret generic \
   cert-manager-route53-credentials-secret \
   --namespace=cert-manager \
   --from-file=access-key-id \
@@ -122,13 +124,13 @@ spec:
       - name: route53
         route53:
           region: eu-west-1
-          accessKeyIDSecretRef:
-            name: cert-manager-route53-credentials-secret
-            key: access-key-id
+          accessKeyID: <ACCESS-KEY-ID>
           secretAccessKeySecretRef:
             name: cert-manager-route53-credentials-secret
             key: secret-access-key
 ```
+
+- 2019-09-10 追記 : accessKeyIDSecretRef ではなく、accessKeyID を直接書かないと読み取ってくれない（設定できた気がするんだけど）
 
 DNS validation を使用するので、`http01` の項目は必要ない。
 （両方設定するやり方もあるようだが調べていない）
@@ -172,13 +174,13 @@ spec:
       - name: route53
         route53:
           region: eu-west-1
-          accessKeyIDSecretRef:
-            name: cert-manager-route53-credentials-secret
-            key: access-key-id
+          accessKeyID: <ACCESS-KEY-ID>
           secretAccessKeySecretRef:
             name: cert-manager-route53-credentials-secret
             key: secret-access-key
 ```
+
+- 2019-09-10 追記 : accessKeyIDSecretRef ではなく、accessKeyID を直接書かないと読み取ってくれない
 
 staging なら発行数の制限はない。
 
