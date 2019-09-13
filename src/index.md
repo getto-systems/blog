@@ -23,7 +23,12 @@
 
 ### Drafts
 
+- [Kubernetes で cert-manager する話ふたたび](/draft/k8s-cert_manager/index.html)
 - [comming soon...](/draft/article/index.html)
+
+
+### September 2019
+
 
 ### August 2019
 
