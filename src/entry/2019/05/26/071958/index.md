@@ -1,7 +1,7 @@
 # Kubernetes で cert-manager する話
 <a id="top"></a>
 
-- 2019-09-14 追記 : cert-manager version 0.10.0 の書き方をまとめた
+- 2019-09-14 追記 : cert-manager version 0.10.0 の書き方を[まとめた](/entry/2019/09/14/034200)
 
 Kubernetes クラスタにデプロイした api サーバーと https で通信したい。
 
