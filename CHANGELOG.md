@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## Version : 0.21.0
+
+- publish: coc-rust : See merge request getto-systems-base/projects/blog!89
+- fix: coc-rust : See merge request getto-systems-base/projects/blog!88
+- add: coc-rust : See merge request getto-systems-base/projects/blog!87
+
+
 ## Version : 0.20.1
 
 - fix: vulnerabilities : See merge request getto-systems-base/projects/blog!86
