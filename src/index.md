@@ -23,12 +23,12 @@
 
 ### Drafts
 
-- [coc.nvim で Rust Language Server する](/draft/coc-rust/index.html)
 - [comming soon...](/draft/article/index.html)
 
 
 ### September 2019
 
+- [09/14 : coc.nvim で Rust Language Server する](/entry/2019/09/14/044156)
 - [09/14 : Kubernetes で cert-manager する話ふたたび](/entry/2019/09/14/034200)
 
 
