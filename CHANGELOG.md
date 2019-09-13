@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## Version : 0.20.0
+
+- publish: k8s-cert_manager : See merge request getto-systems-base/projects/blog!85
+- add: k8s-cert_manager : See merge request getto-systems-base/projects/blog!84
+- fix: gitlab-ci : See merge request getto-systems-base/projects/blog!83
+- fix: article template : See merge request getto-systems-base/projects/blog!82
+
+
 ## Version : 0.19.0
 
 - publish: push-latest-on-webhook : See merge request getto-systems-labo/blog!81
