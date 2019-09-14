@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## Version : 0.22.0
+
+- publish: development-environment : See merge request getto-systems-base/projects/blog!91
+- add: development-environment : See merge request getto-systems-base/projects/blog!90
+
+
 ## Version : 0.21.0
 
 - publish: coc-rust : See merge request getto-systems-base/projects/blog!89
