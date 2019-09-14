@@ -23,6 +23,7 @@
 
 ### Drafts
 
+- [うちの開発環境 - 2019版](/draft/development-environment/index.html)
 - [comming soon...](/draft/article/index.html)
 
 
