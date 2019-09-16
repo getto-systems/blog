@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## Version : 0.23.0
+
+- publish: s3-cloudfront : See merge request getto-systems-base/projects/blog!93
+- add: s3-cloudfront : See merge request getto-systems-base/projects/blog!92
+
+
 ## Version : 0.22.0
 
 - publish: development-environment : See merge request getto-systems-base/projects/blog!91
