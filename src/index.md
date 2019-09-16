@@ -23,6 +23,7 @@
 
 ### Drafts
 
+- [S3 + CloudFront でフロントエンドを配信する話ふたたび](/draft/s3-cloudfront/index.html)
 - [comming soon...](/draft/article/index.html)
 
 
