@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## Version : 0.24.0
+
+- publish: release-docsy : See merge request getto-systems-base/projects/blog!99
+- fix: release-docsy : See merge request getto-systems-base/projects/blog!98
+- add: release-docsy : See merge request getto-systems-base/projects/blog!97
+- publish: docsy : See merge request getto-systems-base/projects/blog!96
+- fix: docsy : See merge request getto-systems-base/projects/blog!95
+- add: docsy : See merge request getto-systems-base/projects/blog!94
+
+
 ## Version : 0.23.0
 
 - publish: s3-cloudfront : See merge request getto-systems-base/projects/blog!93
