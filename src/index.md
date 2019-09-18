@@ -23,12 +23,12 @@
 
 ### Drafts
 
-- [Docsy で書いたドキュメントを公開する](/draft/release-docsy/index.html)
 - [comming soon...](/draft/article/index.html)
 
 
 ### September 2019
 
+- [09/19 : Docsy で書いたドキュメントを公開する](/entry/2019/09/19/031739)
 - [09/18 : Docsy でドキュメントを書く](/entry/2019/09/18/111912)
 - [09/17 : S3 + CloudFront でフロントエンドを配信する話ふたたび](/entry/2019/09/17/080902)
 - [09/14 : うちの開発環境 - 2019版](/entry/2019/09/14/230516)
