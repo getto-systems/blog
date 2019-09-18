@@ -23,7 +23,7 @@
 
 ### Drafts
 
-- [Docsy で書いたドキュメントを公開する](/draft/docsy/index.html)
+- [Docsy で書いたドキュメントを公開する](/draft/release-docsy/index.html)
 - [comming soon...](/draft/article/index.html)
 
 
