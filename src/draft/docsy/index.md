@@ -25,7 +25,6 @@
 - Hugo : 0.57.2
 
 
-[TOP](#top)
 <a id="install-nodejs"></a>
 ### Node.js のインストール
 
@@ -41,6 +40,7 @@ npm install -g npm
 ```
 
 
+[TOP](#top)
 <a id="setup-hugo"></a>
 ### Hugo セットアップ
 
