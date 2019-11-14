@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## Version : 0.26.0
+
+- publish: wsl : See merge request getto-systems-base/projects/blog!101
+
+
 ## Version : 0.25.0
 
 - add: wsl : See merge request getto-systems-base/projects/blog!100
