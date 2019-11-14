@@ -1,30 +1,13 @@
 # 記事一覧
 
-###### CONTENTS
-
-- [Drafts](#drafts)
-- [August 2019](#august-2019)
-- [Jury 2019](#jury-2019)
-- [May 2019](#may-2019)
-- [April 2019](#april-2019)
-- [March 2019](#march-2019)
-- [February 2019](#february-2019)
-- [November 2018](#november-2018)
-- [October 2018](#october-2018)
-- [September 2018](#september-2018)
-- [June 2018](#june-2018)
-- [March 2018](#march-2018)
-- [February 2018](#february-2018)
-- [January 2018](#january-2018)
-- [December 2017](#december-2017)
-- [October 2017](#october-2017)
-- [September 2017](#september-2017)
-- [August 2017](#august-2017)
-
 ### Drafts
 
 - [comming soon...](/draft/article/index.html)
-- [Windows Subsystem for Linux してみる話](/draft/wsl/index.html)
+
+
+### November 2019
+
+- [11/15 : Windows Subsystem for Linux してみる話](/entry/2019/11/15/024208)
 
 
 ### September 2019
