@@ -215,7 +215,7 @@ imap <C-L> <Esc>
 
 Tmux ではコピーモードのキーバインドにエスケープキーを使用していたが、これも `Ctrl-L` に変更した。
 
-```vim
+```tmux
 bind C-l copy-mode
 ```
 
