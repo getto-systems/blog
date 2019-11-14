@@ -3,11 +3,11 @@
 ### Drafts
 
 - [comming soon...](/draft/article/index.html)
-- [Windows10 で Alacritty する話](/draft/alacritty/index.html)
 
 
 ### November 2019
 
+- [11/15 : Windows10 で Alacritty する話](/entry/2019/11/15/045052)
 - [11/15 : ssh で ed25519 する話](/entry/2019/11/15/030956)
 - [11/15 : Windows Subsystem for Linux してみる話](/entry/2019/11/15/024208)
 
