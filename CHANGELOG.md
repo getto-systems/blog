@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## Version : 0.28.0
+
+- publish: alacritty : See merge request getto-systems-base/projects/blog!105
+- add: alacritty : See merge request getto-systems-base/projects/blog!104
+
+
 ## Version : 0.27.0
 
 - publish: ssh-ed25519 : See merge request getto-systems-base/projects/blog!103
