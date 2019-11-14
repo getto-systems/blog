@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## Version : 0.27.0
+
+- publish: ssh-ed25519 : See merge request getto-systems-base/projects/blog!103
+- add: ssh-ed25519 : See merge request getto-systems-base/projects/blog!102
+
+
 ## Version : 0.26.0
 
 - publish: wsl : See merge request getto-systems-base/projects/blog!101
