@@ -238,6 +238,7 @@ Windows で Alacritty を使用する方法をまとめた。
 - [WSL + Alacritty で Powerline を使う | hiromasa.another :o)](https://another.maple4ever.net/archives/2741/)
 - [jwilm/alacritty | GitHub](https://github.com/jwilm/alacritty)
 - [Avoid the escape key | Vim fandom](https://vim.fandom.com/wiki/Avoid_the_escape_key)
+- [あんずいろ apricot × color](http://www8.plala.or.jp/p_dolce/index.html)
 
 
 [TOP](#top)
