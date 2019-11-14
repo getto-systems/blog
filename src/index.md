@@ -3,6 +3,7 @@
 ### Drafts
 
 - [comming soon...](/draft/article/index.html)
+- [ssh で ed25519 する話](/draft/ssh-ed25519/index.html)
 
 
 ### November 2019
