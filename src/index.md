@@ -3,6 +3,7 @@
 ### Drafts
 
 - [comming soon...](/draft/article/index.html)
+- [Windows10 で Alacritty する話](/draft/alacritty/index.html)
 
 
 ### November 2019
