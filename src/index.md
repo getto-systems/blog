@@ -3,11 +3,11 @@
 ### Drafts
 
 - [comming soon...](/draft/article/index.html)
-- [ssh で ed25519 する話](/draft/ssh-ed25519/index.html)
 
 
 ### November 2019
 
+- [11/15 : ssh で ed25519 する話](/entry/2019/11/15/030956)
 - [11/15 : Windows Subsystem for Linux してみる話](/entry/2019/11/15/024208)
 
 
