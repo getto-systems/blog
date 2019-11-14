@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## Version : 0.25.0
+
+- add: wsl : See merge request getto-systems-base/projects/blog!100
+
+
 ## Version : 0.24.0
 
 - publish: release-docsy : See merge request getto-systems-base/projects/blog!99
