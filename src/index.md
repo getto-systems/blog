@@ -24,6 +24,7 @@
 ### Drafts
 
 - [comming soon...](/draft/article/index.html)
+- [Windows Subsystem for Linux してみる話](/draft/wsl/index.html)
 
 
 ### September 2019
