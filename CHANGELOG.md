@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## Version : 0.29.0
+
+- publish: mount-disk : See merge request getto-systems-base/projects/blog!108
+- fix: content : See merge request getto-systems-base/projects/blog!107
+- add: mount-disk : See merge request getto-systems-base/projects/blog!106
+
+
 ## Version : 0.28.0
 
 - publish: alacritty : See merge request getto-systems-base/projects/blog!105
