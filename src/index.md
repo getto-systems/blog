@@ -3,11 +3,11 @@
 ### Drafts
 
 - [comming soon...](/draft/article/index.html)
-- [systemd で外付けディスクをマウントする話](/draft/mount-disk/index.html)
 
 
 ### November 2019
 
+- [11/19 : systemd で外付けディスクをマウントする話](/entry/2019/11/19/203543)
 - [11/15 : Windows10 で Alacritty する話](/entry/2019/11/15/045052)
 - [11/15 : ssh で ed25519 する話](/entry/2019/11/15/030956)
 - [11/15 : Windows Subsystem for Linux してみる話](/entry/2019/11/15/024208)
