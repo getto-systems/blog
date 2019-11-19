@@ -3,6 +3,7 @@
 ### Drafts
 
 - [comming soon...](/draft/article/index.html)
+- [systemd で外付けディスクをマウントする話](/draft/mount-disk/index.html)
 
 
 ### November 2019
