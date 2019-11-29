@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## Version : 0.29.1
+
+- fix: gitlab-ci : See merge request getto-systems-base/projects/blog!111
+- fix: gitlab-ci : See merge request getto-systems-base/projects/blog!110
+- fix: gitlab-ci : See merge request getto-systems-base/projects/blog!109
+
+
 ## Version : 0.29.0
 
 - publish: mount-disk : See merge request getto-systems-base/projects/blog!108
