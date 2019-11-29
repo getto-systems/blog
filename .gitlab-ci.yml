@@ -41,7 +41,7 @@ release:
   stage: release
   only:
     refs:
-      - master@getto-systems-base/projects/psycher/slack
+      - master@getto-systems-base/projects/blog
     changes:
       - .release-version
   except:
@@ -60,7 +60,7 @@ release_success:
   stage: release_notify
   only:
     refs:
-      - master@getto-systems-base/projects/psycher/slack
+      - master@getto-systems-base/projects/blog
     changes:
       - .release-version
   except:
@@ -80,7 +80,7 @@ release_failure:
   stage: release_notify
   only:
     refs:
-      - master@getto-systems-base/projects/psycher/slack
+      - master@getto-systems-base/projects/blog
     changes:
       - .release-version
   except:
