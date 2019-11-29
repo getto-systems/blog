@@ -54,7 +54,6 @@ release:
   script:
     - npm test
     - curl https://raw.githubusercontent.com/getto-systems/version-dump/master/bin/push_tags.sh | bash
-    - ./bin/deploy.sh
 
 release_success:
   stage: release_notify
