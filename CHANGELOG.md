@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## Version : 0.29.2
+
+- fix: gitlab-ci : See merge request getto-systems-base/projects/blog!113
+
+
 ## Version : 0.29.1
 
 - fix: gitlab-ci : See merge request getto-systems-base/projects/blog!111
