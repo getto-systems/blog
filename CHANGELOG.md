@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## Version : 0.30.0
+
+- fix: release : See merge request getto-systems-base/projects/blog!121
+- fix: image : getto/hangar:Fmesx5G7Q9HdsOns-20191213153019 : See merge request getto-systems-base/projects/blog!120
+- fix: gitlab-ci : See merge request getto-systems-base/projects/blog!119
+- fix: gitlab-ci : See merge request getto-systems-base/projects/blog!118
+- add: draft : See merge request getto-systems-base/projects/blog!117
+
+
 ## Version : 0.29.3
 
 - fix: gitlab-ci : See merge request getto-systems-base/projects/blog!115
