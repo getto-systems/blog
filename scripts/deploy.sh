@@ -14,10 +14,10 @@ deploy_to(){
   target=$1; shift
 
   aws s3 cp \
-    --acl resources \
+    --acl private \
     --cache-control "public, max-age=31536000" \
     --recursive \
-    dist s3://$target/$version
+    resources s3://$target/$version
 }
 
 deploy_main
