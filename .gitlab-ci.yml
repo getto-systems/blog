@@ -1,7 +1,11 @@
-image: node:12.6.0-stretch
+image: getto/hangar:Fmesx5G7Q9HdsOns
 
 stages:
   - test
+  - image_build
+  - image_test
+  - image_fix_vulnerabilities
+  - image_push
   - bump_version
   - release
   - release_notify
@@ -14,9 +18,109 @@ test:
     changes:
       - src/**/*.md
   before_script:
-    - npm clean-install
+    - ./bin/restore.sh
   script:
     - npm test
+
+image_build:
+  stage: image_build
+  only:
+    refs:
+      - merge_requests
+    changes:
+      - package-lock.json
+      - Dockerfile
+
+  image: getto/hangar:latest
+
+  variables:
+    DOCKER_HOST: tcp://docker:2375/
+    DOCKER_DRIVER: overlay2
+    DOCKER_CONTENT_TRUST: 1
+  services:
+    - docker:dind
+
+  cache:
+    paths:
+      - .cache
+
+  script:
+    - getto-hangar-build.sh
+
+image_test:
+  stage: image_test
+  only:
+    refs:
+      - schedules
+    variables:
+      - $CHECK
+
+  image: getto/hangar:latest
+
+  variables:
+    DOCKER_HOST: tcp://docker:2375/
+    DOCKER_DRIVER: overlay2
+    DOCKER_CONTENT_TRUST: 1
+  services:
+    - docker:dind
+
+  cache:
+    paths:
+      - .cache
+
+  script:
+    - getto-hangar-test.sh
+
+image_fix_vulnerabilities:
+  stage: image_fix_vulnerabilities
+  only:
+    refs:
+      - schedules
+    variables:
+      - $CHECK
+  when: on_failure
+
+  image: getto/hangar:latest
+
+  before_script:
+    - git config user.email admin@getto.systems
+    - git config user.name getto
+    - curl https://trellis.getto.systems/git/post/1.0.0/setup.sh | bash -s -- ./vendor/getto-systems
+    - export PATH=$PATH:./vendor/getto-systems/git-post/bin
+  script:
+    - getto-hangar-fix-vulnerabilities.sh
+    - curl https://trellis.getto.systems/ci/bump-version/1.2.2/request.sh | bash -s -- ./.fix-vulnerabilities-message.sh
+
+image_push:
+  stage: image_push
+  only:
+    refs:
+      - master@getto-systems-base/projects/blog
+    changes:
+      - package-lock.json
+      - Dockerfile
+  except:
+    refs:
+      - schedules
+      - triggers
+
+  image: getto/hangar:latest
+
+  variables:
+    DOCKER_HOST: tcp://docker:2375/
+    DOCKER_DRIVER: overlay2
+    DOCKER_CONTENT_TRUST: 1
+  before_script:
+    - git config user.email admin@getto.systems
+    - git config user.name getto
+    - curl https://trellis.getto.systems/git/post/1.0.0/setup.sh | bash -s -- ./vendor/getto-systems
+    - export PATH=$PATH:./vendor/getto-systems/git-post/bin
+  services:
+    - docker:dind
+
+  script:
+    - getto-hangar-push.sh
+    - curl https://trellis.getto.systems/ci/bump-version/1.2.2/request.sh | bash -s -- ./.fix-image-message.sh
 
 bump_version:
   stage: bump_version
