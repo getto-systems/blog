@@ -154,10 +154,11 @@ release:
       - schedules
 
   before_script:
-    - npm clean-install
+    - ./scripts/restore.sh
   script:
     - npm test
     - curl https://trellis.getto.systems/ci/bump-version/1.2.2/push_tags.sh | bash
+    - ./scripts/deploy.sh
 
 release_success:
   stage: release_notify
