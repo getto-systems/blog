@@ -1,7 +1,7 @@
 # ラズパイをルーターにしよう大作戦
 <a id="top"></a>
 
-![ネットワーク](/resources/2019/12/raspi-router/RaspberryPi-Router.png)
+![ネットワーク](https://trellis.getto.systems/blog/resources/0.30.1/2019/12/raspi-router/RaspberryPi-Router.png)
 
 ###### CONTENTS
 
@@ -34,7 +34,7 @@ Intel NUC の CoreOS では、開発中の Web アプリケーションが見え
 このため、個人でテザリングする運用だとなかなか厳しい。
 それで、なるべく無線を使用しない方向で考えてみた。
 
-![ネットワーク](/resources/2019/12/raspi-router/RaspberryPi-Router.png)
+![ネットワーク](https://trellis.getto.systems/blog/resources/0.30.1/2019/12/raspi-router/RaspberryPi-Router.png)
 
 この図の「スマホ」の部分は、利用可能な Wi-Fi ネットワークに置き換えられる。
 これで、不必要な無線接続をなくすことができる。
