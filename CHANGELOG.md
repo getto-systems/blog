@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## Version : 0.32.0
+
+- publish: keycron-keyboard : See merge request getto-systems-base/projects/blog!129
+- add: draft : See merge request getto-systems-base/projects/blog!128
+
+
 ## Version : 0.31.0
 
 - publish: raspi-router : See merge request getto-systems-base/projects/blog!126
