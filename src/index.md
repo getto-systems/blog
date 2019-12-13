@@ -3,6 +3,8 @@
 ### Drafts
 
 - [comming soon...](/draft/article/index.html)
+- [Ruby で gRPC Stream する話](/draft/ruby-grpc-stream/index.html)
+- [ラズパイをルーターにしよう大作戦](/draft/raspi-router/index.html)
 
 
 ### November 2019
