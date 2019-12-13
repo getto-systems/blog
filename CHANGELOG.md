@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## Version : 0.30.1
+
+- fix: bump-ignore : See merge request getto-systems-base/projects/blog!123
+
+
 ## Version : 0.30.0
 
 - fix: release : See merge request getto-systems-base/projects/blog!121
