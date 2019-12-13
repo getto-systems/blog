@@ -8,7 +8,7 @@
 
 ### December 2019
 
-- [12/14 : ラズパイをルーターにしよう大作戦](/draft/raspi-router/index.html)
+- [12/14 : ラズパイをルーターにしよう大作戦](/entry/2019/12/14/011628)
 
 
 ### November 2019
