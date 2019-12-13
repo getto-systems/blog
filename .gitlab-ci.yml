@@ -18,7 +18,7 @@ test:
     changes:
       - src/**/*.md
   before_script:
-    - ./bin/restore.sh
+    - ./scripts/restore.sh
   script:
     - npm test
 
