@@ -4,6 +4,7 @@
 
 - [comming soon...](/draft/article/index.html)
 - [Ruby で gRPC Stream する話](/draft/ruby-grpc-stream/index.html)
+- [Keychron K4 キーボードが届いた話](/draft/keycron-keyboard/index.html)
 
 
 ### December 2019
