@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## Version : 0.31.0
+
+- publish: raspi-router : See merge request getto-systems-base/projects/blog!126
+- fix: resources : See merge request getto-systems-base/projects/blog!125
+
+
 ## Version : 0.30.1
 
 - fix: bump-ignore : See merge request getto-systems-base/projects/blog!123
