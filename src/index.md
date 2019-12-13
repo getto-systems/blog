@@ -4,7 +4,11 @@
 
 - [comming soon...](/draft/article/index.html)
 - [Ruby で gRPC Stream する話](/draft/ruby-grpc-stream/index.html)
-- [ラズパイをルーターにしよう大作戦](/draft/raspi-router/index.html)
+
+
+### December 2019
+
+- [12/14 : ラズパイをルーターにしよう大作戦](/entry/2019/12/14/011628)
 
 
 ### November 2019
