@@ -21,12 +21,12 @@
 <a id="purpose"></a>
 ### なにがやりたいのか
 
-[gRPC Basics - Ruby | gRPC Documentation](https://grpc.io/docs/tutorials/basic/ruby/) に書いてあるとおりだな・・・
+[gRPC Basics - Ruby | gRPC Documentation](https://grpc.io/docs/tutorials/basic/ruby/) に書いてあるとおりだな。
 
-Rust でやってそれをまとめよう
+Rust でやってそれをまとめよう。
 
-できれば JS まで gRPC したいけど、間に proxy はさんでいけるのかな？
-だめなら grpc-gateway みたいな名前の json で RESTful api にするやつがあったはず
+できれば JS まで gRPC したいけど、間に proxy はさんでいけるのかな。
+だめなら grpc-gateway みたいな名前の json で RESTful api にするやつがあったはず。
 
 
 [TOP](#top)
