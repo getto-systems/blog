@@ -4,6 +4,7 @@
 
 - [comming soon...](/draft/article/index.html)
 - [Ruby で gRPC Stream する話](/draft/ruby-grpc-stream/index.html)
+- [coc.vim で textlint する話](/draft/textlint-on-coc-vim/index.html)
 
 
 ### January 2020
