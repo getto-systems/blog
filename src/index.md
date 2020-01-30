@@ -4,10 +4,11 @@
 
 - [comming soon...](/draft/article/index.html)
 - [Ruby で gRPC Stream する話](/draft/ruby-grpc-stream/index.html)
-- [go package の構成についてのまとめ](/draft/golang-package/index.html)
 
 
 ### January 2020
+
+- [go package の構成についてのまとめ](/entry/2020/01/30/223734)
 
 
 ### December 2019
