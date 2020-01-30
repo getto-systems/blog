@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## Version : 0.35.0
+
+- publish: textlint on coc.vim : See merge request getto-systems-base/projects/blog!148
+- fix: contnet : See merge request getto-systems-base/projects/blog!147
+- add: efm-langserver : See merge request getto-systems-base/projects/blog!146
+
+
 ## Version : 0.34.0
 
 - publish: golang package : See merge request getto-systems-base/projects/blog!144
