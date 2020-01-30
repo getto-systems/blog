@@ -97,7 +97,7 @@ lint-command で設定したコマンドが実行される。
 
 標準入力を指定するとバッファに対して lint してくれるような気もするが、textlint ではうまくいかなかった。
 
-lint-formats には、vim の errorformat の設定文字列を記述する。
+lint-formats には、vim の errorformat の制御文字列を記述する。
 lint-command の出力がこのパターンにマッチする場合は diagnostics が追加される。
 
 なお、この設定では `%f:%l:%n: %m` としている。
