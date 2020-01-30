@@ -62,7 +62,7 @@ go では、同じパッケージなら、同じディレクトリに複数の�
 go mod init $MODULE_PATH
 ```
 
-ここでは `MODULE_PATH=github.com/getto-systems/golang-example` とした。
+ここでは `MODULE_PATH=github.com/getto-systems/golang-example` として説明する。
 これは GitHub で `getto-systems` アカウントの `golang-example` リポジトリでこのモジュールを公開する、という意味になる。
 
 仕組みはよく調べていないが、ほかのモジュールから参照されたとき、アクセス可能なパスであれば依存関係を解決してくれるようだ。
