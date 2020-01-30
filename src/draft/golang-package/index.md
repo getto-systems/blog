@@ -81,9 +81,9 @@ go mod init $MODULE_PATH
 package main
 
 import (
-  github.com/getto-systems/golang-example/awesome
-  github.com/getto-systems/golang-example/feature
-  github.com/getto-systems/golang-example/feature/component
+	github.com/getto-systems/golang-example/awesome
+	github.com/getto-systems/golang-example/feature
+	github.com/getto-systems/golang-example/feature/component
 )
 ```
 
