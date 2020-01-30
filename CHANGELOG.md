@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## Version : 0.34.0
+
+- publish: golang package : See merge request getto-systems-base/projects/blog!144
+
+
 ## Version : 0.33.0
 
 - publish: golang package : See merge request getto-systems-base/projects/blog!142
