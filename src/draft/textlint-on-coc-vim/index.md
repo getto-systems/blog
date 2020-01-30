@@ -95,6 +95,8 @@ lint-command で設定したコマンドが実行される。
 `${INPUT}` がファイル名に置換するためのプレースホルダ。
 [README](https://github.com/mattn/efm-langserver#example-for-configyaml) には標準入力を受け付ける例しか書いていないが、ファイル名を指定するにはこうする。
 
+標準入力を指定するとバッファに対して lint してくれるような気もするが、textlint ではうまくいかなかった。
+
 lint-formats には、vim の errorformat の設定文字列を記述する。
 lint-command の出力がこのパターンにマッチする場合は diagnostics が追加される。
 
