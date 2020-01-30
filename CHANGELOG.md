@@ -1,5 +1,21 @@
 # CHANGELOG
 
+## Version : 0.33.0
+
+- publish: golang package : See merge request getto-systems-base/projects/blog!142
+- fix: golang indent : See merge request getto-systems-base/projects/blog!141
+- fix: image : getto/hangar:Fmesx5G7Q9HdsOns-20200130131128 : See merge request getto-systems-base/projects/blog!140
+- fix: textlint : See merge request getto-systems-base/projects/blog!139
+- add: golang-example : See merge request getto-systems-base/projects/blog!138
+- fix: image : getto/hangar:Fmesx5G7Q9HdsOns-20200127105931 : See merge request getto-systems-base/projects/blog!137
+- fix: vulnerabilities : 2020-01-27T01:08:49,254118001 00:00 : See merge request getto-systems-base/projects/blog!135
+- fix: vulnerabilities : See merge request getto-systems-base/projects/blog!136
+- fix: image : getto/hangar:Fmesx5G7Q9HdsOns-20200120063939 : See merge request getto-systems-base/projects/blog!134
+- fix: vulnerabilities : 2020-01-20T01:08:30,741917412 00:00 : See merge request getto-systems-base/projects/blog!133
+- fix: image : getto/hangar:Fmesx5G7Q9HdsOns-20200113075051 : See merge request getto-systems-base/projects/blog!132
+- fix: vulnerabilities : 2020-01-13T01:08:02,027072552 00:00 : See merge request getto-systems-base/projects/blog!131
+
+
 ## Version : 0.32.0
 
 - publish: keycron-keyboard : See merge request getto-systems-base/projects/blog!129
