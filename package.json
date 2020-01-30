@@ -7,7 +7,7 @@
     "reload": "reload-wrapper -d ./public",
     "watch": "npm run watch:build",
     "watch:build": "node ./scripts/build.js",
-    "test": "textlint $(find src -name '*.md')"
+    "test": "textlint 'src/**'"
   },
   "repository": {
     "type": "git",
