@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## Version : 0.37.0
+
+- publish: 2020-development : See merge request getto-systems-base/projects/blog!160
+- add: 2020-development : See merge request getto-systems-base/projects/blog!159
+
+
 ## Version : 0.36.0
 
 - publish: raspberry-pi-udev : See merge request getto-systems-base/projects/blog!157
