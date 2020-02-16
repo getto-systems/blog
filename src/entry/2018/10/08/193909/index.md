@@ -61,9 +61,9 @@ Web を選択し、それぞれ設定を行う。
 
 - viewer plotocol policy : redirect http to https
 - object caching : customize
-- minimum TTL : 86400
-- maximum TTL : 31536000
-- default TTL : 1209600
+- `minimum TTL` : 86400
+- `maximum TTL` : 31536000
+- `default TTL` : 1209600
 - compress objects automatically : Yes
 
 キャッシュの設定で origin のやつを使うことにすると、S3 のオブジェクトに個別に有効期限のヘッダを追加するように設定しておく必要がある。
