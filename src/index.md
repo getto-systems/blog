@@ -4,6 +4,7 @@
 
 - [comming soon...](/draft/article/index.html)
 - [Ruby で gRPC Stream する話](/draft/ruby-grpc-stream/index.html)
+- [うちの開発環境 - 2020版](/draft/2020-development/index.html)
 
 
 ### January 2020
