@@ -2,7 +2,6 @@
 
 const fs     = require("fs");
 const ejs    = require("ejs");
-const spawn  = require("cross-spawn");
 const watch  = require("watch");
 const marked = require("marked");
 
