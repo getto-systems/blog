@@ -1,5 +1,18 @@
 # CHANGELOG
 
+## Version : 0.36.0
+
+- publish: raspberry-pi-udev : See merge request getto-systems-base/projects/blog!157
+- add: raspberry-pi-udev : See merge request getto-systems-base/projects/blog!153
+
+- fix: write good lint : See merge request getto-systems-base/projects/blog!156
+- fix: image : getto/hangar:Fmesx5G7Q9HdsOns-20200216204527 : See merge request getto-systems-base/projects/blog!155
+- add: textlint : See merge request getto-systems-base/projects/blog!154
+- fix: image : getto/hangar:Fmesx5G7Q9HdsOns-20200216190930 : See merge request getto-systems-base/projects/blog!152
+- fix: package : See merge request getto-systems-base/projects/blog!151
+- fix: textlintrc : See merge request getto-systems-base/projects/blog!150
+
+
 ## Version : 0.35.0
 
 - publish: textlint on coc.vim : See merge request getto-systems-base/projects/blog!148
