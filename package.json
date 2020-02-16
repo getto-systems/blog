@@ -24,5 +24,10 @@
     "marked": "^0.7.0",
     "reload-wrapper": "^0.1.1",
     "watch": "^1.0.2"
+  },
+  "dependencies": {
+    "textlint": "^11.6.3",
+    "textlint-rule-preset-ja-technical-writing": "^3.1.3",
+    "textlint-rule-write-good": "^1.6.2"
   }
 }
