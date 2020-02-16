@@ -4,11 +4,11 @@
 
 - [comming soon...](/draft/article/index.html)
 - [Ruby で gRPC Stream する話](/draft/ruby-grpc-stream/index.html)
-- [うちの開発環境 - 2020版](/draft/2020-development/index.html)
 
 
 ### January 2020
 
+- [02/17 : うちの開発環境 - 2020版](/entry/2020/02/17/072451)
 - [02/17 : ラズパイに USB をさして電源を落とそう大作戦](/entry/2020/02/17/063014)
 
 
