@@ -4,6 +4,7 @@
 
 - [comming soon...](/draft/article/index.html)
 - [Ruby で gRPC Stream する話](/draft/ruby-grpc-stream/index.html)
+- [ラズパイに USB をさして電源を落とそう大作戦](/draft/raspberry-pi-udev/index.html)
 
 
 ### January 2020
