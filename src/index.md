@@ -4,13 +4,17 @@
 
 - [comming soon...](/draft/article/index.html)
 - [Ruby で gRPC Stream する話](/draft/ruby-grpc-stream/index.html)
-- [ラズパイに USB をさして電源を落とそう大作戦](/draft/raspberry-pi-udev/index.html)
 
 
 ### January 2020
 
-- [coc.vim で textlint する話](/entry/2020/01/31/003734)
-- [go package の構成についてのまとめ](/entry/2020/01/30/223734)
+- [02/17 : ラズパイに USB をさして電源を落とそう大作戦](/entry/2020/02/17/063014)
+
+
+### January 2020
+
+- [01/31 : coc.vim で textlint する話](/entry/2020/01/31/003734)
+- [01/30 : go package の構成についてのまとめ](/entry/2020/01/30/223734)
 
 
 ### December 2019
