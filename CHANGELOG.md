@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## Version : 0.38.0
+
+- publish: iam-user : See merge request getto-systems-base/projects/blog!163
+- add: iam-user : See merge request getto-systems-base/projects/blog!162
+
+
 ## Version : 0.37.0
 
 - publish: 2020-development : See merge request getto-systems-base/projects/blog!160
