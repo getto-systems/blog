@@ -4,6 +4,7 @@
 
 - [comming soon...](/draft/article/index.html)
 - [Ruby で gRPC Stream する話](/draft/ruby-grpc-stream/index.html)
+- [AWS IAM ユーザーの運用を考えてみた話](/draft/iam-user/index.html)
 
 
 ### January 2020
