@@ -4,6 +4,7 @@ stages:
   - test
   - image_build
   - image_test
+  - image_scheduled_test
   - image_fix_vulnerabilities
   - image_push
   - bump_version
@@ -30,6 +31,7 @@ image_build:
     changes:
       - package-lock.json
       - Dockerfile
+      - Dockerfile-test
 
   image: getto/hangar:latest
 
@@ -41,14 +43,51 @@ image_build:
     - docker:dind
 
   cache:
+    key:
+      files:
+        - Dockerfile
     paths:
-      - .cache
+      - .build
 
+  before_script:
+    - mkdir -p .build
   script:
-    - getto-hangar-build.sh
+    - getto-hangar-build-to-file.sh .build/image.tar
 
 image_test:
   stage: image_test
+  only:
+    refs:
+      - merge_requests
+    changes:
+      - package-lock.json
+      - Dockerfile
+      - Dockerfile-test
+  needs:
+    - image_build
+
+  image: getto/hangar:latest
+
+  variables:
+    DOCKER_HOST: tcp://docker:2375/
+    DOCKER_DRIVER: overlay2
+    DOCKER_CONTENT_TRUST: 1
+  services:
+    - docker:dind
+
+  cache:
+    policy: pull
+    key:
+      files:
+        - Dockerfile
+    paths:
+      - .build
+
+  script:
+    - getto-hangar-test-from-file.sh .build/image.tar
+
+image_scheduled_test:
+  stage: image_scheduled_test
   only:
     refs:
       - schedules
@@ -63,10 +102,6 @@ image_test:
     DOCKER_CONTENT_TRUST: 1
   services:
     - docker:dind
-
-  cache:
-    paths:
-      - .cache
 
   script:
     - getto-hangar-test.sh
@@ -130,7 +165,7 @@ bump_version:
     variables:
       - $RELEASE
 
-  image: buildpack-deps:disco-scm
+  image: buildpack-deps:buster-scm
 
   before_script:
     - git config user.email admin@getto.systems
@@ -173,7 +208,7 @@ release_success:
       - schedules
   when: on_success
 
-  image: buildpack-deps:disco-curl
+  image: buildpack-deps:buster-curl
 
   before_script:
     - export channel=$SLACK_CHANNEL
@@ -193,7 +228,7 @@ release_failure:
       - schedules
   when: on_failure
 
-  image: buildpack-deps:disco-curl
+  image: buildpack-deps:buster-curl
 
   before_script:
     - export channel=$SLACK_CHANNEL
