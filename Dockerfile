@@ -1,4 +1,4 @@
-FROM ubuntu:disco
+FROM debian:buster
 
 ENV NODE_VERSION 12
 
