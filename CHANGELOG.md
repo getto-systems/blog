@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## Version : 0.39.0
+
+- publish: ubuntu20.04 : See merge request getto-systems-base/projects/blog!168
+- add: ubuntu20.04 : See merge request getto-systems-base/projects/blog!167
+- fix: image : getto/hangar:Fmesx5G7Q9HdsOns-20200424235025 : See merge request getto-systems-base/projects/blog!166
+- fix: Dockerfile : See merge request getto-systems-base/projects/blog!165
+
+
 ## Version : 0.38.0
 
 - publish: iam-user : See merge request getto-systems-base/projects/blog!163
