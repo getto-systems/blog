@@ -4,6 +4,7 @@
 
 - [comming soon...](/draft/article/index.html)
 - [Ruby で gRPC Stream する話](/draft/ruby-grpc-stream/index.html)
+- [Windows10 で Ubuntu 20.04 にする話](/draft/update-ubuntu20.04/index.html)
 
 
 ### March 2020
