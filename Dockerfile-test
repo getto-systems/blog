@@ -1,5 +1,6 @@
 FROM getto/hangar:dev
 
 COPY src /opt/app/src
+COPY .textlintrc /opt/app/
 
 CMD ["npm", "test"]
