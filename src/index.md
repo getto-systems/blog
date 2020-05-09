@@ -4,7 +4,11 @@
 
 - [comming soon...](/draft/article/index.html)
 - [Ruby で gRPC Stream する話](/draft/ruby-grpc-stream/index.html)
-- [Cargo でプライベート git を参照する](/draft/cargo-private-git/index.html)
+
+
+### May 2020
+
+- [Cargo でプライベート git を参照する](/entry/2020/05/09/182605/index.html)
 
 
 ### April 2020
