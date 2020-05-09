@@ -17,6 +17,7 @@ server.start({
   host: "0.0.0.0",
   root: "./public",
   open: false,
+  https: "scripts/tls.js",
   middleware: [
     (req, res, next) => {
       Object.keys(headers).forEach((key) => {
