@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## Version : 0.40.0
+
+- publish: cargo-private-git : See merge request getto-systems-base/projects/blog!176
+
+- add: cargo-private-git draft : See merge request getto-systems-base/projects/blog!175
+- fix: https support : See merge request getto-systems-base/projects/blog!174
+- fix: image : getto/hangar:Fmesx5G7Q9HdsOns-20200509054110 : See merge request getto-systems-base/projects/blog!173
+- fix: gitlab-ci : See merge request getto-systems-base/projects/blog!172
+- fix: image : getto/hangar:Fmesx5G7Q9HdsOns-20200507123339 : See merge request getto-systems-base/projects/blog!171
+- fix: vulnerabilities : 2020-05-04T01:07:47,796008349 00:00 : See merge request getto-systems-base/projects/blog!170
+
+
 ## Version : 0.39.0
 
 - publish: ubuntu20.04 : See merge request getto-systems-base/projects/blog!168
