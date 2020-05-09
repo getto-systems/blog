@@ -11,6 +11,12 @@ stages:
   - release
   - release_notify
 
+variables:
+  TRELLIS_HANGAR: https://trellis.getto.systems/hangar/3.1.0
+  TRELLIS_GIT_POST: https://trellis.getto.systems/git/post/1.0.0
+  TRELLIS_CI_BUMP_VERSION: https://trellis.getto.systems/ci/bump-version/1.4.0
+  TRELLIS_PSYCHER_GETTO: https://trellis.getto.systems/psycher/getto/2.6.0
+
 test:
   stage: test
   only:
@@ -18,6 +24,7 @@ test:
       - merge_requests
     changes:
       - src/**/*.md
+
   before_script:
     - ./scripts/restore.sh
   script:
@@ -33,26 +40,32 @@ image_build:
       - Dockerfile
       - Dockerfile-test
 
-  image: getto/hangar:latest
+  image: docker:stable
 
   variables:
     DOCKER_HOST: tcp://docker:2375/
     DOCKER_DRIVER: overlay2
     DOCKER_CONTENT_TRUST: 1
+
   services:
     - docker:dind
 
-  cache:
-    key:
-      files:
-        - Dockerfile
+  artifacts:
     paths:
-      - .build
+      - .build/image.tar.gz
+    expire_in: 1 day
 
   before_script:
     - mkdir -p .build
+    - export image=image:$CI_COMMIT_SHORT_SHA
   script:
-    - getto-hangar-build-to-file.sh .build/image.tar
+    - docker build -t $image .
+    - sed -i -e "s|FROM.*|FROM $image|" Dockerfile-test
+    - docker build -t $image-test -f Dockerfile-test --disable-content-trust .
+    - docker run --rm --disable-content-trust $image-test
+    - docker image save $image --output .build/image.tar
+    - gzip .build/image.tar
+    - chown 1000:1000 .build/image.tar.gz
 
 image_test:
   stage: image_test
@@ -66,25 +79,13 @@ image_test:
   needs:
     - image_build
 
-  image: getto/hangar:latest
-
-  variables:
-    DOCKER_HOST: tcp://docker:2375/
-    DOCKER_DRIVER: overlay2
-    DOCKER_CONTENT_TRUST: 1
-  services:
-    - docker:dind
-
-  cache:
-    policy: pull
-    key:
-      files:
-        - Dockerfile
-    paths:
-      - .build
-
+  before_script:
+    - curl $TRELLIS_HANGAR/install_trivy.sh | sh -s -- vendor
+    - curl $TRELLIS_HANGAR/install_dockle.sh | sh -s -- vendor
   script:
-    - getto-hangar-test-from-file.sh .build/image.tar
+    - gunzip .build/image.tar.gz
+    - ./vendor/dockle --exit-code 1 --input .build/image.tar
+    - ./vendor/trivy --exit-code 1 --light --no-progress --ignore-unfixed --input .build/image.tar
 
 image_scheduled_test:
   stage: image_scheduled_test
@@ -94,17 +95,12 @@ image_scheduled_test:
     variables:
       - $CHECK
 
-  image: getto/hangar:latest
-
-  variables:
-    DOCKER_HOST: tcp://docker:2375/
-    DOCKER_DRIVER: overlay2
-    DOCKER_CONTENT_TRUST: 1
-  services:
-    - docker:dind
-
+  before_script:
+    - curl $TRELLIS_HANGAR/install_trivy.sh | sh -s -- vendor
+    - curl $TRELLIS_HANGAR/install_dockle.sh | sh -s -- vendor
   script:
-    - getto-hangar-test.sh
+    - ./vendor/dockle --exit-code 1 $(cat .getto-hangar-image)
+    - ./vendor/trivy --exit-code 1 --light --no-progress --ignore-unfixed $(cat .getto-hangar-image)
 
 image_fix_vulnerabilities:
   stage: image_fix_vulnerabilities
@@ -115,16 +111,17 @@ image_fix_vulnerabilities:
       - $CHECK
   when: on_failure
 
-  image: getto/hangar:latest
+  image: buildpack-deps:buster-scm
 
   before_script:
     - git config user.email admin@getto.systems
     - git config user.name getto
-    - curl https://trellis.getto.systems/git/post/1.0.0/setup.sh | bash -s -- ./vendor/getto-systems
+    - curl $TRELLIS_GIT_POST/setup.sh | sh -s -- ./vendor/getto-systems
     - export PATH=$PATH:./vendor/getto-systems/git-post/bin
   script:
-    - getto-hangar-fix-vulnerabilities.sh
-    - curl https://trellis.getto.systems/ci/bump-version/1.2.2/request.sh | bash -s -- ./.fix-vulnerabilities-message.sh
+    - curl $TRELLIS_HANGAR/fix-vulnerabilities.sh | sh -s -- Dockerfile
+    - 'git add Dockerfile && git commit -m "fix: vulnerabilities"'
+    - curl $TRELLIS_CI_BUMP_VERSION/request.sh | bash -s -- ./.message/fix-vulnerabilities.sh
 
 image_push:
   stage: image_push
@@ -134,28 +131,39 @@ image_push:
     changes:
       - package-lock.json
       - Dockerfile
+      - Dockerfile-test
   except:
     refs:
       - schedules
       - triggers
 
-  image: getto/hangar:latest
+  image: docker:stable
 
   variables:
     DOCKER_HOST: tcp://docker:2375/
     DOCKER_DRIVER: overlay2
     DOCKER_CONTENT_TRUST: 1
-  before_script:
-    - git config user.email admin@getto.systems
-    - git config user.name getto
-    - curl https://trellis.getto.systems/git/post/1.0.0/setup.sh | bash -s -- ./vendor/getto-systems
-    - export PATH=$PATH:./vendor/getto-systems/git-post/bin
+
   services:
     - docker:dind
 
+  before_script:
+    - apk update && apk add bash git curl
+    - git config user.email admin@getto.systems
+    - git config user.name getto
+    - curl $TRELLIS_GIT_POST/setup.sh | sh -s -- ./vendor/getto-systems
+    - export HOME=$(pwd)
+    - export PATH=$PATH:./vendor/getto-systems/git-post/bin
+    - export hangar_id=$(cat .getto-hangar-image | sed 's/.*://' | sed 's/-.*//')
+    - export image=getto/hangar:$hangar_id-$(date +%Y%m%d%H%M%S)
+    - curl $TRELLIS_HANGAR/docker_login.sh | sh
   script:
-    - getto-hangar-push.sh
-    - curl https://trellis.getto.systems/ci/bump-version/1.2.2/request.sh | bash -s -- ./.fix-image-message.sh
+    - docker build -t $image .
+    - docker push $image
+    - 'sed -i -e "s|image: getto/hangar:$hangar_id-\\?.*|image: $image|" .gitlab-ci.yml'
+    - echo $image > .getto-hangar-image
+    - 'git add .gitlab-ci.yml .getto-hangar-image && git commit -m "update: image"'
+    - curl $TRELLIS_CI_BUMP_VERSION/request.sh | bash -s -- ./.message/fix-image.sh
 
 bump_version:
   stage: bump_version
@@ -170,11 +178,11 @@ bump_version:
   before_script:
     - git config user.email admin@getto.systems
     - git config user.name getto
-    - curl https://trellis.getto.systems/git/post/1.0.0/setup.sh | bash -s -- ./vendor/getto-systems
+    - curl $TRELLIS_GIT_POST/setup.sh | sh -s -- ./vendor/getto-systems
     - export PATH=$PATH:./vendor/getto-systems/git-post/bin
   script:
-    - curl https://trellis.getto.systems/ci/bump-version/1.2.2/bump_version.sh | bash
-    - curl https://trellis.getto.systems/ci/bump-version/1.2.2/request.sh | bash -s -- ./.bump-message.sh
+    - curl $TRELLIS_CI_BUMP_VERSION/bump_version.sh | bash
+    - curl $TRELLIS_CI_BUMP_VERSION/request.sh | bash -s -- ./.message/bump.sh
 
 release:
   stage: release
@@ -192,7 +200,7 @@ release:
     - ./scripts/restore.sh
   script:
     - npm test
-    - curl https://trellis.getto.systems/ci/bump-version/1.2.2/push_tags.sh | bash
+    - curl $TRELLIS_CI_BUMP_VERSION/push_tags.sh | sh
     - ./scripts/deploy.sh
 
 release_success:
@@ -211,9 +219,11 @@ release_success:
   image: buildpack-deps:buster-curl
 
   before_script:
+    - export url=$GETTO_PSYCHER_URL?$GETTO_PSYCHER_TOKEN=true
     - export channel=$SLACK_CHANNEL
+    - export version=blog:$(cat .release-version)
   script:
-    - curl https://trellis.getto.systems/psycher/getto/2.5.6/notify-release.sh | bash -s -- -l $GETTO_PSYCHER_URL?$GETTO_PSYCHER_TOKEN=true success
+    - curl $TRELLIS_PSYCHER_GETTO/notify-release-success.sh | sh -s -- $url $channel $version
 
 release_failure:
   stage: release_notify
@@ -231,6 +241,8 @@ release_failure:
   image: buildpack-deps:buster-curl
 
   before_script:
+    - export url=$GETTO_PSYCHER_URL?$GETTO_PSYCHER_TOKEN=true
     - export channel=$SLACK_CHANNEL
+    - export version=blog:$(cat .release-version)
   script:
-    - curl https://trellis.getto.systems/psycher/getto/2.5.6/notify-release.sh | bash -s -- -l $GETTO_PSYCHER_URL?$GETTO_PSYCHER_TOKEN=true failure
+    - curl $TRELLIS_PSYCHER_GETTO/notify-release-failure.sh | sh -s -- $url $channel $version
