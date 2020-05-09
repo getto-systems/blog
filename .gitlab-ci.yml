@@ -64,8 +64,8 @@ image_build:
     - docker build -t $image-test -f Dockerfile-test --disable-content-trust .
     - docker run --rm --disable-content-trust $image-test
     - docker image save $image --output .build/image.tar
-    - chown 1000:1000 .build/image.tar
     - gzip .build/image.tar
+    - chown 1000:1000 .build/image.tar.gz
 
 image_test:
   stage: image_test
