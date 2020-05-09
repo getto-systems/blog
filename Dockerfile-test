@@ -1,0 +1,5 @@
+FROM getto/hangar:dev
+
+COPY src /opt/app/src
+
+CMD ["npm", "test"]
