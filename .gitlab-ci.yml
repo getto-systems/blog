@@ -12,7 +12,7 @@ stages:
   - release_notify
 
 variables:
-  TRELLIS_HANGAR: https://trellis.getto.systems/hangar/3.1.0
+  TRELLIS_HANGAR: https://trellis.getto.systems/hangar/3.2.0
   TRELLIS_GIT_POST: https://trellis.getto.systems/git/post/1.0.0
   TRELLIS_CI_BUMP_VERSION: https://trellis.getto.systems/ci/bump-version/1.4.0
   TRELLIS_PSYCHER_GETTO: https://trellis.getto.systems/psycher/getto/2.6.0
