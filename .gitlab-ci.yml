@@ -12,7 +12,7 @@ stages:
   - release_notify
 
 variables:
-  TRELLIS_HANGAR: https://trellis.getto.systems/hangar/3.2.0
+  TRELLIS_HANGAR: https://trellis.getto.systems/hangar/3.5.0
   TRELLIS_GIT_POST: https://trellis.getto.systems/git/post/1.0.0
   TRELLIS_CI_BUMP_VERSION: https://trellis.getto.systems/ci/bump-version/1.4.0
   TRELLIS_PSYCHER_GETTO: https://trellis.getto.systems/psycher/getto/2.6.0
@@ -80,8 +80,8 @@ image_test:
     - image_build
 
   before_script:
-    - curl $TRELLIS_HANGAR/install_trivy.sh | sh -s -- vendor
-    - curl $TRELLIS_HANGAR/install_dockle.sh | sh -s -- vendor
+    - curl $TRELLIS_HANGAR/load_trellis.sh | sh -s -- hangar latest install_trivy.sh | sh -s -- vendor
+    - curl $TRELLIS_HANGAR/load_trellis.sh | sh -s -- hangar latest install_dockle.sh | sh -s -- vendor
   script:
     - gunzip .build/image.tar.gz
     - ./vendor/dockle --exit-code 1 --input .build/image.tar
@@ -96,8 +96,8 @@ image_scheduled_test:
       - $CHECK
 
   before_script:
-    - curl $TRELLIS_HANGAR/install_trivy.sh | sh -s -- vendor
-    - curl $TRELLIS_HANGAR/install_dockle.sh | sh -s -- vendor
+    - curl $TRELLIS_HANGAR/load_trellis.sh | sh -s -- hangar latest install_trivy.sh | sh -s -- vendor
+    - curl $TRELLIS_HANGAR/load_trellis.sh | sh -s -- hangar latest install_dockle.sh | sh -s -- vendor
   script:
     - ./vendor/dockle --exit-code 1 $(cat .getto-hangar-image)
     - ./vendor/trivy --exit-code 1 --light --no-progress --ignore-unfixed $(cat .getto-hangar-image)
