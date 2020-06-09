@@ -1,5 +1,19 @@
 # CHANGELOG
 
+## Version : 0.41.0
+
+- publish: github-release : See merge request getto-systems-base/projects/blog!186
+- fix: typo : See merge request getto-systems-base/projects/blog!185
+- add: github-release : See merge request getto-systems-base/projects/blog!184
+- fix: gitlab-ci : See merge request getto-systems-base/projects/blog!183
+
+- fix: image : getto/hangar:Fmesx5G7Q9HdsOns-20200518054230 : See merge request getto-systems-base/projects/blog!182
+- fix: vulnerabilities : 2020-05-18T01:07:12,740422486 00:00 : See merge request getto-systems-base/projects/blog!181
+- fix: image : getto/hangar:Fmesx5G7Q9HdsOns-20200511053303 : See merge request getto-systems-base/projects/blog!180
+- fix: vulnerabilities : 2020-05-11T01:07:12,510893398 00:00 : See merge request getto-systems-base/projects/blog!178
+- fix: vulnerabilities : See merge request getto-systems-base/projects/blog!179
+
+
 ## Version : 0.40.0
 
 - publish: cargo-private-git : See merge request getto-systems-base/projects/blog!176
