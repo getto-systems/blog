@@ -4,6 +4,8 @@
 
 - [comming soon...](/draft/article/index.html)
 - [Ruby で gRPC Stream する話](/draft/ruby-grpc-stream/index.html)
+- [golang でクロスコンパイルする話](/draft/golang-cross-compile/index.html)
+- [GitHub Release に asset を追加してみる](/draft/github-release/index.html)
 
 
 ### May 2020
