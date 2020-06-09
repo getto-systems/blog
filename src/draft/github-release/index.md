@@ -81,7 +81,7 @@ function get_tag_name() {
 GitHub の Release に asset を追加する方法を調べると、この [GitHub Action](https://github.com/actions/upload-release-asset) が出てきた。
 これをベースにして外部の CI から使用できるように調整してみた。
 
-ドキュメントが見つからなかったので、[Developper Guide](https://developer.github.com/v3/repos/releases/) を参考にしつつ、呼び出すメソッドを手探りで探す感じになった。
+ドキュメントが見つからなかったので、[Developer Guide](https://developer.github.com/v3/repos/releases/) を参考にしつつ、呼び出すメソッドを手探りで探す感じになった。
 
 まず、リリースは `createRelease` で作成しないといけない。
 tag をつけただけではリリースにはならないらしい。
@@ -106,7 +106,7 @@ API 呼び出しメソッドの定義にたどり着けなかったので、完�
 
 - [actions/upload-release-asset | GitHub](https://github.com/actions/upload-release-asset)
 - [actions/toolkit/packages/github | GitHub](https://github.com/actions/toolkit/tree/master/packages/github)
-- [Releases | GitHub Developper](https://developer.github.com/v3/repos/releases/)
+- [Releases | GitHub Developer](https://developer.github.com/v3/repos/releases/)
 
 
 [TOP](#top)
