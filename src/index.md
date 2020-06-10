@@ -4,22 +4,22 @@
 
 - [comming soon...](/draft/article/index.html)
 - [Ruby で gRPC Stream する話](/draft/ruby-grpc-stream/index.html)
-- [golang でクロスコンパイルする話](/draft/golang-cross-compile/index.html)
 
 
 ### June 2020
 
-- [GitHub Release に asset を追加してみる](/entry/2020/06/09/233911/index.html)
+- [06/11 : golang でクロスコンパイルする話](/entry/2020/06/11/013316/index.html)
+- [06/09 : GitHub Release に asset を追加してみる](/entry/2020/06/09/233911/index.html)
 
 
 ### May 2020
 
-- [Cargo でプライベート git を参照する](/entry/2020/05/09/182605/index.html)
+- [05/09 : Cargo でプライベート git を参照する](/entry/2020/05/09/182605/index.html)
 
 
 ### April 2020
 
-- [Windows10 で Ubuntu 20.04 にする話](/entry/2020/04/25/093458/index.html)
+- [04/25 : Windows10 で Ubuntu 20.04 にする話](/entry/2020/04/25/093458/index.html)
 
 
 ### March 2020
