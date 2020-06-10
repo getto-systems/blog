@@ -89,6 +89,7 @@ go build を scratch においてデプロイするための Dockerfile につ�
 <a id="reference"></a>
 ### 参考資料
 
+- [Use multi-stage builds | Docker docs](https://docs.docker.com/develop/develop-images/multistage-build/)
 - [Command cgo | GO documents](https://golang.org/cmd/cgo/)
 - [Go のクロスコンパイル環境構築](https://qiita.com/Jxck_/items/02185f51162e92759ebe)
 - [golang/go : src/go/build/syslist.go | GitHub](https://github.com/golang/go/blob/master/src/go/build/syslist.go)
