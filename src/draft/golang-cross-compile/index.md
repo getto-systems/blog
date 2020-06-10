@@ -19,12 +19,12 @@
 <a id="purpose"></a>
 ### やりたいこと
 
-go build した結果だけを含んだ Docker Image を作りたい。
+go build の結果だけを含んだ Docker Image を作りたい。
 このためには `CGO_ENABLED` を無効にする必要がある。
 
 
 [TOP](#top)
-<a id="define-proto"></a>
+<a id="outcome"></a>
 ### できたやつ
 
 以下の Dockerfile をビルドする。
