@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## Version : 0.42.0
+
+- publish: golang aws cloudfront signed cookie : See merge request getto-systems-base/projects/blog!194
+- add: golang aws cloudfront signed cookie : See merge request getto-systems-base/projects/blog!193
+- publish: golang package tagging : See merge request getto-systems-base/projects/blog!192
+- add: golang package tagging : See merge request getto-systems-base/projects/blog!191
+- publish: golang crosscompile : See merge request getto-systems-base/projects/blog!190
+- fix: contents : See merge request getto-systems-base/projects/blog!189
+- add: golang-cross-compile : See merge request getto-systems-base/projects/blog!188
+
+
 ## Version : 0.41.0
 
 - publish: github-release : See merge request getto-systems-base/projects/blog!186
