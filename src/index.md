@@ -4,6 +4,7 @@
 
 - [comming soon...](/draft/article/index.html)
 - [Ruby で gRPC Stream する話](/draft/ruby-grpc-stream/index.html)
+- [golang で aws cloudfront signed cookie](/draft/golang-aws_cloudfront-signed-cookie/index.html)
 
 
 ### June 2020
