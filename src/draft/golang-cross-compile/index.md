@@ -19,12 +19,12 @@
 <a id="purpose"></a>
 ### やりたいこと
 
-go build した結果だけを含んだ Docker Image を作りたい。
+go build の結果だけを含んだ Docker Image を作りたい。
 このためには `CGO_ENABLED` を無効にする必要がある。
 
 
 [TOP](#top)
-<a id="define-proto"></a>
+<a id="outcome"></a>
 ### できたやつ
 
 以下の Dockerfile をビルドする。
@@ -80,7 +80,7 @@ standard_init_linux.go:211: exec user process caused "no such file or directory"
 <a id="postscript"></a>
 ### まとめ
 
-go build を scratch においてデプロイするための Dockerfile についてまとめた。
+go build を scratch に置いてデプロイするための Dockerfile についてまとめた。
 
 「なんか実行できない」っていう例のエラーから `CGO_ENABLED` にたどり着くのまで結構な時間がかかってしまったが、何とかデプロイまでたどり着けたのでヨシとする。
 
