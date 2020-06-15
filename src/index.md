@@ -4,6 +4,7 @@
 
 - [comming soon...](/draft/article/index.html)
 - [Ruby で gRPC Stream する話](/draft/ruby-grpc-stream/index.html)
+- [Vue 3 を TypeScript で](/draft/vue-typescript/index.html)
 
 
 ### June 2020
