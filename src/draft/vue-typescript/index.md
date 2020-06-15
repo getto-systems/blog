@@ -7,7 +7,7 @@
 1. [必要なパッケージのインストール](#install-packages)
 1. [webpack のセットアップ](#setup-webpack)
 1. [vue を使うための TypeScript の設定をする](#setup-vue)
-1. [vue コードを書く](#write-vue)
+1. [vue のコードを書く](#write-vue)
 1. [まとめ](#postscript)
 1. [参考資料](#reference)
 
@@ -172,7 +172,7 @@ type 定義用ディレクトリを用意している場合はそこに作成す
 
 [TOP](#top)
 <a id="write-vue"></a>
-### vue コードを書く
+### vue のコードを書く
 
 先に作成した `webpack.config.js` で `src/index.ts` をエントリーにした。
 なので、以下の内容で `src/index.ts` を作成する。
