@@ -10,7 +10,7 @@ RUN set -x && \
     git \
     python3-pip \
   && \
-  : "to fix vulnerabilities, update packages : 2020-05-18" && \
+  : "to fix vulnerabilities, update packages : 2020-06-15" && \
   : apt-get install -y --no-install-recommends \
     libsystemd0 \
     libudev1 \
