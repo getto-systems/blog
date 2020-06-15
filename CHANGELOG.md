@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## Version : 0.43.0
+
+- publish: vue-typescript : See merge request getto-systems-base/projects/blog!200
+- fix: content : See merge request getto-systems-base/projects/blog!199
+- add: vue-typescript : See merge request getto-systems-base/projects/blog!198
+
+- fix: image : getto/hangar:Fmesx5G7Q9HdsOns-20200615074151 : See merge request getto-systems-base/projects/blog!197
+- fix: vulnerabilities : 2020-06-15T01:07:12,852449393 00:00 : See merge request getto-systems-base/projects/blog!196
+
+
 ## Version : 0.42.0
 
 - publish: golang aws cloudfront signed cookie : See merge request getto-systems-base/projects/blog!194
