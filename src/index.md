@@ -4,6 +4,7 @@
 
 - [comming soon...](/draft/article/index.html)
 - [Ruby で gRPC Stream する話](/draft/ruby-grpc-stream/index.html)
+- [preact と htm でフロントエンド](/draft/preact-htm/index.html)
 
 
 ### June 2020
