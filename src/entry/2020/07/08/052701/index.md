@@ -23,7 +23,7 @@
 
 [この記事](https://mizchi.dev/202006261728-minimal-js)を読んで、[preact](https://preactjs.com/) というものがあることを知った。
 軽量だというので使用してみたい。
-[htm](https://github.com/developit/htm) と組み合わせれば単純な関数を組み合わせて React 的なコードが書ける。
+[htm](https://github.com/developit/htm) を使用すれば単純な関数を組み合わせて React 的なコードが書ける。
 
 [前の記事](/entry/2020/06/15/231936)で Vue を試してみたのだが、リリースしてみたら CSP 違反が発覚。
 unsafe-eval を有効にしないと動かなかった。
