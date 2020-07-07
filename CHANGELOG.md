@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## Version : 0.44.0
+
+- add: preact htm : See merge request getto-systems-base/projects/blog!202
+
+
 ## Version : 0.43.0
 
 - publish: vue-typescript : See merge request getto-systems-base/projects/blog!200
