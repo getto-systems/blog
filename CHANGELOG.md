@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## Version : 0.44.1
+
+- fix: gitlab ci : See merge request getto-systems-base/projects/blog!205
+
+
 ## Version : 0.44.0
 
 - add: preact htm : See merge request getto-systems-base/projects/blog!202
