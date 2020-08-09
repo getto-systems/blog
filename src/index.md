@@ -4,6 +4,7 @@
 
 - [comming soon...](/draft/article/index.html)
 - [Ruby で gRPC Stream する話](/draft/ruby-grpc-stream/index.html)
+- [golang で test カバレッジを計測する](/draft/golang-test-cover/index.html)
 
 
 ### July 2020
