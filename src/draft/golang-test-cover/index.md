@@ -4,7 +4,7 @@
 ###### CONTENTS
 
 1. [なにがしたいのか](#purpose)
-1. [golang でカバレッジを計測する](#cover)
+1. [カバレッジを計測する](#cover)
 1. [カバレッジを取るパッケージを指定する](#coverpkg)
 1. [まとめ](#postscript)
 1. [参考資料](#reference)
@@ -20,7 +20,7 @@
 
 [TOP](#top)
 <a id="cover"></a>
-### golang でカバレッジを計測する
+### カバレッジを計測する
 
 golang でカバレッジを計測するには、以下のコマンドを使用すればいい。
 
@@ -35,7 +35,7 @@ go test ./... -cover
 go test ./... -coverprofile=cover.out
 ```
 
-このプロフィールを指定して html を生成できる。
+このプロフィールを使用して html を生成できる。
 
 ```bash
 go tool cover -html=cover.out -o cover.html
