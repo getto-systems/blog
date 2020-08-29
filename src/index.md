@@ -3,13 +3,13 @@
 ### Drafts
 
 - [comming soon...](/draft/article/index.html)
-- [Google Cloud Run にデプロイしてみる](/draft/cloud-run/index.html)
 - [Ruby で gRPC Stream する話](/draft/ruby-grpc-stream/index.html)
 
 
 ### August 2020
 
-- [golang で test カバレッジを計測する](/entry/2020/08/09/190650/index.html)
+- [08/29 : Google Cloud Run にデプロイしてみる](/entry/2020/08/29/095338/index.html)
+- [08/09 : golang で test カバレッジを計測する](/entry/2020/08/09/190650/index.html)
 
 
 ### July 2020
