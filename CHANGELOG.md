@@ -1,5 +1,20 @@
 # CHANGELOG
 
+## Version : 0.45.0
+
+- publish: cloud-run : See merge request getto-systems-base/projects/blog!217
+- add: cloud-run : See merge request getto-systems-base/projects/blog!216
+- fix: image : getto/hangar:Fmesx5G7Q9HdsOns-20200817100340 : See merge request getto-systems-base/projects/blog!215
+- fix: vulnerabilities : 2020-08-17T01:07:11,614689910 00:00 : See merge request getto-systems-base/projects/blog!212
+- fix: vulnerabilities : See merge request getto-systems-base/projects/blog!213
+- publish: golang-test-cover : See merge request getto-systems-base/projects/blog!211
+- fix: content : See merge request getto-systems-base/projects/blog!210
+- add: golang-test-cover : See merge request getto-systems-base/projects/blog!209
+
+- fix: image : getto/hangar:Fmesx5G7Q9HdsOns-20200803071625 : See merge request getto-systems-base/projects/blog!208
+- fix: vulnerabilities : 2020-08-03T01:07:10,563233074 00:00 : See merge request getto-systems-base/projects/blog!207
+
+
 ## Version : 0.44.1
 
 - fix: gitlab ci : See merge request getto-systems-base/projects/blog!205
