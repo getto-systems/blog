@@ -3,6 +3,7 @@
 ### Drafts
 
 - [comming soon...](/draft/article/index.html)
+- [Google Cloud Run にデプロイしてみる](/draft/cloud-run/index.html)
 - [Ruby で gRPC Stream する話](/draft/ruby-grpc-stream/index.html)
 
 

@@ -1,2 +1,9 @@
 DOCKER_WRAPPER_IMAGE_node(){ head -1 $APP_ROOT/.gitlab-ci.yml | cut -d' ' -f2; }
-DOCKER_WRAPPER_SERVER_OPTS_npm() { echo "-p ${LABO_PORT_PREFIX}80:8080"; }
+
+DOCKER_WRAPPER_APP(){
+  npm-server http $1 npm start
+}
+DOCKER_WRAPPER_LOGS(){
+  npm-server http logs
+}
+DOCKER_WRAPPER_SERVER_OPTS_http(){ echo "-p ${LABO_PORT_PREFIX}80:8080"; }
