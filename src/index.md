@@ -4,6 +4,7 @@
 
 - [comming soon...](/draft/article/index.html)
 - [Ruby で gRPC Stream する話](/draft/ruby-grpc-stream/index.html)
+- [TypeScript で protocol buffers する話](/draft/protobufjs/index.html)
 
 
 ### August 2020
