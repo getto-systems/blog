@@ -4,11 +4,11 @@
 
 - [comming soon...](/draft/article/index.html)
 - [Ruby で gRPC Stream する話](/draft/ruby-grpc-stream/index.html)
-- [TypeScript で protocol buffers する話](/draft/protobufjs/index.html)
 
 
 ### August 2020
 
+- [08/29 : TypeScript で protocol buffers する話](/entry/2020/08/29/222414/index.html)
 - [08/29 : Google Cloud Run にデプロイしてみる](/entry/2020/08/29/095338/index.html)
 - [08/09 : golang で test カバレッジを計測する](/entry/2020/08/09/190650/index.html)
 
