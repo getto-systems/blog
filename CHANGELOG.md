@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## Version : 0.46.0
+
+- remove: : See merge request getto-systems-base/projects/blog!221
+- publish: protobufjs : See merge request getto-systems-base/projects/blog!220
+- add: protobufjs : See merge request getto-systems-base/projects/blog!219
+
+
 ## Version : 0.45.0
 
 - publish: cloud-run : See merge request getto-systems-base/projects/blog!217
