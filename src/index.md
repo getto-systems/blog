@@ -3,6 +3,7 @@
 ### Drafts
 
 - [comming soon...](/draft/article/index.html)
+- [webpack で web-worker してみる話](/draft/web-worker/index.html)
 
 
 ### August 2020
