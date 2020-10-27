@@ -3,6 +3,7 @@
 ### Drafts
 
 - [comming soon...](/draft/article/index.html)
+- [Web IDE を試す](/draft/web-ide/index.html)
 
 
 ### September 2020
