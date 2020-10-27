@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## Version : 0.47.0
+
+- publish: web-ide : See merge request getto-systems-base/projects/blog!230
+- add: web-ide : See merge request getto-systems-base/projects/blog!229
+- fix: image : getto/hangar:Fmesx5G7Q9HdsOns-20201026101403 : See merge request getto-systems-base/projects/blog!228
+- fix: vulnerabilities : 2020-10-26T01:07:00,615091855 00:00 : See merge request getto-systems-base/projects/blog!227
+- fix: image : getto/hangar:Fmesx5G7Q9HdsOns-20200928101632 : See merge request getto-systems-base/projects/blog!226
+- fix: vulnerabilities : 2020-09-28T01:07:12,507461375 00:00 : See merge request getto-systems-base/projects/blog!225
+- publish: web-worker : See merge request getto-systems-base/projects/blog!224
+- add: web-worker : See merge request getto-systems-base/projects/blog!223
+
+
 ## Version : 0.46.0
 
 - remove: : See merge request getto-systems-base/projects/blog!221
