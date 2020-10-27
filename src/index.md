@@ -3,12 +3,16 @@
 ### Drafts
 
 - [comming soon...](/draft/article/index.html)
-- [Web IDE を試す](/draft/web-ide/index.html)
+
+
+### October 2020
+
+- [10/27 : Web IDE を試す](/entry/2020/10/27/191735/index.html)
 
 
 ### September 2020
 
-- [webpack で web-worker してみる話](/entry/2020/09/14/081124/index.html)
+- [09/14 : webpack で web-worker してみる話](/entry/2020/09/14/081124/index.html)
 
 
 ### August 2020
