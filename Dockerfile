@@ -10,9 +10,9 @@ RUN set -x && \
     git \
     python3-pip \
   && \
-  : "to fix vulnerabilities, update packages : 2020-12-28" && \
+  : "to fix vulnerabilities, update packages : 2021-01-04" && \
   apt-get install -y --no-install-recommends \
-    libapt-pkg5.0 \
+    libp11-kit0 \
   && \
   : "install awscli" && \
   pip3 install awscli && \
