@@ -10,8 +10,8 @@ RUN set -x && \
     git \
     python3-pip \
   && \
-  : "to fix vulnerabilities, update packages : 2021-01-04" && \
-  apt-get install -y --no-install-recommends \
+  : "to fix vulnerabilities, update packages : 2021-02-08" && \
+  : apt-get install -y --no-install-recommends \
     libp11-kit0 \
   && \
   : "install awscli" && \
