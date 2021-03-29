@@ -1,5 +1,30 @@
 # CHANGELOG
 
+## Version : 0.48.0
+
+- publish: react-state : See merge request getto-systems-base/projects/blog!256
+- add: react-state : See merge request getto-systems-base/projects/blog!255
+- fix: image : getto/hangar:Fmesx5G7Q9HdsOns-20210315222108 : See merge request getto-systems-base/projects/blog!253
+- fix: vulnerabilities : 2021-03-15T01:08:04,118757836 00:00 : See merge request getto-systems-base/projects/blog!251
+- fix: vulnerabilities : See merge request getto-systems-base/projects/blog!252
+- fix: image : getto/hangar:Fmesx5G7Q9HdsOns-20210222084125 : See merge request getto-systems-base/projects/blog!250
+- fix: vulnerabilities : 2021-02-22T01:07:20,478757494 00:00 : See merge request getto-systems-base/projects/blog!248
+- fix: vulnerabilities : See merge request getto-systems-base/projects/blog!249
+- fix: image : getto/hangar:Fmesx5G7Q9HdsOns-20210208102853 : See merge request getto-systems-base/projects/blog!247
+- fix: vulnerabilities : 2021-02-08T01:07:04,893770202 00:00 : See merge request getto-systems-base/projects/blog!245
+- fix: vulnerabilities : See merge request getto-systems-base/projects/blog!246
+- fix: image : getto/hangar:Fmesx5G7Q9HdsOns-20210105041306 : See merge request getto-systems-base/projects/blog!244
+- fix: vulnerabilities : 2021-01-04T01:07:04,412736362 00:00 : See merge request getto-systems-base/projects/blog!242
+- fix: vulnerabilities : See merge request getto-systems-base/projects/blog!243
+- fix: image : getto/hangar:Fmesx5G7Q9HdsOns-20201229034844 : See merge request getto-systems-base/projects/blog!241
+- fix: vulnerabilities : 2020-12-28T01:07:02,667600281 00:00 : See merge request getto-systems-base/projects/blog!239
+- fix: vulnerabilities : See merge request getto-systems-base/projects/blog!240
+- fix: image : getto/hangar:Fmesx5G7Q9HdsOns-20201215025139 : See merge request getto-systems-base/projects/blog!236
+- fix: vulnerabilities : 2020-12-14T01:06:50,211760278 00:00 : See merge request getto-systems-base/projects/blog!235
+- fix: image : getto/hangar:Fmesx5G7Q9HdsOns-20201123044313 : See merge request getto-systems-base/projects/blog!233
+- fix: vulnerabilities : 2020-11-23T01:06:56,037202908 00:00 : See merge request getto-systems-base/projects/blog!232
+
+
 ## Version : 0.47.0
 
 - publish: web-ide : See merge request getto-systems-base/projects/blog!230
