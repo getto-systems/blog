@@ -3,7 +3,10 @@
 ### Drafts
 
 -   [coming soon...](/draft/article/index.html)
--   [さいきょうの UI 状態管理](/draft/react-state/index.html)
+
+### March 2021
+
+-   [ぼくのかんがえたさいきょうの状態管理](/entry/2021/03/30/053927/index.html)
 
 ### October 2020
 
