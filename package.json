@@ -21,8 +21,8 @@
   "homepage": "https://github.com/getto-systems/blog#readme",
   "devDependencies": {
     "ejs": "^3.1.2",
-    "marked": "^1.0.0",
     "live-server": "^1.2.1",
+    "marked": "^1.0.0",
     "watch": "^1.0.2"
   },
   "dependencies": {
