@@ -81,7 +81,7 @@ release_deploy:
     - apt-get install -y python3-pip
     - pip3 install awscli
   script:
-    - ./scripts/deploy.sh
+    - ./.ci/deploy.sh
 
 release_success:
   stage: release_notify
