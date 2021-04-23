@@ -13,11 +13,10 @@ Object.keys(headers).forEach((key) => {
 });
 
 server.start({
-  port: 8080,
+  port: process.env.APP_PORT,
   host: "0.0.0.0",
   root: "./public",
   open: false,
-  https: "scripts/tls.js",
   middleware: [
     (req, res, next) => {
       Object.keys(headers).forEach((key) => {
