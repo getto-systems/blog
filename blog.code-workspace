@@ -3,5 +3,8 @@
         {
             "path": "src"
         }
-    ]
+    ],
+    "settings": {
+        "textlint.configPath": "../.textlintrc"
+    }
 }
