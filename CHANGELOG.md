@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## Version : 0.49.0
+
+- add: rust-distroless : See merge request getto-systems-base/projects/blog!263
+- fix: deploy script : See merge request getto-systems-base/projects/blog!262
+- fix: image : getto/hangar:Fmesx5G7Q9HdsOns-20210422230711 : See merge request getto-systems-base/projects/blog!261
+- fix: audit : See merge request getto-systems-base/projects/blog!260
+- fix: image : getto/hangar:Fmesx5G7Q9HdsOns-20210404212542 : See merge request getto-systems-base/projects/blog!259
+- fix: vulnerabilities : 2021-03-29T01:07:18,966900756 00:00 : See merge request getto-systems-base/projects/blog!254
+
+
 ## Version : 0.48.0
 
 - publish: react-state : See merge request getto-systems-base/projects/blog!256
