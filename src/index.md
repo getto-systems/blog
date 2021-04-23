@@ -3,7 +3,10 @@
 ### Drafts
 
 -   [coming soon...](/draft/article/index.html)
--   [Rust で distroless する話](/draft/rust-distroless/index.html)
+
+### April 2021
+
+-   [Rust で distroless する話](/entry/2021/04/23/114316/index.html)
 
 ### March 2021
 

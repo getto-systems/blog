@@ -47,7 +47,7 @@ musl-tools をインストールすることで解消できる。
 
 ```bash
 apt-get update
-apt-get install -y musl-tools 
+apt-get install -y musl-tools
 ```
 
 [TOP](#top)
@@ -82,7 +82,7 @@ distroless イメージ上で動かすためのビルドの仕方をまとめた
 
 ### 参考資料
 
-- [musl-gcc | General Commands Manual | debian](https://manpages.debian.org/stretch/musl-tools/musl-gcc.1.en.html)
--   [RustのLinux muslターゲット （その1：Linux向けのポータブルなバイナリを作る） | Oxidized Bookshelf](https://blog.rust-jp.rs/tatsuya6502/posts/2019-12-statically-linked-binary/)
+-   [musl-gcc | General Commands Manual | debian](https://manpages.debian.org/stretch/musl-tools/musl-gcc.1.en.html)
+-   [Rust の Linux musl ターゲット （その 1：Linux 向けのポータブルなバイナリを作る） | Oxidized Bookshelf](https://blog.rust-jp.rs/tatsuya6502/posts/2019-12-statically-linked-binary/)
 
 [TOP](#top)
