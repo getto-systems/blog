@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## Version : 0.50.1
+
+- fix: deploy script path : See merge request getto-systems-base/projects/blog!267
+
+
 ## Version : 0.50.0
 
 - fix: gitlab-ci : See merge request getto-systems-base/projects/blog!265
