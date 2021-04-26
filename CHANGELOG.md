@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## Version : 0.51.0
+
+- add: rust-protobuf : See merge request getto-systems-base/projects/blog!269
+
+
 ## Version : 0.50.1
 
 - fix: deploy script path : See merge request getto-systems-base/projects/blog!267
