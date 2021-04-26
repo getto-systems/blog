@@ -6,6 +6,7 @@
 
 ### April 2021
 
+-   [Rust でも protobuf したい](/entry/2021/04/26/170845/index.html)
 -   [Rust で distroless する話](/entry/2021/04/23/114316/index.html)
 
 ### March 2021
