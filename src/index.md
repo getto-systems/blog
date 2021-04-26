@@ -3,6 +3,7 @@
 ### Drafts
 
 -   [coming soon...](/draft/article/index.html)
+-   [Rust でも protobuf したい](/draft/protobuf-rust/index.html)
 
 ### April 2021
 
