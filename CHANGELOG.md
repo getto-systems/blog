@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## Version : 0.52.0
+
+- fix: rust-protobuf : See merge request getto-systems-base/projects/blog!271
+
+
 ## Version : 0.51.0
 
 - add: rust-protobuf : See merge request getto-systems-base/projects/blog!269
