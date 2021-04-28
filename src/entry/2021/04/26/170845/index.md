@@ -84,7 +84,8 @@ fn main() {
 生成されたコードで actix-web のレスポンスを返してみる。
 
 ```rust
-use actix_web::{get, web::Bytes, error::ErrorInternalServerError, Responder};
+use actix_web::{get, error::ErrorInternalServerError, Responder};
+use base64;
 
 #[get("/hello")]
 async fn hello() -> impl Responder {
@@ -92,13 +93,26 @@ async fn hello() -> impl Responder {
     message.set_message("hello".to_string());
     message
         .write_to_bytes()
-        .map(Bytes::from)
+        .map(|bytes| base64::encode_config(bytes, base64::STANDARD))
         .map_err(ErrorInternalServerError)
 }
 ```
 
-結果を `Bytes::from` で、エラーを `ErrorInternalServerError` で変換している。
-まだ実際に動かしていないのでこれで上手くいくかはわからないけど、コンパイルは通った。
+結果を `base64::encode_config` で、エラーを `ErrorInternalServerError` で変換している。
+
+#### 追記
+
+最初は `actix_web::web::Bytes` でエンコードする記事だった。
+ただ、受け取る javascript 側のコードは以下のような形にしたい。
+
+```typescript
+Uint8Array.from(atob(raw), (c) => c.charCodeAt(0))
+```
+
+このためにはレスポンスを base64 しないと上手くいかない。
+というわけで base64 でエンコードして返すように記事を修正した。
+
+なお、javascript から送信する値も base64 されているので、受け取るときに decode しなければならない。
 
 [TOP](#top)
 <a id="postscript"></a>
