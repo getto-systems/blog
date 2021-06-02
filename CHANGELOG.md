@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## Version : 0.53.0
+
+- publish: aws cloudfront signed cookie by rust : See merge request getto-systems-base/projects/blog!273
+
+
 ## Version : 0.52.0
 
 - fix: rust-protobuf : See merge request getto-systems-base/projects/blog!271
