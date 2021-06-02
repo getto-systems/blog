@@ -4,6 +4,10 @@
 
 -   [coming soon...](/draft/article/index.html)
 
+### June 2021
+
+-   [rust で aws cloudfront signed cookie](/entry/2021/06/02/191736/index.html)
+
 ### April 2021
 
 -   [Rust でも protobuf したい](/entry/2021/04/26/170845/index.html)
