@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## Version : 0.54.0
+
+- publish: rust-coverage : See merge request getto-systems-base/projects/blog!275
+
+
 ## Version : 0.53.0
 
 - publish: aws cloudfront signed cookie by rust : See merge request getto-systems-base/projects/blog!273
