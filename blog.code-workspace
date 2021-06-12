@@ -5,6 +5,13 @@
         }
     ],
     "settings": {
-        "textlint.configPath": "../.textlintrc"
+        "textlint.configPath": "../.textlintrc",
+        "cSpell.words": [
+            "RUSTFLAGS",
+            "Zinstrument",
+            "grcov",
+            "llvm",
+            "profraw"
+        ]
     }
 }
