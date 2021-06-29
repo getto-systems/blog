@@ -8,11 +8,22 @@
         "textlint.configPath": "../.textlintrc",
         "cSpell.words": [
             "RUSTFLAGS",
+            "Xdemangler",
             "Zinstrument",
+            "esac",
             "grcov",
             "llvm",
+            "mkdir",
+            "prodata",
+            "profdata",
             "profraw",
-            "rustls"
+            "rustc",
+            "rustfilt",
+            "rustls",
+            "toolchain",
+            "toolchains",
+            "xargs",
+            "xvjf"
         ]
     }
 }
