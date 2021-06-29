@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## Version : 0.55.0
+
+- publish: rust coverage continued : See merge request getto-systems-base/projects/blog!278
+- publish: aws-ses : See merge request getto-systems-base/projects/blog!277
+
+
 ## Version : 0.54.0
 
 - publish: rust-coverage : See merge request getto-systems-base/projects/blog!275
