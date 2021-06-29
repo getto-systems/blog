@@ -6,6 +6,7 @@
 
 ### June 2021
 
+-   [rust でカバレッジふたたび](/entry/2021/06/29/184830/index.html)
 -   [aws ses でメールを送信してみる](/entry/2021/06/29/181421/index.html)
 -   [rust でカバレッジをとってみる](/entry/2021/06/12/224949/index.html)
 -   [rust で aws cloudfront signed cookie](/entry/2021/06/02/191736/index.html)
