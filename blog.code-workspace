@@ -11,7 +11,8 @@
             "Zinstrument",
             "grcov",
             "llvm",
-            "profraw"
+            "profraw",
+            "rustls"
         ]
     }
 }
