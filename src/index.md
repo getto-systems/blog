@@ -4,6 +4,10 @@
 
 -   [coming soon...](/draft/article/index.html)
 
+### July 2021
+
+-   [Google Cloud Run で Cloud SQL に接続する](/entry/2021/07/09/162314/index.html)
+
 ### June 2021
 
 -   [rust でカバレッジふたたび](/entry/2021/06/29/184830/index.html)
