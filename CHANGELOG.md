@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## Version : 0.56.0
+
+- publish: cloud run sql : See merge request getto-systems-base/projects/blog!280
+
+
 ## Version : 0.55.0
 
 - publish: rust coverage continued : See merge request getto-systems-base/projects/blog!278
