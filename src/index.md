@@ -3,6 +3,7 @@
 ### Drafts
 
 -   [coming soon...](/draft/article/index.html)
+-   [クロスドメインでも worker したい](/draft/cross-domain-worker/index.html)
 
 ### November 2021
 
