@@ -13,6 +13,7 @@
             "Keychron",
             "llvm",
             "mkdir",
+            "mutex",
             "prodata",
             "profdata",
             "profraw",
