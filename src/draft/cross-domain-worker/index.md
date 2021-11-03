@@ -5,7 +5,7 @@
 ###### CONTENTS
 
 1. [クロスドメインで worker は動かない](#worker-not-work-on-cross-domain)
-1. [クロスドメインで worker を動かすには](#work-on-cross-domain)
+1. [それでもクロスドメインで worker したい](#work-on-cross-domain)
 1. [まとめ](#postscript)
 1. [参考資料](#reference)
 
@@ -19,7 +19,7 @@
 [TOP](#top)
 <a id="work-on-cross-domain"></a>
 
-### クロスドメインで worker を動かすには
+### それでもクロスドメインで worker したい
 
 でもクロスドメインで worker したい。
 
