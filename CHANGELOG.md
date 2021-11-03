@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## Version : 0.57.0
+
+- publish: rust-mutex : See merge request getto-systems-base/projects/blog!286
+- add: rust mutex : See merge request getto-systems-base/projects/blog!285
+- fix: content : See merge request getto-systems-base/projects/blog!284
+- add: cloud run grpc rust : See merge request getto-systems-base/projects/blog!283
+- publish: keychron k7 : See merge request getto-systems-base/projects/blog!282
+
+
 ## Version : 0.56.0
 
 - publish: cloud run sql : See merge request getto-systems-base/projects/blog!280
