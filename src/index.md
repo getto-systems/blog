@@ -4,6 +4,10 @@
 
 -   [coming soon...](/draft/article/index.html)
 
+### November 2021
+
+-   [Keychron K7 について](/entry/2021/11/03/181545/index.html)
+
 ### July 2021
 
 -   [Google Cloud Run で Cloud SQL に接続する](/entry/2021/07/09/162314/index.html)
