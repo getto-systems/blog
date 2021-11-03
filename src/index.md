@@ -3,6 +3,7 @@
 ### Drafts
 
 -   [coming soon...](/draft/article/index.html)
+-   [Rust の mutex を async trait する話](/draft/rust-mutex/index.html)
 
 ### November 2021
 
