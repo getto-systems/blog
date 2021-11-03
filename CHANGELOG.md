@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## Version : 0.58.0
+
+- fix: content : See merge request getto-systems-base/projects/blog!288
+
+
+
 ## Version : 0.57.0
 
 - publish: rust-mutex : See merge request getto-systems-base/projects/blog!286
