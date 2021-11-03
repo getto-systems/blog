@@ -3,6 +3,7 @@
 ### Drafts
 
 -   [coming soon...](/draft/article/index.html)
+-   [Rust で GRPC を Cloud Run で](/draft/cloud-run-grpc-rust/index.html)
 
 ### November 2021
 
