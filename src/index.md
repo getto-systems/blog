@@ -6,6 +6,7 @@
 
 ### November 2021
 
+-   [Rust で GRPC を Cloud Run で](/entry/2021/11/03/202932/index.html)
 -   [Keychron K7 について](/entry/2021/11/03/181545/index.html)
 
 ### July 2021
