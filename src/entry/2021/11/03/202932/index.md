@@ -78,6 +78,8 @@ let token = response.text().await?;
 
 `service_url` には、アクセス先の gRPC サービス URL を指定する。
 
+ちなみに、「すべてのトラフィックを許可」しないといけない。
+
 [TOP](#top)
 <a id="postscript"></a>
 
