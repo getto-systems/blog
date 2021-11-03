@@ -3,10 +3,10 @@
 ### Drafts
 
 -   [coming soon...](/draft/article/index.html)
--   [クロスドメインでも worker したい](/draft/cross-domain-worker/index.html)
 
 ### November 2021
 
+-   [クロスドメインでも worker したい](/entry/2021/11/04/010314/index.html)
 -   [Rust の mutex を async trait する話](/entry/2021/11/03/202932/index.html)
 -   [Rust で GRPC を Cloud Run で](/entry/2021/11/03/202932/index.html)
 -   [Keychron K7 について](/entry/2021/11/03/181545/index.html)
