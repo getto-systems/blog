@@ -1,4 +1,4 @@
-# GitLab で private なレジストリのイメージを参照する
+# GitLab で private レジストリのイメージを参照
 <a id="top"></a>
 
 ###### CONTENTS
