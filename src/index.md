@@ -4,6 +4,10 @@
 
 -   [coming soon...](/draft/article/index.html)
 
+### April 2022
+
+-   [Rust でカバレッジを取る話](/entry/2022/04/30/095723/index.html)
+
 ### November 2021
 
 -   [クロスドメインでも worker したい](/entry/2021/11/04/010314/index.html)
