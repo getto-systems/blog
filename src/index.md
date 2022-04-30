@@ -6,6 +6,7 @@
 
 ### April 2022
 
+-   [GitLab で private レジストリのイメージを参照](/entry/2022/04/30/182305/index.html)
 -   [Rust でカバレッジを取る話](/entry/2022/04/30/095723/index.html)
 
 ### November 2021
