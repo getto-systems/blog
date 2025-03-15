@@ -1,33 +1,27 @@
 {
-  "name": "getto-blog",
-  "version": "0.11.0",
-  "description": "GETTO blog contents",
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "ブログ記事を管理するプロジェクト。記事をmd形式で記述してtextlintでチェックを行います。",
+  "main": "index.js",
   "scripts": {
-    "start": "npm run server & npm run watch",
-    "server": "node ./scripts/server.js",
-    "watch": "npm run watch:build",
-    "watch:build": "node ./scripts/build.js",
-    "test": "textlint 'src/**'"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "textlint src/**/*.md",
+    "lint:fix": "textlint --fix src/**/*.md"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/getto-systems/blog.git"
+    "url": "git+ssh://git@gitlab.com/getto-systems-base/projects/blog.git"
   },
-  "author": "shun@getto.systems",
+  "keywords": [],
+  "author": "",
   "license": "MIT",
+  "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/getto-systems/blog/issues"
+    "url": "https://gitlab.com/getto-systems-base/projects/blog/issues"
   },
-  "homepage": "https://github.com/getto-systems/blog#readme",
+  "homepage": "https://gitlab.com/getto-systems-base/projects/blog#readme",
   "devDependencies": {
-    "ejs": "^3.1.2",
-    "live-server": "^1.2.1",
-    "marked": "^1.0.0",
-    "watch": "^1.0.2"
-  },
-  "dependencies": {
-    "textlint": "^11.6.3",
-    "textlint-rule-preset-ja-technical-writing": "^3.1.3",
-    "textlint-rule-write-good": "^1.6.2"
+    "textlint": "^14.5.0",
+    "textlint-rule-preset-ja-technical-writing": "^12.0.2"
   }
 }

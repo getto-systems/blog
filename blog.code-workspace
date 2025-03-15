@@ -1,11 +1,11 @@
 {
     "folders": [
         {
-            "path": "src"
+            "path": "."
         }
     ],
     "settings": {
-        "textlint.configPath": "../.textlintrc",
+        "textlint.configPath": ".textlintrc",
         "cSpell.words": [
             "esac",
             "grcov",

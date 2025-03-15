@@ -2,13 +2,11 @@ stages:
   - test
   - bump_version
   - release
-  - release_deploy
   - release_notify
 
 variables:
-  TRELLIS_HANGAR: https://trellis.getto.systems/hangar/3.5.0
   TRELLIS_GIT_POST: https://trellis.getto.systems/git/post/1.5.2
-  TRELLIS_CI_BUMP_VERSION: https://trellis.getto.systems/ci/bump-version/1.10.2
+  TRELLIS_CI_BUMP_VERSION: https://trellis.getto.systems/ci/bump-version/1.15.0
   TRELLIS_PSYCHER_GETTO: https://trellis.getto.systems/psycher/getto/2.7.2
 
 test:
@@ -17,14 +15,14 @@ test:
     refs:
       - merge_requests
     changes:
-      - src/**/*.md
+      - entry/**/*.md
 
-  image: node:15-buster
+  image: node:latest
 
   before_script:
     - npm clean-install
   script:
-    - npm test
+    - npm lint
 
 bump_version:
   stage: bump_version
@@ -34,7 +32,7 @@ bump_version:
     variables:
       - $RELEASE
 
-  image: buildpack-deps:buster-scm
+  image: buildpack-deps:latest
 
   before_script:
     - git config user.email admin@getto.systems
@@ -43,7 +41,7 @@ bump_version:
     - export PATH=$PATH:./vendor/getto-systems/git-post/bin
   script:
     - curl $TRELLIS_CI_BUMP_VERSION/bump_version.sh | bash
-    - curl $TRELLIS_CI_BUMP_VERSION/request.sh | bash -s -- ./.ci/message/bump.sh
+    - curl $TRELLIS_CI_BUMP_VERSION/request.sh | bash -s -- ./.bump-message.sh
 
 release:
   stage: release
@@ -57,31 +55,10 @@ release:
       - triggers
       - schedules
 
-  image: buildpack-deps:buster-scm
+  image: buildpack-deps:latest
 
   script:
     - curl $TRELLIS_CI_BUMP_VERSION/push_tags.sh | sh
-
-release_deploy:
-  stage: release_deploy
-  only:
-    refs:
-      - release@getto-systems-base/projects/blog
-    changes:
-      - .release-version
-  except:
-    refs:
-      - triggers
-      - schedules
-
-  image: buildpack-deps:buster
-
-  before_script:
-    - apt-get update
-    - apt-get install -y python3-pip
-    - pip3 install awscli
-  script:
-    - ./.ci/deploy.sh
 
 release_success:
   stage: release_notify
@@ -96,7 +73,7 @@ release_success:
       - schedules
   when: on_success
 
-  image: buildpack-deps:buster-curl
+  image: buildpack-deps:latest
 
   before_script:
     - export url=$GETTO_PSYCHER_URL?$GETTO_PSYCHER_TOKEN=true
@@ -118,7 +95,7 @@ release_failure:
       - schedules
   when: on_failure
 
-  image: buildpack-deps:buster-curl
+  image: buildpack-deps:latest
 
   before_script:
     - export url=$GETTO_PSYCHER_URL?$GETTO_PSYCHER_TOKEN=true

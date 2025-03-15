@@ -1,6 +1,5 @@
 {
   "rules": {
-    "preset-ja-technical-writing": true,
-    "write-good": true
+    "preset-ja-technical-writing": true
   }
 }
