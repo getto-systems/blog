@@ -31,7 +31,7 @@ Roo Code によらないコードは CI/CD の設定のような、他のプロ�
 
 ### なぜそうしようと思ったか
 
-[CLINE に全部賭けろ | Zenn](https://zenn.dev/mizchi/articles/all-in-on-cline)を読んで試してみた。
+[CLINE に全部賭けろ | Zenn](https://zenn.dev/mizchi/articles/all-in-on-cline) を読んで試してみた。
 この人の言うことならなんでも信用しようという人が何人かいるが、mizchi さんもその一人だ。
 
 AI アシスタントの導入は二の足を踏んでいた。
