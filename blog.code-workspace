@@ -12,6 +12,7 @@
             "hyperium",
             "Keychron",
             "llvm",
+            "mizchi",
             "mkdir",
             "mutex",
             "prodata",
@@ -26,6 +27,7 @@
             "xargs",
             "Xdemangler",
             "xvjf",
+            "Zenn",
             "Zinstrument"
         ]
     }
